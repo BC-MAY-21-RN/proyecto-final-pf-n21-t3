@@ -4,34 +4,50 @@
 
 
 ## Problematica que atiende
-Las aplicaciones de reproduccion de musica convencionales trabajan de tal manera que se le da prioridad a mostrar las canciones mas populares de las regiones en la que la misma es utilizada, dichas canciones son tipicamente de artistas conocidos con un un respaldo monetario bastante grande.
+Las aplicaciones de reproducción de música convencionales trabajan de tal manera que se le da prioridad a mostrar las canciones más populares de las regiones en la que la misma es utilizada, dichas canciones son típicamente de artistas conocidos con un respaldo monetario bastante grande.
 
-Los artitas pequeños que empiezan no logran conseguir un impacto grande mas cuando estan iniciando, es a qui donde encontramos la problematica. Artistas locales, solistas y grupos que estan iniciando no tienen la oportunidad de lograr un alcanze o un impacto considerable para crecer mas rapido.
+Los artistas pequeños que empiezan no logran conseguir un impacto grande más cuando están iniciando, es aquí donde encontramos la problemática. Artistas locales, solistas y grupos que están comenzando, no tienen la oportunidad de lograr un alcancé o un impacto considerable para crecer más rápido.
 
 ## Propuesta de solución
-Nuestra propuesta de solucion radica en la pagina principal de la app de musica en donde se le daria prioridad de aparecer a bandas con pocas canciones, artistas locales (México) y bandas/grupos que esten empezando. 
+Nuestra propuesta de solución radica en la página principal de la app de música en donde se le daría prioridad de aparecer a bandas con pocas canciones, artistas locales (México) y bandas/grupos que estén empezando.
 
 ## Definición de requerimientos del MVP
 
 ### Requerimientos funcionales
 
-- La aplicacion permitira al usuario registrarse: 
-  -   El usuario tendra que ingresar nombre, correo y contraseña.
-  -   Los datos del registro se deberan guardar en firebase.
-  -   La informacion tiene que estar validada:
-      - *password*: mas de 8 caracteres, combinar mayusculas, minusculas y numeros.
-      - *Email*: Unico.
+- La aplicación permitirá al usuario registrarse: 
+  -   El usuario tendrá que ingresar nombre, correo y contraseña.
+  -   Los datos del registro se deberán guardar en Firebase.
+  -   La información tiene que estar validada:
+      - *password*: más de 8 caracteres, combinar mayúsculas, minúsculas y números.
+      - *Email*: Único.
       - *Nombre*: Debe de contar con uno.
-- Permitir a los usuarios registrados iniciar seción.
-- Permitira al los usurarios crear albunes:
-   - Debera permitir a los usuarios crear albunes.
+- Permitir a los usuarios registrados iniciar sesión.
+- Permitirá al los usurarios crear álbumes:
+   - Deberá permitir a los usuarios crear álbumes.
    - Tiene que contener:
-     - nombre y descripcion.
+     - nombre y descripción.
 - Se tiene que poder buscar:
-  - Tiene que tener un filtro por genero / artista.
+  - Tiene que tener un filtro por género / artista.
+- Se podra seguir al usuario o a las listas de reproduccion de este.
 
 ### Requerimientos no funcionales
-
+- Base de datos
+  - información de los usuarios guardada en firebase
+- Informacion de la musica
+  - Obtenida atravez de una api (spotify/last.fm)
+ - Calidad
+   - Utilizar un estilo de código estandarizado (revisado por Eslint)
+   - Incluir pruebas unitarias
+   - Puntuación **A** obtenida en CodeClimate
+- Ejecución 
+   - Puede ejecutarse en Android o iOs
+- Diseño
+   - Debe ser lo más cercano posible al proporcionado
+- Código fuente
+   - Orientado a Objetos
+   - Métodos pequeños
+   - Aplicar los principios [SOLID](https://blog.usejournal.com/how-to-apply-solid-principles-in-react-applications-6c964091a982)
 ## Diseño del MVP
 
 Incluyan en [esta carpeta](/design) su propuesta de diseño
