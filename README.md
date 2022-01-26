@@ -1,4 +1,9 @@
 ![BrightCoders Logo](img/logo-bc.png)
+<!-- 
+Co-authored-by: Dylanson25 <Dvillarreal0@ucol.mx>
+Co-authored-by: GerardoIbarra <libarra2@ucol.mx>
+Co-authored-by: Ernesto2899 <eramirez28@ucol.mx> 
+-->
 
 # BrightMusic 
 
@@ -6,7 +11,7 @@
 ## Problematica que atiende
 Las aplicaciones de reproducción de música convencionales trabajan de tal manera que se le da prioridad a mostrar las canciones más populares de las regiones en la que la misma es utilizada, dichas canciones son típicamente de artistas conocidos con un respaldo monetario bastante grande.
 
-Los artistas pequeños que empiezan no logran conseguir un impacto grande más cuando están iniciando, es aquí donde encontramos la problemática. Artistas locales, solistas y grupos que están comenzando, no tienen la oportunidad de lograr un alcancé o un impacto considerable para crecer más rápido.
+Los artistas pequeños que empiezan no logran conseguir un impacto más grande cuando están iniciando, es aquí donde encontramos la problemática. Artistas locales, solistas y grupos que están comenzando, no tienen la oportunidad de lograr un alcance o un impacto considerable para que su carrera crezca.
 
 ## Propuesta de solución
 Nuestra propuesta de solución radica en la página principal de la app de música en donde se le daría prioridad de aparecer a bandas con pocas canciones, artistas locales (México) y bandas/grupos que estén empezando.
@@ -23,10 +28,8 @@ Nuestra propuesta de solución radica en la página principal de la app de músi
       - *Email*: Único.
       - *Nombre*: Debe de contar con uno.
 - Permitir a los usuarios registrados iniciar sesión.
-- Permitirá al los usurarios crear álbumes:
-   - Deberá permitir a los usuarios crear álbumes.
-   - Tiene que contener:
-     - nombre y descripción.
+- Permitirá al los usurarios crear "Listas de reproducción":
+    - Puedes mezclar artistas, géneros y/u otras playlists.
 - Se tiene que poder buscar:
   - Tiene que tener un filtro por género / artista.
 - Se podra seguir al usuario o a las listas de reproduccion de este.
