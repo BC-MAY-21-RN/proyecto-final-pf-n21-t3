@@ -1,20 +1,16 @@
- import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Login from '../../screens/Profile'
-import Register from '../../screens/Home';
-import Profile from '../../screens/Profile'
+import React from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Home, Profile, Library, Login, Register} from '../../screens/index';
+import TabNavigator from './TabNavigator'
 
-const Tab = createBottomTabNavigator();
-
+const Stack = createNativeStackNavigator();
 const Navigator = () => {
   return (
-    <>
-      <Tab.Navigator initialRouteName='Login'>
-        <Tab.Screen name='Home' component={Login} />
-        <Tab.Screen name='My Library' component={Register} />
-        <Tab.Screen name='Profile' component={Profile} />
-      </Tab.Navigator>
-    </>
+    <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Register" component={Register} />
+      <Stack.Screen name="Main" component={TabNavigator}/>
+    </Stack.Navigator>
   );
 };
 

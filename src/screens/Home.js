@@ -1,12 +1,22 @@
-import { View, Text } from 'react-native';
+import { Text, Button } from 'react-native';
+import {Container, Boton} from '../assets/styled.js';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
-const Register = () => {
+export const Home = () => {
+  const navigation = useNavigation();
   return (
-    <View>
-      <Text style={{color: 'black'}}> Estoy en HOME</Text>
-    </View>
+    <Container>
+      <Text>Estoy en Home</Text>
+      <Button onPress={() => navigation.navigate('Login')} title='Ir a login'/>
+      <Boton>
+        <Text style={{color: 'black'}}> Estoy en HOME</Text>
+      </Boton>
+    
+    </Container>
   );
 };
 
-export default Register;
+/**
+ *  
+ */

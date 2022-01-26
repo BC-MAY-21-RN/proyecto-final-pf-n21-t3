@@ -1,12 +1,11 @@
+import {Container, Boton} from '../assets/styled.js';
 import { View, Text } from 'react-native';
 import React from 'react';
 
-const Login = () => {
+export const Profile = () => {
   return (
-    <View>
-      <Text style={{color: 'black'}}>ESTOY EN HOME</Text>
-    </View>
+    <Container>
+      <Text style={{color: 'black'}}>ESTOY EN Profile</Text>
+    </Container>
   );
 };
-
-export default Login;
