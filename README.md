@@ -1,4 +1,9 @@
 ![BrightCoders Logo](img/logo-bc.png)
+<!-- 
+Co-authored-by: Dylanson25 <Dvillarreal0@ucol.mx>
+Co-authored-by: GerardoIbarra <libarra2@ucol.mx>
+Co-authored-by: Ernesto2899 <eramirez28@ucol.mx> 
+-->
 
 # BrightMusic 
 
