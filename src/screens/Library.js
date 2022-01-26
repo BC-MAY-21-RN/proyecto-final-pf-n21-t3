@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native';
 import React from 'react';
 
-const Login = () => {
+const Library = () => {
   return (
     <View>
-      <Text style={{color: 'black'}}>ESTOY EN LOGIN</Text>
+      <Text style={{color: 'black'}}>Estoy en LIBRARY</Text>
     </View>
   );
 };
 
-export default Login;
+export default Library;
