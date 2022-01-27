@@ -7,12 +7,24 @@ export const Register = () => {
   const navigation = useNavigation();
   return (
     <Container>
+    <Logo />
+
+    <Boton onPress={() => {navigation.navigate('Main')}}>
+      <Text style={{color:'black'}}>Registarse</Text>
+    </Boton>
+
+    
+  </Container>
+    
+  );
+};
+
+/**
+ * <Container>
       <Logo />|
 
       <Boton onPress={() => navigation.navigate('Login')}>
         <Text style={{color:'blue'}}>Ir a Login</Text>
       </Boton>
     </Container>
-  );
-};
-
+ */
