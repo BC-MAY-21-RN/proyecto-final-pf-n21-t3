@@ -1,5 +1,5 @@
-import {Container, Boton} from '../assets/styled.js';
-import { View, Text } from 'react-native';
+import {Container} from '../assets/styled.js';
+import {Text } from 'react-native';
 import React from 'react';
 
 export const Profile = () => {

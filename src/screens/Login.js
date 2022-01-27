@@ -1,5 +1,5 @@
-import {Container, Boton} from '../assets/styled.js';
-import { View, Text, TouchableOpacity } from 'react-native';
+import {Container, Boton, Logo} from '../assets/styled.js';
+import { Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
@@ -7,10 +7,10 @@ export const Login = () => {
    const navigation = useNavigation();
   return (
     <Container>
-      <Text style={{color:'black'}}>Estoy en Login</Text>
-      
+      <Logo />
+
       <Boton onPress={() => {navigation.navigate('Main')}}>
-        <Text style={{color:'black'}}>Iniciar sesion</Text>
+        <Text style={{color:'black'}}>Iniciar sesión</Text>
       </Boton>
 
       <Boton BackColor={'#4B367C'} BColor={'white'} onPress={() => {navigation.navigate('Register')}}>
