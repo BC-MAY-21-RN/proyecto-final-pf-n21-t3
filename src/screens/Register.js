@@ -19,12 +19,3 @@ export const Register = () => {
   );
 };
 
-/**
- * <Container>
-      <Logo />|
-
-      <Boton onPress={() => navigation.navigate('Login')}>
-        <Text style={{color:'blue'}}>Ir a Login</Text>
-      </Boton>
-    </Container>
- */

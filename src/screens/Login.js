@@ -13,7 +13,7 @@ export const Login = () => {
         <Text style={{color:'black'}}>Iniciar sesión</Text>
       </Boton>
 
-      <Boton BackColor={'#4B367C'} BColor={'white'} onPress={() => {navigation.navigate('Register')}}>
+      <Boton BackColor={'#4B367C'} BColor={'#FFFFFF'} onPress={() => {navigation.navigate('Register')}}>
         <Text style={{color:'white'}}>Registrarse</Text>
       </Boton>
     </Container>

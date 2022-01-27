@@ -21,10 +21,8 @@ export const Boton = styled.TouchableOpacity`
   border-radius: 18px;
   width: 100%;
   height: 50px;
+  border: 2.5px;
   border-color: ${props => props.BColor || 'black'};
-  border: solid 2px;
   background-color: ${props => props.BackColor || '#FFFFFF'};
   margin: 2% 0% 2% 0%;
-  padding: 3px;
-  font-weight: bold;
 `;
