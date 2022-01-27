@@ -2,7 +2,7 @@ import {Container, Boton} from '../assets/styled.js';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-
+//login
 export const Login = () => {
    const navigation = useNavigation();
   return (
