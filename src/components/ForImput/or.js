@@ -1,5 +1,5 @@
-import { Text, View } from 'react-native';
-import {TextOR} from '../../assets/styled';
+import { View } from 'react-native';
+import {Texto} from '../../assets/styled';
 import React from 'react'
 
 export function OR() {
@@ -7,9 +7,9 @@ export function OR() {
 
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
       <View style={{flex: 1, height: 3, backgroundColor: 'white'}} />
-      <TextOR >
+      <Texto  >
       {'  '}OR{'  '}
-      </TextOR>
+      </Texto>
       <View style={{flex: 1, height: 3, backgroundColor: 'white'}} />
       </View>
     )

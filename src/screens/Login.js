@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
-import {Container, Boton, Logo} from '../assets/styled.js';
-import { Text } from 'react-native';
+import React ,{useState} from 'react';
+import { View } from 'react-native';
+import {Container, Boton, Logo, Texto} from '../assets/styled.js';
 import { useNavigation } from '@react-navigation/native';
 import {ImputLog} from '../components/ForImput/ImputLog'
 import {OR} from '../components/ForImput/or'
+
 
 export const Login = () => {
    const navigation = useNavigation();
@@ -24,13 +25,13 @@ export const Login = () => {
       />
 
       <Boton onPress={() => {navigation.navigate('Main')}}>
-        <Text style={{color:'black'}}>INICIAR SESION</Text>
+        <Texto style={{color:'black'}}>INICIAR SESION</Texto>
       </Boton>
+    
 
       <OR/>
-
       <Boton BackColor={'#4B367C'} BColor={'#FFFFFF'} onPress={() => {navigation.navigate('Register')}}>
-        <Text style={{color:'white'}}>REGISTRARSE</Text>
+        <Texto style={{color:'white'}}>REGISTRARSE</Texto>
       </Boton>
     </Container>
   );

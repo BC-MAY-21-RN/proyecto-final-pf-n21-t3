@@ -18,8 +18,8 @@ export const Input = styled.TextInput.attrs(props => ({
     placeholderTextColor: "#808080",
   }))`
   padding-left: 10px;
-  font-weight: bold;
-  height: 55px;
+  fontFamily:"Bebas-Regular";
+    height: 55px;
   width: 100%;
   font-size: 25px;
   
@@ -27,7 +27,7 @@ export const Input = styled.TextInput.attrs(props => ({
 export const Textstar = styled.Text`
     color: ${props => props.Color || 'white'};
     font-size: 15px;
-    font-weight: bold;
+    fontFamily:"Bebas-Regular"
 `;
 export const CBoxCon = styled.View`
   flex-direction: row;

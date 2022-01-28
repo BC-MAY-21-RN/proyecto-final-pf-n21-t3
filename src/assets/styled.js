@@ -28,12 +28,14 @@ export const Boton = styled.TouchableOpacity`
   margin: 2% 0% 2% 0%;
   font-size: 25px;
   border-top:2%;
-  font-weight: bold;
-`;
+  fontFamily:"BebasNeue-Regular";
+  
+  `;
 
-export const TextOR = styled.Text`
+export const Texto = styled.Text`
   font-size: 26px;
   color: white;
-  font-weight: bold;
+  font-family: "BebasNeue-Regular";
+
 `;
 
