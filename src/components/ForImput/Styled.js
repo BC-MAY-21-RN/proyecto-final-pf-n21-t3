@@ -27,7 +27,7 @@ export const Input = styled.TextInput.attrs(props => ({
 export const Textstar = styled.Text`
     color: ${props => props.Color || 'white'};
     font-size: 15px;
-    fontFamily:"Bebas-Regular"
+    fontFamily:"BebasNeue-Regular"
 `;
 export const CBoxCon = styled.View`
   flex-direction: row;
