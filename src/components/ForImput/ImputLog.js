@@ -10,20 +10,21 @@ export function ImputLog(props) {
       <Input
         keyboardType={null}
         placeholder={props.placeholderAdj}
-        secureTextEntry={props.secureTextEntry}
+        secureTextEntry={props.name === 'lock' ? props.secureTextEntry : false }
         onChangeText={valor => {
           props.value(valor);
         }}
       />
-      {/*<TouchableOpacity onPress={props.onPress}>
-        <Image
-          source={
-            props.secureTextEntry
-              ? require('../../assets/img/ver.png')
-              : require('../../assets/Img/ojo.png')
-          
+      {props.name === 'lock' ? 
+        <TouchableOpacity onPress={props.onPress}>
+        <Image source={
+          props.secureTextEntry
+          ? require('../../assets/img/ver.png')
+          : require('../../assets/img/ojo.png')
+        }
         />
-      </TouchableOpacity>}*/}
+      </TouchableOpacity> : false
+      }
     </InpCon>
   );
 }

@@ -7,13 +7,21 @@ import {OR} from '../components/ForImput/or'
 
 export const Login = () => {
    const navigation = useNavigation();
-   //const [password, setStatePassword] = useState(false);
-  return (
+  const [nombre, setNombre] = useState('');
+  const [email, setEmail] = useState('');
+   const [pswrd, setPswrd] = useState('');
+   const [hidePassword, setHidePassword] = useState(true);
+ 
+   return (
     <Container>
       <Logo />
       
-      <ImputLog placeholderAdj={"EMAIL"} name={"user-alt"}/>
-      <ImputLog placeholderAdj={"CONTRASEÑA"} name={"lock"} />
+      <ImputLog placeholderAdj={"EMAIL"} name={"user-alt"} value={setEmail}/>
+      <ImputLog placeholderAdj={"CONTRASEÑA"} name={"lock"} 
+       value={setPswrd}
+       secureTextEntry={hidePassword}
+       onPress={() => setHidePassword(!hidePassword)}
+      />
 
       <Boton onPress={() => {navigation.navigate('Main')}}>
         <Text style={{color:'black'}}>INICIAR SESION</Text>

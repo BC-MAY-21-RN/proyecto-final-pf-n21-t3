@@ -6,7 +6,7 @@ export const InpCon = styled.View`
   flex-direction: row;
   width: 99%;
   height: 50px;
-  padding: 5px 0px 0px 10px;
+  padding: 0px 70px 0px 10px;
   background: white;
   border: solid 3px;
   border-color: black;
@@ -41,8 +41,8 @@ export const CheckText = styled.View`
 `;
 
 export const Image = styled.Image`
-  height: 20px;
-  width: 20px;
+  height: 27px;
+  width: 27px;
   `;
 
 
