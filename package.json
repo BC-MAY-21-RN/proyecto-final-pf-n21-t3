@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "and": "react-native run-android",
+    "and": "npx react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/checkbox": "^0.5.9",
     "@react-native-community/slider": "^4.2.0",
     "@react-native-firebase/app": "^14.2.4",
     "@react-native-firebase/auth": "^14.2.4",
