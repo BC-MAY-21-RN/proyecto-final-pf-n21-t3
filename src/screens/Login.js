@@ -1,20 +1,37 @@
-import {Container, Boton} from '../assets/styled.js';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React ,{useState} from 'react';
+import { View } from 'react-native';
+import {Container, Boton, Logo, Texto} from '../assets/styled.js';
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-//login
+import {ImputLog} from '../components/ForImput/ImputLog'
+import {OR} from '../components/ForImput/or'
+
+
 export const Login = () => {
    const navigation = useNavigation();
-  return (
+  const [nombre, setNombre] = useState('');
+  const [email, setEmail] = useState('');
+   const [pswrd, setPswrd] = useState('');
+   const [hidePassword, setHidePassword] = useState(true);
+ 
+   return (
     <Container>
-      <Text style={{color:'black'}}>Estoy en Login</Text>
+      <Logo />
       
-      <Boton onPress={() => {navigation.navigate('Main')}}>
-        <Text style={{color:'black'}}>Iniciar sesion</Text>
-      </Boton>
+      <ImputLog placeholderAdj={"EMAIL"} name={"user-alt"} value={setEmail}/>
+      <ImputLog placeholderAdj={"CONTRASEÑA"} name={"lock"} 
+       value={setPswrd}
+       secureTextEntry={hidePassword}
+       onPress={() => setHidePassword(!hidePassword)}
+      />
 
-      <Boton BackColor={'#4B367C'} BColor={'white'} onPress={() => {navigation.navigate('Register')}}>
-        <Text style={{color:'black'}}>Registrarse</Text>
+      <Boton onPress={() => {navigation.navigate('Main')}}>
+        <Texto style={{color:'black'}}>INICIAR SESION</Texto>
+      </Boton>
+    
+
+      <OR/>
+      <Boton BackColor={'#4B367C'} BColor={'#FFFFFF'} onPress={() => {navigation.navigate('Register')}}>
+        <Texto style={{color:'white'}}>REGISTRARSE</Texto>
       </Boton>
     </Container>
   );
