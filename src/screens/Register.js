@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {Container, Boton, Logo} from '../assets/styled.js';
-import {Text} from 'react-native';
+import {Container, Boton, Logo,  Texto} from '../assets/styled.js';
 import {useNavigation} from '@react-navigation/native';
 import {ImputLog} from '../components/ForImput/ImputLog';
 import CheckBoxWithLabel from '../components/ForImput/Checkbox';
@@ -35,7 +34,7 @@ export const Register = () => {
         onPress={() => {
           navigation.navigate('Main');
         }}>
-        <Text style={{color: 'black'}}>Registarse</Text>
+        <Texto  style={{color:'black'}}>Registarse</Texto>
       </Boton>
 
       <Textstar>
