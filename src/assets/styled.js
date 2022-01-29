@@ -11,10 +11,14 @@ export const Container = styled.View`
 export const Logo = styled.Image.attrs(props => ({
   source: require('../assets/img/Logo.png'),
 }))`
-  width: 45%; 
-  height: 35%;
-  margin: 0% 0% 13% 0%; 
+min-width: 150px;
+min-height: 200px;
+max-width: 45%;
+max-height: 35%;
+margin: 0% 0% 7% 0%; 
 `;
+//width: 45%; 
+//height: 35%;
 
 export const Boton = styled.TouchableOpacity`
   justify-content: center;

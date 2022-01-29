@@ -19,7 +19,7 @@ export const Input = styled.TextInput.attrs(props => ({
   }))`
   padding-left: 10px;
   fontFamily:"BebasNeue-Regular";
-    height: 55px;
+  height: 55px;
   width: 100%;
   font-size: 25px;
   
