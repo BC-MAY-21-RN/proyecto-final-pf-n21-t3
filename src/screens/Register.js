@@ -18,10 +18,10 @@ export const Register = () => {
     <Container>
       <Logo />
 
-      <ImputLog placeholderAdj={'NOMBRE'} name={'user-alt'} value={setNombre} />
-      <ImputLog placeholderAdj={'EMAIL'} name={'at'} value={setEmail}/>
+      <ImputLog placeholderAdj={'Nombre'} name={'user-alt'} value={setNombre} />
+      <ImputLog placeholderAdj={'Correo Electrónico'} name={'at'} value={setEmail}/>
       <ImputLog
-        placeholderAdj={'CONTRASEÑA'}
+        placeholderAdj={'Contraseña'}
         secureTextEntry={hidePassword}
         name={'lock'}
         value={setPswrd}

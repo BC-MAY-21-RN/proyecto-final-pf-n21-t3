@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {InpCon, Input, Image} from './Styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -14,6 +14,7 @@ export function ImputLog(props) {
         onChangeText={valor => {
           props.value(valor);
         }}
+        
       />
       {props.name === 'lock' ? 
         <TouchableOpacity onPress={props.onPress}>

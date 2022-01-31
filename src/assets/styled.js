@@ -12,8 +12,8 @@ export const Logo = styled.Image.attrs(props => ({
   source: require('../assets/img/Logo.png'),
 }))`
 min-width: 150px;
-min-height: 200px;
-max-width: 45%;
+min-height: 250px;
+max-width: 55%;
 max-height: 35%;
 margin: 0% 0% 7% 0%; 
 `;
