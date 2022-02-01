@@ -17,8 +17,6 @@ max-width: 55%;
 max-height: 35%;
 margin: 0% 0% 7% 0%; 
 `;
-//width: 45%; 
-//height: 35%;
 
 export const Boton = styled.TouchableOpacity`
   justify-content: center;
