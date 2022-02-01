@@ -18,7 +18,6 @@ export const CardContainer = styled.View`
 export const TrackTitle = styled.Text`
   font-size: 18px;
   color: #3C1A89;
-  
 `
 
 export const RankingNumber = styled.Text`
@@ -30,11 +29,12 @@ font-size: 24px;
 export const TrackImage = styled.Image`
 width: 20%;
 height: 100%;
+margin: 2px; 
 `
 export const ContCard = styled(SafeAreaView)`
 background: #FFF064;
-padding: 7px;
+padding: 5px;
 border: solid 2px black;
 width: 100%;
-height: 60%;
+height: 58%;
 `
