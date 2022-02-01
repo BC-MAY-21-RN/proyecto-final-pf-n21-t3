@@ -2,7 +2,7 @@ import React from 'react';
 import CheckBox from '@react-native-community/checkbox';
 import { CBoxCon, CheckText, Textstar } from './Styled';
 
-const CheckBoxWithLabel = ({value, changeValue, disabled = false}) => {
+export const CheckBoxWithLabel = ({value, changeValue, disabled = false}) => {
     return(
       <CBoxCon>
         <CheckBox 
@@ -18,4 +18,3 @@ const CheckBoxWithLabel = ({value, changeValue, disabled = false}) => {
       </CBoxCon>
     );
   };
-  export default CheckBoxWithLabel;

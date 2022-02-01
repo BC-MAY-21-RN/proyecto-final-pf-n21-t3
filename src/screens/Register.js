@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {Container, Boton, Logo,  Texto} from '../assets/styled.js';
 import {useNavigation} from '@react-navigation/native';
-import {ImputLog} from '../components/ForImput/ImputLog';
-import CheckBoxWithLabel from '../components/ForImput/Checkbox';
-import {Textstar} from '../components/ForImput/Styled';
+import {CheckBoxWithLabel, InputLog} from '../components/index';
+import {Textstar} from '../components/FormInput/Styled';
 
 export const Register = () => {
   const navigation = useNavigation();
@@ -18,9 +17,9 @@ export const Register = () => {
     <Container>
       <Logo />
 
-      <ImputLog placeholderAdj={'Nombre'} name={'user-alt'} value={setNombre} />
-      <ImputLog placeholderAdj={'Correo Electrónico'} name={'at'} value={setEmail}/>
-      <ImputLog
+      <InputLog placeholderAdj={'Nombre'} name={'user-alt'} value={setNombre} />
+      <InputLog placeholderAdj={'Correo Electrónico'} name={'at'} value={setEmail}/>
+      <InputLog
         placeholderAdj={'Contraseña'}
         secureTextEntry={hidePassword}
         name={'lock'}
