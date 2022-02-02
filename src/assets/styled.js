@@ -36,7 +36,7 @@ export const Boton = styled.TouchableOpacity`
   `;
 
 export const Texto = styled.Text`
-  font-size: 26px;
+  font-size: ${props => props.TextSize || '26px'};
   color: white;
   font-family: "BebasNeue-Regular";
 
