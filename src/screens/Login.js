@@ -15,7 +15,7 @@ export const Login = () => {
     <Container>
       <Logo />
       
-      <InputLog placeholderAdj={"Correo Electrónico"} name={"user-alt"} value={setEmail}/>
+      <InputLog placeholderAdj={"Correo Electrónico"} name={"at"} value={setEmail}/>
       <InputLog placeholderAdj={"Contraseña"} name={"lock"} 
        value={setPswrd}
        secureTextEntry={hidePassword}

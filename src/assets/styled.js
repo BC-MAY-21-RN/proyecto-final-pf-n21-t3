@@ -4,7 +4,7 @@ export const Container = styled.View`
   flex-direction: column;
   align-items: center;
   flex: 1;
-  padding: 6%;
+  padding: ${props => props.Padd || '6%'};
   background-color: #8231ff;
 `;
 
@@ -21,6 +21,7 @@ margin: 0% 0% 7% 0%;
 export const Boton = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
+  align-self: center;
   border-radius: 21px;
   width: 88%;
   height: 50px;
@@ -40,4 +41,9 @@ export const Texto = styled.Text`
   font-family: "BebasNeue-Regular";
 
 `;
+export const ScrlVw = styled.ScrollView`
+  padding: 0% 10% 0% 5%;
+  
+`;
+
 
