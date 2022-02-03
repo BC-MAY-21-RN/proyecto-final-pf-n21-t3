@@ -1,8 +1,8 @@
 import React ,{useState} from 'react';
 import {Container, Boton, Logo, Texto} from '../assets/styled.js';
 import { useNavigation } from '@react-navigation/native';
-import {ImputLog} from '../components/ForImput/ImputLog'
-import {OR} from '../components/ForImput/or'
+import {OR, InputLog} from '../components/index'
+
 
 
 export const Login = () => {
@@ -15,8 +15,8 @@ export const Login = () => {
     <Container>
       <Logo />
       
-      <ImputLog placeholderAdj={"Correo Electrónico"} name={"user-alt"} value={setEmail}/>
-      <ImputLog placeholderAdj={"Contraseña"} name={"lock"} 
+      <InputLog placeholderAdj={"Correo Electrónico"} name={"at"} value={setEmail}/>
+      <InputLog placeholderAdj={"Contraseña"} name={"lock"} 
        value={setPswrd}
        secureTextEntry={hidePassword}
        onPress={() => setHidePassword(!hidePassword)}

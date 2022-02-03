@@ -1,0 +1,40 @@
+{
+  "Musica": [
+    {
+      "id": 1,
+      "album": "https://pbs.twimg.com/profile_images/1182728822636068865/4cDUWm_8_400x400.jpg",
+      "Titulo": "Disculpa los malos pensamiento",
+      "Artista": "PXNDA"
+    },
+    {
+      "id": 2,
+      "album": "https://m.media-amazon.com/images/I/71zh6VGUBgL._SS500_.jpg",
+      "Titulo": "Terriblemente cruel",
+      "Artista": "LEIVA"
+    },
+    {
+      "id": 3,
+      "album": "http://lasfrasesdecanciones.com/wp-content/uploads/2016/05/reik.jpg",
+      "Titulo": "Lluvia",
+      "Artista": "REIK"
+    }
+  ],
+  "Gender":[{
+    "id": 1,
+    "album": "https://rkytu38xn673djfuz15vf7bv-wpengine.netdna-ssl.com/wp-content/uploads/2021/02/24213595_web1_M1-LAR-20210214-amazon-main.jpg",
+    "Nombre":"Regional Mexicano"
+  },{
+    "id": 2,
+    "album": "https://i.pinimg.com/originals/2a/00/b7/2a00b745d5d4f757a3f9ceb48d1c6240.jpg",
+    "Nombre": "Reggaeton"
+  },{
+    "id":3,
+    "album": "http://lasfrasesdecanciones.com/wp-content/uploads/2016/05/reik.jpg",
+    "Nombre": "Rock en español"
+  },{
+    "id":4,
+    "album": "https://resources.tidal.com/images/86caf04b/f7ba/4b91/b04f/e7ae0120669b/640x640.jpg",
+    "Nombre": "Pop en español"
+  }
+]
+}

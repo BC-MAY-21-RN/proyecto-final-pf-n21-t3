@@ -3,7 +3,7 @@ import {TouchableOpacity} from 'react-native';
 import {InpCon, Input, Image} from './Styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export function ImputLog(props) {
+export function InputLog(props) {
   return (
     <InpCon>
       <Icon name={props.name} size={30} color={'black'} />

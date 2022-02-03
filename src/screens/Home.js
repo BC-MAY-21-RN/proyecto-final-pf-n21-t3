@@ -1,22 +1,21 @@
-import { Text, Button } from 'react-native';
-import {Container, Boton} from '../assets/styled.js';
+import { Text, Button} from 'react-native';
+import {Container, ScrlVw, Texto  } from '../assets/styled.js';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import  { Title, CardList, CardGender}  from '../components/index';
 
-export const Home = () => {
+
+export function Home ()  {
   const navigation = useNavigation();
   return (
-    <Container>
-      <Text>Estoy en Home</Text>
-      <Button onPress={() => navigation.navigate('Login')} title='Ir a login'/>
-      <Boton>
-        <Text style={{color: 'black'}}> Estoy en HOME</Text>
-      </Boton>
-    
+    <Container  Padd={'0%'}>
+        <ScrlVw> 
+        <Title Titulo={'Bienvenido'}/>
+        <CardList />
+        <Texto TextSize={'40px'}>  Géneros</Texto>
+        <CardGender />
+        <Button onPress={() => navigation.navigate('Login')} title='Ir a login'/>
+     </ScrlVw>
     </Container>
   );
 };
-
-/**
- *  
- */
