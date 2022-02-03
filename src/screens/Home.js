@@ -4,7 +4,6 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import  { Title, CardList, CardGender}  from '../components/index';
 
-
 export function Home ()  {
   const navigation = useNavigation();
   return (

@@ -11,9 +11,7 @@ export function InputLog(props) {
         keyboardType={null}
         placeholder={props.placeholderAdj}
         secureTextEntry={props.name === 'lock' ? props.secureTextEntry : false }
-        onChangeText={valor => {
-          props.value(valor);
-        }}
+        onChangeText={props.onChangeText}
         
       />
       {props.name === 'lock' ? 
