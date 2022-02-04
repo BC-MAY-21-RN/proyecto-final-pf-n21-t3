@@ -53,6 +53,18 @@ width: 100%;
 height: 350px;
 margin-bottom: 20px;
 `
+
+export const ContCards = styled.View`
+align-items: center;
+background: #FFF064;
+border-radius: 18px; 
+padding: 5px;
+border: solid 2px black;
+width: 100%;
+height: 650px;
+margin-bottom: 20px;
+`
+
 export const ViewIcon = styled.View`
 flex-direction: column;
 justify-content: center;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { Login, Register} from '../../screens/index';
+import { Login, Register, Liked} from '../../screens/index';
 import TabNavigator from './TabNavigator'
 
 const Stack = createNativeStackNavigator();
@@ -10,6 +10,7 @@ const Navigator = () => {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Main" component={TabNavigator}/>
+      <Stack.Screen name="Liked" component={Liked}/>
     </Stack.Navigator>
   );
 };

@@ -1,8 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Profile, Library} from '../../screens/index';
+import {Home, Profile, Library, Liked} from '../../screens/index';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+
 
 const Tab = createBottomTabNavigator();
 
@@ -48,6 +49,7 @@ function TabNavigator() {
             },
           }}
         />
+        
       </Tab.Navigator>
     </>
   );
