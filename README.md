@@ -3,6 +3,9 @@
 Co-authored-by: Dylanson25 <Dvillarreal0@ucol.mx>
 Co-authored-by: GerardoIbarra <libarra2@ucol.mx>
 Co-authored-by: Ernesto2899 <eramirez28@ucol.mx> 
+SHA1: F5:05:83:8A:65:21:EA:1E:6C:C8:26:BD:CD:B2:76:75:93:C2:4E:73
+         SHA256: D6:69:1A:F6:AB:15:B4:0D:87:6F:0D:EF:E5:1D:9E:97:AD:B7:31:72:99:EF:02:70:55:F5:77:5A:59:3B:91:FB 
+         HASH FB: tUw2F8+ETK5kjylFABKlr5QLrBk= 
 -->
 
 # BrightMusic 

@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import {OR, InputLog} from '../components/index'
 import {Store} from '../redux/Store'
 import { setEmail } from '../redux/Actions.js';
+import { LogInButton } from '../components/FaceBook Button/LogInButton.js';
 
 export const Login = () => {
    const navigation = useNavigation();
@@ -31,6 +32,7 @@ export const Login = () => {
       <Boton BackColor={'#4B367C'} BColor={'#FFFFFF'} onPress={() => {navigation.navigate('Register')}}>
         <Texto style={{color:'white'}}>REGISTRARSE</Texto>
       </Boton>
+      <LogInButton />
     </Container>
   );
 };
