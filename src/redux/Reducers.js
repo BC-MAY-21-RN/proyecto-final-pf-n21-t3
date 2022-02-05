@@ -1,4 +1,4 @@
-import {SET_NAME, SET_EMAIL, SET_TOKEN} from './Actions'
+import {SET_NAME, SET_EMAIL, SET_TOKEN, SET_PASSWORD} from './Actions'
 
 const initialState = {
   name : '',
@@ -15,6 +15,8 @@ function userData (state = initialState, action) {
       return{...state, email: action.payload}
     case SET_TOKEN:
       return{...state, token: action.payload}
+    case SET_PASSWORD:
+      return {...state, password: action.payload}
     default:
       return state;
   }
