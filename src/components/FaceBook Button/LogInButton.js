@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import {LoginButton, AccessToken} from 'react-native-fbsdk-next';
 import {useNavigation} from '@react-navigation/native';
 import {CurrentProfile} from './CurrentProfile';
+import auth from '@react-native-firebase/auth';
 
 export function LogInButton() {
   const navigation = useNavigation();
@@ -18,12 +19,8 @@ export function LogInButton() {
           } else {
             AccessToken.getCurrentAccessToken()
               .then(data => {
-                console.log(data.accessToken.toString()),
-                  navigation.reset({
-                    index: 1,
-                    routes: [{name: 'Main'}],
-                  }),
-                  CurrentProfile();
+                auth().signInWithCredential(auth.FacebookAuthProvider.credential(data.accessToken));
+                CurrentProfile();
               })
               .catch(error => {
                 console.log(error);

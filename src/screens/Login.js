@@ -14,12 +14,14 @@ export const Login = () => {
   const [hidePassword, setHidePassword] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = auth().onAuthStateChanged(user => {
+    const subscribe = auth().onAuthStateChanged(user => {
       if (user) {
-        navigation.replace('Main');
-      }
-    });
-    return unsubscribe;
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'Main'}],
+        });
+    }});
+    return subscribe;
   }, []);
 
   return (

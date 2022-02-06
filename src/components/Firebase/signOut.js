@@ -1,20 +1,18 @@
 import auth from '@react-native-firebase/auth';
 import {Alert} from 'react-native';
-import {CommonActions} from '@react-navigation/native';
 import {Store} from '../../redux/Store';
 import {setName, setPassword, setEmail, setToken} from '../../redux/Actions';
+
 export function signOut({navigation}) {
   auth()
     .signOut()
     .then(() => {
       console.log('Sign Out'),
         Alert.alert('Cierra de sesión exitoso'),
-        navigation.dispatch(
-          CommonActions.reset({
-            index: 0,
-            routes: [{name: 'Login'}],
-          }),
-        );
+          navigation.reset({
+            index:0,
+            routes: [{name: 'Login'}]
+          })
       Store.dispatch(setEmail(''));
       Store.dispatch(setName(''));
       Store.dispatch(setPassword(''));

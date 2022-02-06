@@ -9,11 +9,7 @@ export function createUser({navigation}) {
       Store.getState().password,
     )
     .then(() => {
-      console.log('Sign in'),
-        navigation.reset({
-          index: 1,
-          routes: [{name: 'Main'}],
-        });
+      console.log('Sign in')
     })
     .catch(error => {
       if (error.code === 'auth/email-already-in-use') {
