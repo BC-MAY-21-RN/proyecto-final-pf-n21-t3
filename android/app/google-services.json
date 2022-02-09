@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "16364204601",
+    "project_id": "brightmusic-b0639",
+    "storage_bucket": "brightmusic-b0639.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16364204601:android:ab5fe84b3a9b95bb7713e8",
+        "android_client_info": {
+          "package_name": "com.brightmusic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "16364204601-vsgirh4hr4i507k6rog1er2ralpah8de.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.brightmusic",
+            "certificate_hash": "f505838a6521ea1e6cc826bdcdb2767593c24e73"
+          }
+        },
+        {
+          "client_id": "16364204601-vd64oavtk0ho3rbrtlkmuursftps9bqh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBExvqwL2ouyUe2qxeMKj1_58P_lTwtLZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "16364204601-vd64oavtk0ho3rbrtlkmuursftps9bqh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

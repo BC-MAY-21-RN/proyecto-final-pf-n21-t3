@@ -11,10 +11,9 @@ export function InputLog(props) {
         keyboardType={null}
         placeholder={props.placeholderAdj}
         secureTextEntry={props.name === 'lock' ? props.secureTextEntry : false }
-        onChangeText={valor => {
-          props.value(valor);
-        }}
-        
+        onChangeText={props.onChangeText}
+        editable={!props.readOnly} //si readonly es true -> "solo lectura", si es false -> "editable"
+
       />
       {props.name === 'lock' ? 
         <TouchableOpacity onPress={props.onPress}>
