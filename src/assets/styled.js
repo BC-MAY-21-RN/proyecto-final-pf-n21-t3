@@ -23,7 +23,7 @@ export const Boton = styled.TouchableOpacity`
   align-items: center;
   align-self: center;
   border-radius: 21px;
-  width: 88%;
+  width: ${props => props.Width || '88%'};
   height: 50px;
   border: 2.5px;
   border-color: ${props => props.BColor || 'black'};

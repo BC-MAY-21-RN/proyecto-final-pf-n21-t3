@@ -9,3 +9,6 @@ export {createUser} from './Firebase/createUser';
 export {logInUser} from './Firebase/logInUser';
 export {signOut} from './Firebase/signOut';
 export {signOutFB} from './FaceBook Button/SignOutFB';
+export {LikedList} from './CardInfo/LikedList'
+export {LikedInfo}from './CardInfo/LikedInfo'
+export {Cardpholi} from './CardInfo/cardpholi';
