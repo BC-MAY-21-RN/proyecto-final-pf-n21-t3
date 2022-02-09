@@ -6,12 +6,10 @@ import {Store} from '../redux/Store';
 import {setEmail, setPassword} from '../redux/Actions.js';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
-import { getToken , getGenres } from '../assets/spotify/spotify_token.js';
+import { getTracks  } from '../assets/spotify/spotify_token.js';
 
 const loadGenres = async () =>{
-  const token = await getToken();
-  const genres = await getGenres(token);
-  console.log(genres)
+  getTracks();  
 }
 
 export const Login = () => {
