@@ -15,14 +15,6 @@ export function Home() {
         <CardList />
         <Texto TextSize={'40px'}> Géneros</Texto>
         <CardGender />
-        <Button
-          onPress={() => navigation.navigate('Login')}
-          title="Ir a login"
-        />
-        <Button
-          onPress={() => navigation.navigate('Login')}
-          title="Ir a login"
-        />
       </ScrlVw>
     </Container>
   );
