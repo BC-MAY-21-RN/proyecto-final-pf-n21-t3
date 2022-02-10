@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   ContCard,
   SafeCard,
@@ -10,6 +10,7 @@ import {InputLog} from '../index';
 import {Store} from '../../redux/Store';
 
 export const Cardpholi = ({}) => {
+  const [hidePassword, setHidePassword] = useState(true);
   return (
     <ContCard height={'250px'}>
       <SafeCard>
@@ -21,20 +22,18 @@ export const Cardpholi = ({}) => {
         <InpCon >
           <InputLog
             readOnly
-            placeholderAdj={'Name'}
+            placeholderAdj={Store.getState().name}
             style={{backgroundColor: '#C8A6FF'}}
-            value={Store.getState().name}
+            
           />
           <InputLog
             readOnly
-            placeholderAdj={'Email'}
+            placeholderAdj={Store.getState().email}
             style={{backgroundColor: '#C8A6FF'}}
-            value={Store.getState().email}
           />
           <InputLog
             readOnly
-            placeholderAdj={'Password'}
-            secureTextEntry
+            placeholderAdj={Store.getState().password}
             style={{backgroundColor: '#C8A6FF'}}
           />
         </InpCon>

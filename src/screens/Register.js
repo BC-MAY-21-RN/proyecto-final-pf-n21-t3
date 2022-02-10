@@ -35,7 +35,7 @@ export const Register = () => {
         secureTextEntry={hidePassword}
         name={'lock'}
         value={setPswrd}
-        onPress={() => setHidePassword(!hidePassword)}
+        onPress={() => setHidePassword(prevState => !prevState)}
         onChangeText={value => {
           Store.dispatch(setPassword(value));
         }}

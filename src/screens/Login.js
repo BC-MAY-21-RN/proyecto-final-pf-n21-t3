@@ -47,11 +47,11 @@ export const Login = () => {
         name={'lock'}
         value={setPswrd}
         secureTextEntry={hidePassword}
-        onPress={valor => {
-          setHidePassword(!hidePassword);
+        onPress={() => {
+          setHidePassword(prevState => !prevState);
         }}
-        onChangeText={value => {
-          
+        onChangeText={valor => {
+          Store.dispatch(setPassword(valor));
         }}
       />
 
