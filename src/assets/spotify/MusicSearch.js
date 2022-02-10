@@ -1,4 +1,4 @@
-//este archivo es una prueba para la busqueda
+//este archivo es una Idea para la busqueda 
 //https://www.youtube.com/watch?v=Bk90lT6ne3g&t=612s
 import spotify_search from "./spotify_search";
 

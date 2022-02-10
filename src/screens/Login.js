@@ -8,9 +8,9 @@ import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
 import { getTracks  } from '../assets/spotify/spotify_token.js';
 
-const loadGenres = async () =>{
-  getTracks();  
-}
+
+ 
+
 
 export const Login = () => {
   const navigation = useNavigation();
@@ -41,15 +41,7 @@ export const Login = () => {
           Store.dispatch(setEmail(valor));
         }}
       />
-      <Boton
-        BackColor={'#4B367C'}
-        BColor={'#FFFFFF'}
-        onPress={()=>{
-          loadGenres()
-        }}
-        >
-        <Texto style={{color: 'white'}}>Generar Generos</Texto>
-      </Boton>
+      
       <InputLog
         placeholderAdj={'Contraseña'}
         name={'lock'}

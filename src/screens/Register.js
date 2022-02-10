@@ -46,6 +46,7 @@ export const Register = () => {
       <Boton
         onPress={() => {
           createUser({navigation});
+          navigation.navigate('Main');
         }}>
         <Texto style={{color: 'black'}}>Registarse</Texto>
       </Boton>
@@ -56,7 +57,7 @@ export const Register = () => {
           Color={'#FFF064'}
           style={{textDecorationLine: 'underline'}}
           onPress={() => {
-            navigation.navigate('Login');
+            
           }}>
           {' '}
           INICIAR SESION
