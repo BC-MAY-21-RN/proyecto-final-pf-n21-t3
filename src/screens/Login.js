@@ -6,6 +6,11 @@ import {Store} from '../redux/Store';
 import {setEmail, setPassword} from '../redux/Actions.js';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
+import { getTracks  } from '../assets/spotify/spotify_token.js';
+
+
+ 
+
 
 export const Login = () => {
   const navigation = useNavigation();
@@ -36,6 +41,7 @@ export const Login = () => {
           Store.dispatch(setEmail(valor));
         }}
       />
+      
       <InputLog
         placeholderAdj={'Contraseña'}
         name={'lock'}
@@ -45,7 +51,7 @@ export const Login = () => {
           setHidePassword(!hidePassword);
         }}
         onChangeText={value => {
-          Store.dispatch(setPassword(value));
+          
         }}
       />
 
