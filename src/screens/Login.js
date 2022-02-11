@@ -3,14 +3,10 @@ import {Container, Boton, Logo, Texto} from '../assets/styled.js';
 import {useNavigation} from '@react-navigation/native';
 import {OR, InputLog, logInUser} from '../components/index';
 import {Store} from '../redux/Store';
-import {setEmail, setPassword} from '../redux/Actions.js';
+import {setEmail, setPassword, setToken} from '../redux/Actions.js';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
-import { getTracks  } from '../assets/spotify/spotify_token.js';
-
-
- 
-
+import { getToken } from '../assets/spotify/spotify_token.js';
 
 export const Login = () => {
   const navigation = useNavigation();
@@ -31,6 +27,14 @@ export const Login = () => {
 
   return (
     <Container>
+      <Boton
+        onPress={() => {
+          navigation.navigate("Main")
+          getToken();
+        }}>
+        <Texto style={{color: 'black'}}>Ir a home</Texto>
+      </Boton>
+
       <Logo />
 
       <InputLog
@@ -54,6 +58,7 @@ export const Login = () => {
           
         }}
       />
+
 
       <Boton
         onPress={() => {

@@ -1,15 +1,24 @@
+import { Store } from '../redux/Store';
+import React,{useEffect, useState} from 'react';
 import { View, Text } from 'react-native';
-import React from 'react';
 import {Gender} from '../../assets/PrubaArtist.json'
 import {CardInfo} from './CardInfo';
-import {
+import { getTracks } from '../../assets/spotify/spotify_token';
+import { 
   CardContainer,
   TrackTitle,
   TrackImage,
   SafeCard
 } from './Styled';
 
+
 export const CardGender = () => {
+ 
+  useEffect(()=>{
+    getTracks(Store.getState().token, 'https://api.spotify.com/v1/browse/categories')
+     
+  },[]);
+
   const renderGender = Gender?.map((genero, index) => {
     return (
      <CardContainer  key={index} BackColor={'#FFF064'}>
