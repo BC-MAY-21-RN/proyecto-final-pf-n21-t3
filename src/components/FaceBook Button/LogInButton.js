@@ -20,11 +20,10 @@ export function LogInButton() {
             AccessToken.getCurrentAccessToken()
               .then(data => {
                 auth().signInWithCredential(auth.FacebookAuthProvider.credential(data.accessToken));
-                CurrentProfile();
               })
               .catch(error => {
                 console.log(error);
-              });
+              })
           }
         }}
         onLogoutFinished={() => console.log('logout.')}

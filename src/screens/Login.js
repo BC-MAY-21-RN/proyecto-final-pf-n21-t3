@@ -1,16 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Boton, Logo, Texto} from '../assets/styled.js';
 import {useNavigation} from '@react-navigation/native';
-import {OR, InputLog, logInUser} from '../components/index';
+import {OR, InputLog, logInUser, CurrentProfile} from '../components/index';
 import {Store} from '../redux/Store';
-import {setEmail, setPassword} from '../redux/Actions.js';
+import {
+  setEmail,
+  setNewPassword,
+  setPassword,
+  setNewEmail,
+} from '../redux/Actions.js';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
-import { getTracks  } from '../assets/spotify/spotify_token.js';
-
-
- 
-
+import {getTracks} from '../assets/spotify/spotify_token.js';
 
 export const Login = () => {
   const navigation = useNavigation();
@@ -25,7 +26,9 @@ export const Login = () => {
           index: 0,
           routes: [{name: 'Main'}],
         });
-    }});
+        CurrentProfile();
+      }
+    });
     return subscribe;
   }, []);
 
@@ -39,9 +42,10 @@ export const Login = () => {
         value={setMail}
         onChangeText={valor => {
           Store.dispatch(setEmail(valor));
+          Store.dispatch(setNewEmail(valor));
         }}
       />
-      
+
       <InputLog
         placeholderAdj={'Contraseña'}
         name={'lock'}
@@ -52,6 +56,7 @@ export const Login = () => {
         }}
         onChangeText={valor => {
           Store.dispatch(setPassword(valor));
+          Store.dispatch(setNewPassword(valor));
         }}
       />
 
