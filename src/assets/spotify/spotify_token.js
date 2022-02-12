@@ -8,6 +8,7 @@ import { setinfo, setToken } from '../../redux/Actions';
 const apiPrefix = 'https://accounts.spotify.com/api';
 const client_id = '5914e5016a704b0c84b27239cfee6242';
 const client_secret = '02a63d27435a4e85a2f1e84048657e18';
+
 const base64credentials = base64.encode(client_id + ':' + client_secret);
 
 
