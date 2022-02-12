@@ -1,6 +1,6 @@
 import {Profile} from 'react-native-fbsdk-next';
 import {Store} from '../../redux/Store';
-import {setName, setEmail, setToken} from '../../redux/Actions';
+import {setName, setEmail} from '../../redux/Actions';
 
 export const CurrentProfile = Profile.getCurrentProfile()
   .then(function (CurrentProfile) {
@@ -9,7 +9,6 @@ export const CurrentProfile = Profile.getCurrentProfile()
         setName(` ${CurrentProfile.firstName} ${CurrentProfile.lastName} `),
       );
       Store.dispatch(setEmail(CurrentProfile.email));
-      Store.dispatch(setToken(CurrentProfile.userID));
     }
   })
   .catch(error => {
