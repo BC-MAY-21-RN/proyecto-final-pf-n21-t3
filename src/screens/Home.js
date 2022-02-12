@@ -10,13 +10,6 @@ export function Home() {
   const navigation = useNavigation();
     return (
     <Container Padd={'0%'}>
-        <Button
-          onPress={() =>{ 
-            getTracks(Store.getState().token, 'https://api.spotify.com/v1/browse/categories')
-            
-          }}
-          title="Cargar generos"
-        />
       <ScrlVw>
         <Title Titulo={'Bienvenido'} />
         <CardList />

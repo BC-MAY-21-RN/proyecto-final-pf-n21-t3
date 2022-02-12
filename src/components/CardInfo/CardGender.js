@@ -1,41 +1,23 @@
-import { Store } from '../redux/Store';
-import React,{useEffect, useState} from 'react';
-import { View, Text } from 'react-native';
-import {Gender} from '../../assets/PrubaArtist.json'
-import {CardInfo} from './CardInfo';
-import { getTracks } from '../../assets/spotify/spotify_token';
-import { 
-  CardContainer,
-  TrackTitle,
-  TrackImage,
-  SafeCard
-} from './Styled';
-
-
-export const CardGender = () => {
- 
-  useEffect(()=>{
-    getTracks(Store.getState().token, 'https://api.spotify.com/v1/browse/categories')
-     
-  },[]);
-
-  const renderGender = Gender?.map((genero, index) => {
-    return (
-     <CardContainer  key={index} BackColor={'#FFF064'}>
-         <SafeCard>
-            <TrackImage  source={{uri: genero.album}}/>
-            
-            <TrackTitle TextColor={'black'} Wdth={'75%'} TextPosition={'center'} TextSize={'35px'}>{genero.Nombre}</TrackTitle>
-         </SafeCard>
-     </CardContainer>  
-    )
-  })
-
-  return (
-    <View>
-      {renderGender}
-    </View>
-  );
-};
-
-
+import React, {useEffect, useState} from 'react';
+import {Store} from '../../redux/Store';
+import {View} from 'react-native';
+import {CardContainer, TrackTitle, TrackImage, SafeCard} from './Styled';
+var img = [];
+export const CardGender = () => (
+  <View>
+    {Store.getState().info?.map((gender, id) => (
+      <CardContainer key={id} BackColor={'#FFF064'}>
+        <SafeCard>
+          <TrackImage source={{uri: gender.icons[0].url}} />
+          <TrackTitle
+            TextColor={'black'}
+            Wdth={'75%'}
+            TextPosition={'center'}
+            TextSize={'35px'}>
+            {gender.name}
+          </TrackTitle>
+        </SafeCard>
+      </CardContainer>
+    ))}
+  </View>
+);

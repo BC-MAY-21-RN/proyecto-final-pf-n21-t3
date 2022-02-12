@@ -6,7 +6,7 @@ import {Store} from '../redux/Store';
 import {setEmail, setPassword, setToken} from '../redux/Actions.js';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
-import { getToken } from '../assets/spotify/spotify_token.js';
+import {getToken, getCategories} from '../assets/spotify/spotify_token.js';
 
 export const Login = () => {
   const navigation = useNavigation();
@@ -21,16 +21,26 @@ export const Login = () => {
           index: 0,
           routes: [{name: 'Main'}],
         });
-    }});
+      }
+    });
     return subscribe;
   }, []);
 
   return (
     <Container>
       <Boton
-        onPress={() => {
-          navigation.navigate("Main")
-          getToken();
+        onPress={async () => {
+          await getToken()
+            .then(
+              getCategories(
+                Store.getState().token,
+                'https://api.spotify.com/v1/browse/categories',
+              ),
+            )
+            .then(() => navigation.navigate('Main'))
+            .catch(err => {
+              console.log(err);
+            });
         }}>
         <Texto style={{color: 'black'}}>Ir a home</Texto>
       </Boton>
@@ -45,7 +55,7 @@ export const Login = () => {
           Store.dispatch(setEmail(valor));
         }}
       />
-      
+
       <InputLog
         placeholderAdj={'Contraseña'}
         name={'lock'}
@@ -54,11 +64,8 @@ export const Login = () => {
         onPress={valor => {
           setHidePassword(!hidePassword);
         }}
-        onChangeText={value => {
-          
-        }}
+        onChangeText={value => {}}
       />
-
 
       <Boton
         onPress={() => {
