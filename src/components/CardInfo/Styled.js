@@ -13,6 +13,7 @@ export const CardContainer = styled.View`
   margin-bottom: 5px
   `;
 export const SafeCard = styled(SafeAreaView)`
+  flex: 1;
   flex-direction: row;
   justify-content: flex-start;
   height: 100%;

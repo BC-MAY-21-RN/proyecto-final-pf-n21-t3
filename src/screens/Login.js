@@ -1,12 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Boton, Logo, Texto} from '../assets/styled.js';
 import {useNavigation} from '@react-navigation/native';
-import {OR, InputLog, logInUser} from '../components/index';
+import {OR, InputLog, logInUser, CurrentProfile} from '../components/index';
 import {Store} from '../redux/Store';
-import {setEmail, setinfo, setPassword, setToken} from '../redux/Actions.js';
+
+import {
+  setEmail,
+  setNewPassword,
+  setPassword,
+  setNewEmail,
+  setToken,
+   setinfo
+} from '../redux/Actions.js';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
 import {getToken, getCategories, getToplist} from '../assets/spotify/spotify_token.js';
+
 
 export const Login = () => {
   const navigation = useNavigation();
@@ -21,8 +30,13 @@ export const Login = () => {
           index: 0,
           routes: [{name: 'Main'}],
         });
+
+        CurrentProfile();
+      }
+
       }
       getToken().catch(e => console.log('first', e));
+
     });
     return subscribe;
   }, []);
@@ -61,6 +75,7 @@ export const Login = () => {
         value={setMail}
         onChangeText={valor => {
           Store.dispatch(setEmail(valor));
+          Store.dispatch(setNewEmail(valor));
         }}
       />
 
@@ -69,10 +84,17 @@ export const Login = () => {
         name={'lock'}
         value={setPswrd}
         secureTextEntry={hidePassword}
-        onPress={valor => {
-          setHidePassword(!hidePassword);
+        onPress={() => {
+          setHidePassword(prevState => !prevState);
         }}
+
+        onChangeText={valor => {
+          Store.dispatch(setPassword(valor));
+          Store.dispatch(setNewPassword(valor));
+        }}
+
         onChangeText={value => {}}
+
       />
 
       <Boton
@@ -95,19 +117,4 @@ export const Login = () => {
     </Container>
   );
 };
-/**
- *  <Boton
-        onPress={async () => {
-          await getToken()
-            .then(
-              getCategories(
-                Store.getState().token,
-                'https://api.spotify.com/v1/browse/categories',
-              ),
-            )
-            .then(() => navigation.navigate('Main'))
-            .catch(err => {
-              console.log(err);
-            });
-        }}>
- */
+

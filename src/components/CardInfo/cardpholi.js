@@ -1,41 +1,55 @@
-import React from 'react';
-import {
-  ContCard,
-  SafeCard,
-  ViewIcon,
-  InpCon,
-} from './Styled';
+import React, {useState} from 'react';
+import {ContCard, SafeCard, ViewIcon, InpCon} from './Styled';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {InputLog} from '../index';
 import {Store} from '../../redux/Store';
+import {setName, setNewPassword, setNewEmail} from '../../redux/Actions';
 
-export const Cardpholi = ({}) => {
+export const Cardpholi = ({enInput}) => {
   return (
     <ContCard height={'250px'}>
       <SafeCard>
         <ViewIcon>
-          <Ionicons name={'person-outline'} color={'black'} size={50} />
           <Ionicons name={'mail-outline'} color={'black'} size={50} />
+          <Ionicons name={'person-outline'} color={'black'} size={50} />
           <Ionicons name="lock-closed-outline" color={'black'} size={50} />
         </ViewIcon>
-        <InpCon >
+        <InpCon>
           <InputLog
-            readOnly
-            placeholderAdj={'Name'}
+            readOnly={enInput}
+            placeholderAdj={
+              Store.getState().provider.includes('facebook')
+                ? 'Email vinculado a FaceBook'
+                : Store.getState().email
+            }
+            onChangeText={valor => {
+              Store.dispatch(setNewEmail(valor));
+            }}
             style={{backgroundColor: '#C8A6FF'}}
-            value={Store.getState().name}
+            size={'15px'}
+            multiline
           />
           <InputLog
-            readOnly
-            placeholderAdj={'Email'}
+            readOnly={enInput}
+            placeholderAdj={Store.getState().name}
             style={{backgroundColor: '#C8A6FF'}}
-            value={Store.getState().email}
+            onChangeText={valor => {
+              Store.dispatch(setName(valor));
+            }}
           />
           <InputLog
-            readOnly
-            placeholderAdj={'Password'}
-            secureTextEntry
+            readOnly={enInput}
+            placeholderAdj={
+              Store.getState().provider.includes('facebook')
+                ? 'Contraseña vinculada a FaceBook'
+                : Store.getState().password
+            }
             style={{backgroundColor: '#C8A6FF'}}
+            onChangeText={valor => {
+              Store.dispatch(setNewPassword(valor));
+            }}
+            multiline
+            size={'13px'}
           />
         </InpCon>
       </SafeCard>

@@ -46,4 +46,8 @@ export const ScrlVw = styled.ScrollView`
   
 `;
 
-
+export const Horizontal = styled.View`
+flex-direction: row;
+justify-content: space-between;
+width: 80%;
+`

@@ -15,12 +15,12 @@ export const InpCon = styled.View`
 `;
 
 export const Input = styled.TextInput.attrs(props => ({
-    placeholderTextColor: "#808080",
+    placeholderTextColor: "#808080"
   }))`
   padding-left: 10px;
   height: 55px;
   width: 100%;
-  font-size: 18px;
+  font-size: ${props => props.size|| '18px'} ;
   color: black;
   font-family: "CaviarDreams_Bold";
 
