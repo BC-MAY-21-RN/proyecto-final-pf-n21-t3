@@ -35,8 +35,8 @@ export const Register = () => {
         name={'at'}
         value={setMail}
         onChangeText={
-          (valor => Store.dispatch(setEmail(valor)),
-          Store.dispatch(setNewEmail(valor)))
+          (valor => {Store.dispatch(setEmail(valor)),
+          Store.dispatch(setNewEmail(valor))})
         }
       />
       <InputLog
@@ -47,7 +47,7 @@ export const Register = () => {
         onPress={() => setHidePassword(prevState => !prevState)}
         onChangeText={value => {
           Store.dispatch(setPassword(value));
-          Store.dispatch(setNewPassword(valor));
+          Store.dispatch(setNewPassword(value));
         }}
       />
 
