@@ -7,5 +7,6 @@ export const CurrentProfile = () => {
   Store.dispatch(setEmail(auth().currentUser.email));
   auth().currentUser.providerData.map(obj => {
     Store.dispatch(setProvider(obj.providerId));
+
   });
 };

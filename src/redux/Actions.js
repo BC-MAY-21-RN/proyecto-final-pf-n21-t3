@@ -2,11 +2,18 @@ export const SET_NAME = 'SET_NAME';
 export const SET_EMAIL = 'SET_EMAIL';
 export const SET_TOKEN = 'SET_TOKEN';
 export const SET_PASSWORD = 'SET_PASSWORD';
+
 export const SET_NEWPASSWORD = 'SET_NEWPASSWORD';
 export const SET_PROVIDER = 'SET_PROVIDER';
 export const SET_NEWEMAIL = 'SET_NEWEMAIL'
 
 export const setName = name => ({
+
+export const SET_INFO = 'SET_INFO';
+export const SET_TOPLIST = 'SET_TOPLIST'
+
+export const setName = (name) => ({
+
   type: SET_NAME,
   payload: name,
 });
@@ -23,6 +30,7 @@ export const setPassword = password => ({
   payload: password,
 });
 
+
 export const setNewPassword = newPassowrd => ({
   type: SET_NEWPASSWORD,
   payload: newPassowrd,
@@ -36,4 +44,14 @@ export const setNewEmail = newEmail => ({
 export const setProvider = provider => ({
   type: SET_PROVIDER,
   payload: provider
+
+export const setinfo = (info) => ({
+  type: SET_INFO,
+  payload: info,
+});
+
+export const setTopList = (topList) => ({
+  type: SET_TOPLIST,
+  payload: topList
+
 })

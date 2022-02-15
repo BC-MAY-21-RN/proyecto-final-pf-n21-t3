@@ -1,3 +1,4 @@
+
 import {
   SET_NAME,
   SET_EMAIL,
@@ -5,7 +6,9 @@ import {
   SET_PASSWORD,
   SET_NEWPASSWORD,
   SET_PROVIDER,
-  SET_NEWEMAIL
+  SET_NEWEMAIL, 
+  SET_INFO, 
+  SET_TOPLIST
 } from './Actions';
 
 const initialState = {
@@ -15,8 +18,11 @@ const initialState = {
   token: '',
   provider: '',
   newPassword: '',
-  newEmail: ''
+  newEmail: '',
+  info:'',
+  topList: ''
 };
+
 
 function userData(state = initialState, action) {
   switch (action.type) {
@@ -27,6 +33,7 @@ function userData(state = initialState, action) {
     case SET_TOKEN:
       return {...state, token: action.payload};
     case SET_PASSWORD:
+
       return {...state, password: action.payload};
     case SET_NEWPASSWORD:
       return {...state, newPassword: action.payload};
@@ -34,6 +41,13 @@ function userData(state = initialState, action) {
       return {...state, provider: action.payload};
     case SET_NEWEMAIL:
       return {...state, newEmail: action.payload}
+
+      return {...state, password: action.payload}
+    case SET_INFO:
+      return {...state, info: action.payload}
+    case SET_TOPLIST:
+      return{...state, topList: action.payload}
+
     default:
       return state;
   }
