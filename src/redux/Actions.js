@@ -3,7 +3,7 @@ export const SET_EMAIL = 'SET_EMAIL';
 export const SET_TOKEN = 'SET_TOKEN';
 export const SET_PASSWORD = 'SET_PASSWORD';
 export const SET_INFO = 'SET_INFO';
-
+export const SET_TOPLIST = 'SET_TOPLIST'
 
 export const setName = (name) => ({
   type: SET_NAME,
@@ -25,3 +25,8 @@ export const setinfo = (info) => ({
   type: SET_INFO,
   payload: info,
 });
+
+export const setTopList = (topList) => ({
+  type: SET_TOPLIST,
+  payload: topList
+})
