@@ -31,13 +31,11 @@ export const Login = () => {
     <Container>
       <Boton
         onPress={async () => {
-          console.log('cargando categorias.....')
           await getCategories(
             Store.getState().token,
             'https://api.spotify.com/v1/browse/categories',
           )
             .then(() => {
-              console.log('cargando top list...')
               getToplist(
                 Store.getState().token,
                 'https://api.spotify.com/v1/playlists/37i9dQZEVXbO3qyFxbkOE1/tracks?offset=0&limit=3',
@@ -46,7 +44,7 @@ export const Login = () => {
             .finally(()=>{
               setTimeout(function () {
                 navigation.navigate('Main');
-              }, 5000);
+              }, 1000);
             })
             .catch(err => {
               console.log(err);
