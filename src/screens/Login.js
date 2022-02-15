@@ -3,14 +3,10 @@ import {Container, Boton, Logo, Texto} from '../assets/styled.js';
 import {useNavigation} from '@react-navigation/native';
 import {OR, InputLog, logInUser} from '../components/index';
 import {Store} from '../redux/Store';
-import {setEmail, setPassword} from '../redux/Actions.js';
+import {setEmail, setinfo, setPassword, setToken} from '../redux/Actions.js';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
-import { getTracks  } from '../assets/spotify/spotify_token.js';
-
-
- 
-
+import {getToken, getCategories, getToplist} from '../assets/spotify/spotify_token.js';
 
 export const Login = () => {
   const navigation = useNavigation();
@@ -25,12 +21,38 @@ export const Login = () => {
           index: 0,
           routes: [{name: 'Main'}],
         });
-    }});
+      }
+      getToken().catch(e => console.log('first', e));
+    });
     return subscribe;
   }, []);
 
   return (
     <Container>
+      <Boton
+        onPress={async () => {
+          await getCategories(
+            Store.getState().token,
+            'https://api.spotify.com/v1/browse/categories',
+          )
+            .then(() => {
+              getToplist(
+                Store.getState().token,
+                'https://api.spotify.com/v1/playlists/37i9dQZEVXbO3qyFxbkOE1/tracks?offset=0&limit=3',
+              )
+            })
+            .finally(()=>{
+              setTimeout(function () {
+                navigation.navigate('Main');
+              }, 1000);
+            })
+            .catch(err => {
+              console.log(err);
+            });
+        }}>
+        <Texto style={{color: 'black'}}>Ir a home</Texto>
+      </Boton>
+
       <Logo />
 
       <InputLog
@@ -41,7 +63,7 @@ export const Login = () => {
           Store.dispatch(setEmail(valor));
         }}
       />
-      
+
       <InputLog
         placeholderAdj={'Contraseña'}
         name={'lock'}
@@ -50,9 +72,7 @@ export const Login = () => {
         onPress={valor => {
           setHidePassword(!hidePassword);
         }}
-        onChangeText={value => {
-          
-        }}
+        onChangeText={value => {}}
       />
 
       <Boton
@@ -75,3 +95,19 @@ export const Login = () => {
     </Container>
   );
 };
+/**
+ *  <Boton
+        onPress={async () => {
+          await getToken()
+            .then(
+              getCategories(
+                Store.getState().token,
+                'https://api.spotify.com/v1/browse/categories',
+              ),
+            )
+            .then(() => navigation.navigate('Main'))
+            .catch(err => {
+              console.log(err);
+            });
+        }}>
+ */
