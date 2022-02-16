@@ -1,14 +1,15 @@
 import React from 'react';
 import {CardInfo} from './CardInfo';
-import {Musica} from '../../assets/PrubaArtist.json';
+//import {Musica} from '../../assets/PrubaArtist.json';
 import {ContCard} from './Styled';
+import { Store } from '../../redux/Store';
 
 export const CardList = (props) => {
   
-  const renderPlace = Musica?.map((Musica, index) => {
+  const renderPlace = Store.getState().topList?.map((Musica, index) => {
     return (
       
-      <CardInfo key={`ranking-${index}`} data={Musica}/>
+      <CardInfo key={index} indice={index} data={Musica}/>
     )
   
   })

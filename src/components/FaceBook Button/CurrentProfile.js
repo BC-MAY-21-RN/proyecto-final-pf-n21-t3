@@ -1,18 +1,12 @@
-import {Profile} from 'react-native-fbsdk-next';
 import {Store} from '../../redux/Store';
-import {setName, setEmail, setToken} from '../../redux/Actions';
+import {setName, setEmail, setProvider} from '../../redux/Actions';
+import auth from '@react-native-firebase/auth';
 
-export const CurrentProfile = Profile.getCurrentProfile()
-  .then(function (CurrentProfile) {
-    if (CurrentProfile) {
-      Store.dispatch(
-        setName(` ${CurrentProfile.firstName} ${CurrentProfile.lastName} `),
-      );
-      Store.dispatch(setEmail(CurrentProfile.email));
-      Store.dispatch(setToken(CurrentProfile.userID));
-    }
-  })
-  .catch(error => {
-    console.log(error);
-    throw error;
+export const CurrentProfile = () => {
+  Store.dispatch(setName(auth().currentUser.displayName));
+  Store.dispatch(setEmail(auth().currentUser.email));
+  auth().currentUser.providerData.map(obj => {
+    Store.dispatch(setProvider(obj.providerId));
+
   });
+};

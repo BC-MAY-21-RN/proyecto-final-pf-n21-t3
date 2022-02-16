@@ -4,7 +4,13 @@ import {useNavigation} from '@react-navigation/native';
 import {CheckBoxWithLabel, InputLog, createUser} from '../components/index';
 import {Textstar} from '../components/FormInput/Styled';
 import {Store} from '../redux/Store.js';
-import {setEmail, setName, setPassword} from '../redux/Actions.js';
+import {
+  setEmail,
+  setName,
+  setPassword,
+  setNewPassword,
+  setNewEmail,
+} from '../redux/Actions.js';
 
 export const Register = () => {
   const navigation = useNavigation();
@@ -28,16 +34,20 @@ export const Register = () => {
         placeholderAdj={'Correo Electrónico'}
         name={'at'}
         value={setMail}
-        onChangeText={valor => Store.dispatch(setEmail(valor))}
+        onChangeText={
+          (valor => {Store.dispatch(setEmail(valor)),
+          Store.dispatch(setNewEmail(valor))})
+        }
       />
       <InputLog
         placeholderAdj={'Contraseña'}
         secureTextEntry={hidePassword}
         name={'lock'}
         value={setPswrd}
-        onPress={() => setHidePassword(!hidePassword)}
+        onPress={() => setHidePassword(prevState => !prevState)}
         onChangeText={value => {
           Store.dispatch(setPassword(value));
+          Store.dispatch(setNewPassword(value));
         }}
       />
 
@@ -46,6 +56,7 @@ export const Register = () => {
       <Boton
         onPress={() => {
           createUser({navigation});
+          navigation.navigate('Main');
         }}>
         <Texto style={{color: 'black'}}>Registarse</Texto>
       </Boton>
@@ -55,9 +66,7 @@ export const Register = () => {
         <Textstar
           Color={'#FFF064'}
           style={{textDecorationLine: 'underline'}}
-          onPress={() => {
-            navigation.navigate('Login');
-          }}>
+          onPress={() => {navigation.navigate('login')}}>
           {' '}
           INICIAR SESION
         </Textstar>

@@ -1,11 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Boton, Logo, Texto} from '../assets/styled.js';
 import {useNavigation} from '@react-navigation/native';
-import {OR, InputLog, logInUser} from '../components/index';
+import {OR, InputLog, logInUser, CurrentProfile} from '../components/index';
 import {Store} from '../redux/Store';
-import {setEmail, setPassword} from '../redux/Actions.js';
+import {
+  setEmail,
+  setNewPassword,
+  setPassword,
+  setNewEmail,
+} from '../redux/Actions';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
+import {getToken} from '../spotify/spotify_token';
+import {loadData} from '../spotify/loadData';
 
 export const Login = () => {
   const navigation = useNavigation();
@@ -20,7 +27,11 @@ export const Login = () => {
           index: 0,
           routes: [{name: 'Main'}],
         });
-    }});
+        CurrentProfile();
+      }
+    });
+    getToken().catch(e => console.log('ERROR DE TOKEN', e));
+
     return subscribe;
   }, []);
 
@@ -34,24 +45,28 @@ export const Login = () => {
         value={setMail}
         onChangeText={valor => {
           Store.dispatch(setEmail(valor));
+          Store.dispatch(setNewEmail(valor));
         }}
       />
+
       <InputLog
         placeholderAdj={'Contraseña'}
         name={'lock'}
         value={setPswrd}
         secureTextEntry={hidePassword}
-        onPress={valor => {
-          setHidePassword(!hidePassword);
+        onPress={() => {
+          setHidePassword(prevState => !prevState);
         }}
-        onChangeText={value => {
-          Store.dispatch(setPassword(value));
+        onChangeText={valor => {
+          Store.dispatch(setPassword(valor));
+          Store.dispatch(setNewPassword(valor));
         }}
       />
 
       <Boton
         onPress={() => {
           logInUser();
+          loadData();
         }}>
         <Texto style={{color: 'black'}}>INICIAR SESION</Texto>
       </Boton>
