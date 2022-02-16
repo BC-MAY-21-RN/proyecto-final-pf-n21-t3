@@ -2,8 +2,8 @@ import React from 'react';
 import {View} from 'react-native';
 import {LoginButton, AccessToken} from 'react-native-fbsdk-next';
 import {useNavigation} from '@react-navigation/native';
-import {CurrentProfile} from './CurrentProfile';
 import auth from '@react-native-firebase/auth';
+import { loadData } from '../../spotify/loadData';
 
 export function LogInButton() {
   const navigation = useNavigation();
@@ -19,7 +19,8 @@ export function LogInButton() {
           } else {
             AccessToken.getCurrentAccessToken()
               .then(data => {
-                auth().signInWithCredential(auth.FacebookAuthProvider.credential(data.accessToken));
+                auth().signInWithCredential(auth.FacebookAuthProvider.credential(data.accessToken))
+                loadData()
               })
               .catch(error => {
                 console.log(error);

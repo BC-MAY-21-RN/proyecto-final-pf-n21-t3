@@ -33,21 +33,17 @@ function userData(state = initialState, action) {
     case SET_TOKEN:
       return {...state, token: action.payload};
     case SET_PASSWORD:
-
-      return {...state, password: action.payload};
+      return {...state, password: action.payload}
     case SET_NEWPASSWORD:
       return {...state, newPassword: action.payload};
     case SET_PROVIDER:
       return {...state, provider: action.payload};
     case SET_NEWEMAIL:
       return {...state, newEmail: action.payload}
-
-      return {...state, password: action.payload}
     case SET_INFO:
       return {...state, info: action.payload}
     case SET_TOPLIST:
       return{...state, topList: action.payload}
-
     default:
       return state;
   }

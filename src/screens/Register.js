@@ -66,7 +66,7 @@ export const Register = () => {
         <Textstar
           Color={'#FFF064'}
           style={{textDecorationLine: 'underline'}}
-          onPress={() => {}}>
+          onPress={() => {navigation.navigate('login')}}>
           {' '}
           INICIAR SESION
         </Textstar>
