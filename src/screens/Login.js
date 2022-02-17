@@ -37,6 +37,14 @@ export const Login = () => {
 
   return (
     <Container>
+      <Boton
+        BackColor={'#4B367C'}
+        BColor={'#FFFFFF'}
+        onPress={() => {
+          navigation.navigate('Tracks');
+        }}>
+        <Texto style={{color: 'white'}}>Tracks</Texto>
+      </Boton>
       <Logo />
 
       <InputLog
@@ -48,7 +56,6 @@ export const Login = () => {
           Store.dispatch(setNewEmail(valor));
         }}
       />
-
       <InputLog
         placeholderAdj={'Contraseña'}
         name={'lock'}

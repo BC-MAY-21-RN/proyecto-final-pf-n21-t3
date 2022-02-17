@@ -12,6 +12,20 @@ export const CardContainer = styled.View`
   border-radius: 18px;
   margin-bottom: 5px
   `;
+
+export const CardContainers = styled.View`
+  flex-direction: row;
+  border: 1px solid black;
+  height: 80px;
+  padding: 10px 10px 10px 10px;
+  width: 100%;
+  margin: 5px 0px 5px 0px;
+  background-color: ${props => props.BackColor || '#C8A6FF'}
+  border-radius: 18px;
+  margin-bottom: 5px
+  `;
+
+
 export const SafeCard = styled(SafeAreaView)`
   flex: 1;
   flex-direction: row;
@@ -44,6 +58,13 @@ height: 100%;
 margin: 2px; 
 border-radius: 12px;
 `
+export const TrackImages = styled.Image`
+width: 25%;
+height: 40%;
+margin: 2px; 
+border-radius: 12px;
+`
+
 export const ContCard = styled.View`
 align-items: center;
 background: #FFF064;

@@ -15,3 +15,4 @@ export {Cardpholi} from './CardInfo/cardpholi';
 export {resetPassword} from './Firebase/resetPassword';
 export {changeEmail} from './Firebase/changeEmail';
 export {CurrentProfile} from './FaceBook Button/CurrentProfile';
+export {TrackList} from './Tracks/TrackList';
