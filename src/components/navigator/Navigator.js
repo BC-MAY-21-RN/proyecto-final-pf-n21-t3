@@ -1,5 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { Login, Register, Liked, Tracks} from '../../screens/index';
 import { Login, Register, Liked, PlayList} from '../../screens/index';
 import TabNavigator from './TabNavigator'
 
@@ -11,6 +12,7 @@ const Navigator = () => {
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Main" component={TabNavigator}/>
       <Stack.Screen name="Liked" component={Liked}/>
+      <Stack.Screen name="Tracks" component={Tracks}/>
       <Stack.Screen name="PlayList" component={PlayList}/>
     </Stack.Navigator>
   );
