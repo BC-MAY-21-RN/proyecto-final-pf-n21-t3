@@ -15,7 +15,11 @@ export const TrackInfo = ({data}) => {
     <CardContainers>
       <SafeCard>
         <TrackImage source={{uri: data.album}} />
+<<<<<<< HEAD
         <TrackTitle font-size={'10px'}>
+=======
+        <TrackTitle>
+>>>>>>> fb73b30cd9eadc0b154416eb28425ac7f5800ecf
           {data.Titulo} - {data.Artista}{' '}
         </TrackTitle>
         <ViewIcon>
