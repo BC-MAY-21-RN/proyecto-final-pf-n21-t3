@@ -37,7 +37,7 @@ export const SafeCard = styled(SafeAreaView)`
   
   export const TrackTitle = styled.Text`
   text-align: ${props => props.TextPosition  || 'left'};
-  font-size: ${props => props.TextSize || '22px'};
+  font-size: ${props => props.TextSize || '18px'};
   color: ${props => props.TextColor || '#3C1A89'};
   width: ${props => props.Wdth || '50%'};
   font-family: "BebasNeue-Regular"  
@@ -80,7 +80,7 @@ export const ContCards = styled.View`
 align-items: center;
 background: #FFF064;
 border-radius: 18px; 
-padding: 5px;
+padding: ${props => props.P || '0px 5px 0px 5px'};
 border: solid 2px black;
 width: 100%;
 height: 650px;
@@ -102,5 +102,7 @@ export const InpCon = styled.View`
   padding: 0px 10px 0px 10px;
   margin: 0% 0% 7% 0%;
 `;
+
+
 
 

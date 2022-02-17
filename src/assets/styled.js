@@ -51,3 +51,10 @@ flex-direction: row;
 justify-content: space-between;
 width: 80%;
 `
+export const Trak = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  space-between: 40px;
+  padding: 0% 10% 0% 5%;
+`;
