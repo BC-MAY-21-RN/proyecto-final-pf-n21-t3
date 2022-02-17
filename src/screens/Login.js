@@ -54,7 +54,6 @@ export const Login = () => {
           Store.dispatch(setNewEmail(valor));
         }}
       />
-
       <InputLog
         placeholderAdj={'Contraseña'}
         name={'lock'}

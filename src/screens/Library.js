@@ -10,6 +10,8 @@ export const Library = () => {
     <Container>
       <Text style={{color: 'black'}}>Estoy en LIBRARY</Text>
       <Button onPress={() => navigation.navigate('Liked')} title='Ir a Liked'/>
+      <Button onPress={() => navigation.navigate('Tracks')} title='Ir a Tracks'/>
     </Container>
   );
 };
+

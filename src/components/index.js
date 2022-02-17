@@ -1,4 +1,5 @@
 export {Title} from './Title/Title';
+export {ListPlay} from './PlayInfo/Play_list'
 export {InputLog} from './FormInput/InputLog';
 export {CardInfo} from './CardInfo/CardInfo';
 export {CheckBoxWithLabel} from './FormInput/Checkbox';
@@ -15,3 +16,4 @@ export {Cardpholi} from './CardInfo/cardpholi';
 export {resetPassword} from './Firebase/resetPassword';
 export {changeEmail} from './Firebase/changeEmail';
 export {CurrentProfile} from './FaceBook Button/CurrentProfile';
+export {TrackList} from './Tracks/TrackList';
