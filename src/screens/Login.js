@@ -1,7 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Boton, Logo, Texto} from '../assets/styled.js';
 import {useNavigation} from '@react-navigation/native';
-import {OR, InputLog, logInUser, CurrentProfile} from '../components/index';
+import {
+  OR,
+  InputLog,
+  logInUser,
+  CurrentProfile,
+  getData,
+} from '../components/index';
 import {Store} from '../redux/Store';
 import {
   setEmail,
@@ -44,7 +50,7 @@ export const Login = () => {
         name={'at'}
         value={setMail}
         onChangeText={valor => {
-          Store.dispatch(setEmail(valor));
+          setMail(valor);
           Store.dispatch(setNewEmail(valor));
         }}
       />
@@ -58,14 +64,14 @@ export const Login = () => {
           setHidePassword(prevState => !prevState);
         }}
         onChangeText={valor => {
-          Store.dispatch(setPassword(valor));
+          setPswrd(valor);
           Store.dispatch(setNewPassword(valor));
         }}
       />
 
       <Boton
         onPress={() => {
-          logInUser();
+          logInUser({email,pswrd});
           loadData();
         }}>
         <Texto style={{color: 'black'}}>INICIAR SESION</Texto>

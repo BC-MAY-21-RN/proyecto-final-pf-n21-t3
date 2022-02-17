@@ -8,10 +8,12 @@ import {
   SET_PROVIDER,
   SET_NEWEMAIL, 
   SET_INFO, 
-  SET_TOPLIST
+  SET_TOPLIST,
+  SET_UID
 } from './Actions';
 
 const initialState = {
+  uid: '',
   name: '',
   email: '',
   password: '',
@@ -44,6 +46,8 @@ function userData(state = initialState, action) {
       return {...state, info: action.payload}
     case SET_TOPLIST:
       return{...state, topList: action.payload}
+    case SET_UID:
+      return{...state, uid: action.payload}
     default:
       return state;
   }
