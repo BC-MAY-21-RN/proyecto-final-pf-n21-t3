@@ -37,7 +37,7 @@ export const SafeCard = styled(SafeAreaView)`
   
   export const TrackTitle = styled.Text`
   text-align: ${props => props.TextPosition  || 'left'};
-  font-size: ${props => props.TextSize || '18px'};
+  font-size: ${props => props.TextSize || '22px'};
   color: ${props => props.TextColor || '#3C1A89'};
   width: ${props => props.Wdth || '50%'};
   font-family: "BebasNeue-Regular"  
