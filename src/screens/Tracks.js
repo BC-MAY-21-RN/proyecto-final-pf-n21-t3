@@ -13,8 +13,8 @@ export const Tracks = () =>  {
   return (
     <Container  Padd={'0%'}>
         <ScrlVw> 
-        <Title Titulo={'Liked Songs'}/>
-        <Ionicons name={like?'heart-circle':'heart-circle-outline'}  onPress={() => setLike(!like)} color={like?'red':'black'}  size={45}/>
+        <Title Titulo={'Pa Llorar'}/>
+        <Ionicons  style  ={{justifyContent: 'center',alignItems: 'center'}} name={like?'heart-circle':'heart-circle-outline'}  onPress={() => setLike(!like)} color={like?'red':'black'}  size={45}/>
         <Ionicons name={play?'pause-circle-outline':'play-circle'}  onPress={() => setPlay(!play)} color={play?'black':'white'}  size={85}/>
         <Ionicons name={list?'repeat': 'repeat-outline' } onPress={() => setList(!list)} color={list?'purple':'black'}  size={45}/> 
         <TrackList />
