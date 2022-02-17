@@ -1,7 +1,7 @@
 import auth from '@react-native-firebase/auth';
 import {Alert} from 'react-native';
 import {Store} from '../../redux/Store';
-import {setName, setPassword, setEmail, setToken} from '../../redux/Actions';
+import {setName, setPassword, setEmail, setToken, setUID} from '../../redux/Actions';
 
 export function signOut({navigation}) {
   auth()
@@ -17,5 +17,6 @@ export function signOut({navigation}) {
       Store.dispatch(setName(''));
       Store.dispatch(setPassword(''));
       Store.dispatch(setToken(''));
+      Store.dispatch(setUID(''))
     });
 }

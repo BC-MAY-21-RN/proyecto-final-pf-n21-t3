@@ -1,16 +1,23 @@
 import React, {useState} from 'react';
 import {Container, Boton, Logo, Texto} from '../assets/styled.js';
 import {useNavigation} from '@react-navigation/native';
-import {CheckBoxWithLabel, InputLog, createUser} from '../components/index';
+import {
+  CheckBoxWithLabel,
+  InputLog,
+  createUser,
+  uploadUserData,
+  getData,
+} from '../components/index';
 import {Textstar} from '../components/FormInput/Styled';
 import {Store} from '../redux/Store.js';
 import {
-  setEmail,
-  setName,
-  setPassword,
   setNewPassword,
   setNewEmail,
+  setName,
+  setEmail,
+  setPassword,
 } from '../redux/Actions.js';
+import {loadData} from '../spotify/loadData';
 
 export const Register = () => {
   const navigation = useNavigation();
@@ -28,16 +35,17 @@ export const Register = () => {
         placeholderAdj={'Nombre'}
         name={'user-alt'}
         value={setNombre}
-        onChangeText={valor => Store.dispatch(setName(valor))}
+        onChangeText={valor => {
+          setNombre(valor);
+        }}
       />
       <InputLog
         placeholderAdj={'Correo Electrónico'}
         name={'at'}
         value={setMail}
-        onChangeText={
-          (valor => {Store.dispatch(setEmail(valor)),
-          Store.dispatch(setNewEmail(valor))})
-        }
+        onChangeText={valor => {
+          setMail(valor), Store.dispatch(setNewEmail(valor));
+        }}
       />
       <InputLog
         placeholderAdj={'Contraseña'}
@@ -46,8 +54,7 @@ export const Register = () => {
         value={setPswrd}
         onPress={() => setHidePassword(prevState => !prevState)}
         onChangeText={value => {
-          Store.dispatch(setPassword(value));
-          Store.dispatch(setNewPassword(value));
+          setPswrd(value), Store.dispatch(setNewPassword(value));
         }}
       />
 
@@ -55,8 +62,8 @@ export const Register = () => {
 
       <Boton
         onPress={() => {
-          createUser({navigation});
-          navigation.navigate('Main');
+          loadData();
+          createUser({nombre, pswrd, email});
         }}>
         <Texto style={{color: 'black'}}>Registarse</Texto>
       </Boton>
@@ -66,7 +73,9 @@ export const Register = () => {
         <Textstar
           Color={'#FFF064'}
           style={{textDecorationLine: 'underline'}}
-          onPress={() => {navigation.navigate('login')}}>
+          onPress={() => {
+            navigation.navigate('Login');
+          }}>
           {' '}
           INICIAR SESION
         </Textstar>
