@@ -1,3 +1,4 @@
+export { PlayList } from './PlayList'
 export {Home} from './Home'
 export {Library} from './Library'
 export {Profile} from './Profile'
