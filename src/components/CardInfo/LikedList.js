@@ -2,7 +2,7 @@ import React from 'react';
 import {LikedInfo} from './LikedInfo';
 import { ScrlVw } from '../../assets/styled';
 import {Musica} from '../../assets/PrubaArtist.json';
-import {ContCards, ContCard} from './Styled';
+import {ContCard} from './Styled';
 
 export const LikedList = (props) => {
   

@@ -28,13 +28,13 @@ export const Profile = () => {
           <Boton
             Width={'45%'}
             onPress={() => {
-              if (Store.getState().password != Store.getState().newPassword) {
+              if (Store.getState().userData.password != Store.getState().userData.newPassword) {
                 resetPassword();
-                Store.dispatch(setPassword(Store.getState().newPassword));
+                Store.dispatch(setPassword(Store.getState().userData.newPassword));
               }
-              if (Store.getState().email != Store.getState().newEmail) {
+              if (Store.getState().userData.email != Store.getState().userData.newEmail) {
                 changeEmail();
-                Store.dispatch(setEmail(Store.getState().newEmail));
+                Store.dispatch(setEmail(Store.getState().userData.newEmail));
               } else {
                 setEnInput(!EnInput);
               }
@@ -46,7 +46,7 @@ export const Profile = () => {
         <Boton
           Width={'45%'}
           onPress={() => {
-            Store.getState().provider.includes('facebook')
+            Store.getState().userData.provider.includes('facebook')
               ? signOutFB({navigation})
               : signOut({navigation});
           }}>

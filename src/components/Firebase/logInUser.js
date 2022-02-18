@@ -19,7 +19,7 @@ export async function logInUser({email, pswrd}) {
     .get()
     .then(querySnapShot => {
       querySnapShot.forEach(usuarios => {
-        if (Store.getState().uid == usuarios.data().id) {
+        if (Store.getState().userData.uid == usuarios.data().id) {
           Store.dispatch(setName(usuarios.data().name));
           Store.dispatch(setEmail(usuarios.data().email));
           Store.dispatch(setPassword(usuarios.data().password));
@@ -29,13 +29,13 @@ export async function logInUser({email, pswrd}) {
     })
     .catch(error => {
       if (error.code === 'auth/email-already-in-use') {
-        Alert.alert(`${Store.getState().email} está en uso`);
+        Alert.alert(`${Store.getState().userData.email} está en uso`);
       }
       if (error.code === 'auth/invalid-email') {
-        Alert.alert(`${Store.getState().email} invalido, revisalo nuevamente`);
+        Alert.alert(`${Store.getState().userData.email} invalido, revisalo nuevamente`);
       }
       if (error.code === 'auth/user-not-found') {
-        Alert.alert(`${Store.getState().email} no está registrado`);
+        Alert.alert(`${Store.getState().userData.email} no está registrado`);
       }
       if (error.code === 'auth/wrong-password') {
         Alert.alert('La contraseña es incorrecta');

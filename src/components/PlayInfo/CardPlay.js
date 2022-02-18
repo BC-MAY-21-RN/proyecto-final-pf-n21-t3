@@ -4,22 +4,25 @@ import {
   TrackTitle,
   TrackImage,
   ViewIcon,
-  SafeCard
+  SafeCard,
 } from '../CardInfo/Styled';
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export const CardPlay = ({data, indice}) => {
   const [like, setLike] = useState(false);
   return (
     <CardContainer key={indice}>
-      <SafeCard >
-        <TrackImage source={{uri: data.album}} />
-        <TrackTitle Wdth={'60%'}>
-          {' '}{data.Titulo} 
-        </TrackTitle>
+      <SafeCard>
+        <TrackImage source={{uri: data.images[0].url}} />
+        <TrackTitle Wdth={'60%'}> {data.name}</TrackTitle>
         <ViewIcon>
-          <Ionicons name={like?'heart-circle':'heart-circle-outline'}  onPress={() => setLike(!like)} color={like?'red':'black'}  size={45}/>
-          <Ionicons name={'add-circle-outline'} color={'black'} size={45}/> 
+          <Ionicons
+            name={like ? 'heart-circle' : 'heart-circle-outline'}
+            onPress={() => setLike(!like)}
+            color={like ? 'red' : 'black'}
+            size={45}
+          />
+          <Ionicons name={'add-circle-outline'} color={'black'} size={45} />
         </ViewIcon>
       </SafeCard>
     </CardContainer>

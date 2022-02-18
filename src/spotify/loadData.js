@@ -3,12 +3,12 @@ import {Store} from '../redux/Store';
 
 export async function loadData() {
     await getCategories(
-        Store.getState().token,
+        Store.getState().spotifyData.token,
         'https://api.spotify.com/v1/browse/categories',
         )
         .then(() => {
             getToplist(
-                Store.getState().token,
+                Store.getState().spotifyData.token,
                 'https://api.spotify.com/v1/playlists/37i9dQZEVXbO3qyFxbkOE1/tracks?offset=0&limit=3',
                 )
                 return;

@@ -6,7 +6,7 @@ import { Store } from '../../redux/Store';
 
 export const CardList = (props) => {
   
-  const renderPlace = Store.getState().topList?.map((Musica, index) => {
+  const renderPlace = Store.getState().spotifyData.topList?.map((Musica, index) => {
     return (
       
       <CardInfo key={index} indice={index} data={Musica}/>
