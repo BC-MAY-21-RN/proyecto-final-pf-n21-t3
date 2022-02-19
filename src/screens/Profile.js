@@ -22,7 +22,7 @@ export const Profile = () => {
       <Title Titulo={'Perfil'} />
       <Cardpholi enInput={EnInput} />
       <Horizontal>
-        {Store.getState().provider.includes('facebook') ? (
+        {Store.getState().userData.provider.includes('facebook') ? (
           <></>
         ) : (
           <Boton

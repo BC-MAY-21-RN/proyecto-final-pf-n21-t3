@@ -1,9 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Profile, Library} from '../../screens/index';
+import {PlayList,Home} from '../../screens/index';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
+import { ProfileScreens, LibraryScreens, HomeScreens } from './index';
 const Tab = createBottomTabNavigator();
 
 function TabNavigator() {
@@ -11,7 +11,6 @@ function TabNavigator() {
   return (
     <>
       <Tab.Navigator
-        initialRouteName="Home"
         screenOptions={{
           headerShown: false,
           tabBarInactiveBackgroundColor: '#FFF064',
@@ -19,7 +18,7 @@ function TabNavigator() {
         }}>
         <Tab.Screen
           name="Home"
-          component={Home}
+          component={HomeScreens}
           options={{
             tabBarIcon: ({size, color, focused}) => {
               focused ? (color = '#45366D') : (color = 'black');
@@ -30,7 +29,7 @@ function TabNavigator() {
 
         <Tab.Screen
           name="My Library"
-          component={Library}
+          component={LibraryScreens}
           options={{
             tabBarIcon: ({size, color, focused}) => {
               focused ? (color = '#45366D') : (color = 'black');
@@ -41,8 +40,8 @@ function TabNavigator() {
           }}
         />
         <Tab.Screen
-          name="Profile"
-          component={Profile}
+          name="My Profile"
+          component={ProfileScreens}
           options={{
             tabBarIcon: ({size, color, focused}) => {
               focused ? (color = '#45366D') : (color = 'black');

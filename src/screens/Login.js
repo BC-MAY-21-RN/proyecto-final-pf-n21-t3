@@ -19,7 +19,6 @@ import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
 import {getToken} from '../spotify/spotify_token';
 import {loadData} from '../spotify/loadData';
-import { Button } from 'react-native';
 
 export const Login = () => {
   const navigation = useNavigation();
