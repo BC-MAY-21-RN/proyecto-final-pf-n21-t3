@@ -13,7 +13,7 @@ export const LikedInfo = ({data}) => {
   const [list, setList] = useState(false);
   return (
     <CardContainer>
-      <SafeCard >
+      <SafeCard>
         <TrackImage source={{uri: data.album}} />
         <TrackTitle Wdth={'60%'}>
           {data.Titulo} - {data.Artista}{' '}

@@ -9,8 +9,9 @@ export const Library = () => {
   return (
     <Container>
       <Text style={{color: 'black'}}>Estoy en LIBRARY</Text>
-      <Button onPress={() => navigation.navigate('Liked')} title='Ir a Liked'/>
       <Button onPress={() => navigation.navigate('Tracks')} title='Ir a Tracks'/>
+      <Button onPress={() => navigation.navigate('Liked')} title='Ir a Liked'/>
+      <Button onPress={() => navigation.navigate('PlayList')} title='Ir a playlist'/>
     </Container>
   );
 };

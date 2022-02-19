@@ -8,6 +8,7 @@ export const SET_NEWEMAIL = 'SET_NEWEMAIL';
 export const SET_INFO = 'SET_INFO';
 export const SET_TOPLIST = 'SET_TOPLIST';
 export const SET_UID = 'SET_UID';
+export const SET_PLAYLISTS = 'SET_PLAYLISTS'
 
 export const setName = name => ({
   type: SET_NAME,
@@ -55,3 +56,8 @@ export const setUID = uid => ({
   type: SET_UID,
   payload: uid,
 });
+
+export const setPlaylists = playlists => ({
+  type: SET_PLAYLISTS,
+  payload: playlists
+})

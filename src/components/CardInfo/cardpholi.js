@@ -18,9 +18,9 @@ export const Cardpholi = ({enInput}) => {
           <InputLog
             readOnly={enInput}
             placeholderAdj={
-              Store.getState().provider.includes('facebook')
+              Store.getState().userData.provider.includes('facebook')
                 ? 'Email vinculado a FaceBook'
-                : Store.getState().email
+                : Store.getState().userData.email
             }
             onChangeText={valor => {
               Store.dispatch(setNewEmail(valor));
@@ -31,7 +31,7 @@ export const Cardpholi = ({enInput}) => {
           />
           <InputLog
             readOnly={enInput}
-            placeholderAdj={Store.getState().name}
+            placeholderAdj={Store.getState().userData.name}
             style={{backgroundColor: '#C8A6FF'}}
             onChangeText={valor => {
               Store.dispatch(setName(valor));
@@ -40,9 +40,9 @@ export const Cardpholi = ({enInput}) => {
           <InputLog
             readOnly={enInput}
             placeholderAdj={
-              Store.getState().provider.includes('facebook')
+              Store.getState().userData.provider.includes('facebook')
                 ? 'Contraseña vinculada a FaceBook'
-                : Store.getState().password
+                : Store.getState().userData.password
             }
             style={{backgroundColor: '#C8A6FF'}}
             onChangeText={valor => {

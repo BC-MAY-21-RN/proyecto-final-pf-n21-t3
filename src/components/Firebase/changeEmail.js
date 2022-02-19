@@ -4,7 +4,7 @@ import {Store} from '../../redux/Store';
 
 export const changeEmail = () => {
   auth()
-    .currentUser.updateEmail(Store.getState().newEmail)
+    .currentUser.updateEmail(Store.getState().userData.newEmail)
     .then(() => {
       Alert.alert('Email cambiado');
     })

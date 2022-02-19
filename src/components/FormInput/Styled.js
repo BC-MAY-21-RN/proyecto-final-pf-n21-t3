@@ -15,15 +15,14 @@ export const InpCon = styled.View`
 `;
 
 export const Input = styled.TextInput.attrs(props => ({
-    placeholderTextColor: "#808080"
-  }))`
+  placeholderTextColor: '#808080',
+}))`
   padding-left: 10px;
   height: 55px;
   width: 100%;
-  font-size: ${props => props.size|| '18px'} ;
+  font-size: ${props => props.size || '18px'};
   color: black;
-  font-family: "CaviarDreams_Bold";
-
+  font-family: 'CaviarDreams_Bold';
 `;
 export const Textstar = styled.Text`
     color: ${props => props.Color || 'white'};
@@ -34,16 +33,14 @@ export const CBoxCon = styled.View`
   flex-direction: row;
   margin-top: 3px;
   align-items: center;
-  `;
+`;
 
 export const CheckText = styled.View`
- align-items: center;
- justify-content: space-between;  
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Image = styled.Image`
   height: 27px;
   width: 27px;
-  `;
-
-
+`;

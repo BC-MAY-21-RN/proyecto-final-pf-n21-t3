@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, TitleText, Logo } from './Styled'
+import {Container, TitleText, Logo} from './Styled';
 
 export const Title = ({Titulo}) => {
   return (
@@ -9,5 +9,3 @@ export const Title = ({Titulo}) => {
     </Container>
   );
 };
-
-
