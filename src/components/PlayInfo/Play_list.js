@@ -5,6 +5,7 @@ import {ContCard} from '../CardInfo/Styled';
 import {Store} from '../../redux/Store';
 
 export const ListPlay = props => {
+  //console.log(Store.getState().spotifyData.playlists)
   const renderPlace = Store.getState().spotifyData.playlists?.map(
     (playlist, index) => {
       return <CardPlay key={index} indice={index} data={playlist} />;

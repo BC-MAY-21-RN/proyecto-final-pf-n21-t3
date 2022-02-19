@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Store} from '../../redux/Store';
-import {TouchableOpacity, View} from 'react-native';
+import {Alert, TouchableOpacity, View} from 'react-native';
 import {CardContainer, TrackTitle, TrackImage, SafeCard} from './Styled';
 import {getPlayList} from '../../spotify/spotify_token';
 
@@ -11,17 +11,17 @@ export const CardGender = ({navigation}) => (
         key={id}
         activeOpacity={0.6}
         onPress={() => {
-          console.log(`${gender.href}/playlists`);
-          getPlayList(
-            Store.getState().spotifyData.token,
-            `${gender.href}/playlists`,
-          );
-
-          console.log(Store.getState().spotifyData.playlists.name);
-            setTimeout(function(){
-               navigation.navigate('PlayList', gender.name);
-            }, 2000)
-
+          if (
+            getPlayList(
+              Store.getState().spotifyData.token,
+              `${gender.href}/playlists`,
+              navigation,
+              gender.name,
+            )
+          ) {
+          } else {
+            Alert.alert('Playlist no disponible por el momento.');
+          }
         }}>
         <CardContainer BackColor={'#FFF064'}>
           <SafeCard>

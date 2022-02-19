@@ -13,7 +13,10 @@ export function Home() {
     <Container Padd={'0%'}>
       <ScrlVw>
         <Button title='Get categoria' onPress={()=>{
-          getPlayList(Store.getState().spotifyData.token, 'https://api.spotify.com/v1/browse/categories/toplists/playlists')
+          getPlayList(Store.getState().spotifyData.token, 'https://api.spotify.com/v1/browse/categories/regional_mexican')
+          setTimeout(function(){
+            console.log(Store.getState().spotifyData.playlists)
+          })
         }}/>
         <Title Titulo={'Bienvenido'} />
         <CardList />
