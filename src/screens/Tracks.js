@@ -26,12 +26,3 @@ export const Tracks = () =>  {
   );
 };
 
-// boton para ver la pantalla
-// [<Boton
-//         BackColor={'#4B367C'}
-//         BColor={'#FFFFFF'}
-//         onPress={() => {
-//           navigation.navigate('Tracks');
-//         }}>
-//         <Texto style={{color: 'white'}}>Tracks</Texto>
-// </Boton>]

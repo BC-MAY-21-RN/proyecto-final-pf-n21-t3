@@ -8,9 +8,10 @@ export const CardGender = ({navigation}) => (
   <View>
     {Store.getState().spotifyData.info?.map((gender, id) => (
       <TouchableOpacity
-        key={id}
-        activeOpacity={0.6}
-        onPress={() => {
+      key={id}
+      activeOpacity={0.6}
+      onPress={() => {
+          console.log(gender.href)
           if (
             getPlayList(
               Store.getState().spotifyData.token,
