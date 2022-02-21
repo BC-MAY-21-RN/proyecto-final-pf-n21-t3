@@ -4,18 +4,13 @@ import {useNavigation} from '@react-navigation/native';
 import {
   CheckBoxWithLabel,
   InputLog,
-  createUser,
-  uploadUserData,
-  getData,
+  createUser
 } from '../components/index';
 import {Textstar} from '../components/FormInput/Styled';
 import {Store} from '../redux/Store.js';
 import {
   setNewPassword,
   setNewEmail,
-  setName,
-  setEmail,
-  setPassword,
 } from '../redux/Actions.js';
 import {loadData} from '../spotify/loadData';
 
