@@ -6,7 +6,7 @@ import {
   signOut,
   signOutFB,
   Title,
-  Cardpholi,
+  Cardprofile,
   resetPassword,
   changeEmail,
 } from '../components/index';
@@ -20,7 +20,7 @@ export const Profile = () => {
   return (
     <Container>
       <Title Titulo={'Perfil'} />
-      <Cardpholi enInput={EnInput} />
+      <Cardprofile enInput={EnInput} />
       <Horizontal>
         {Store.getState().userData.provider.includes('facebook') ? (
           <></>
@@ -28,11 +28,19 @@ export const Profile = () => {
           <Boton
             Width={'45%'}
             onPress={() => {
-              if (Store.getState().userData.password != Store.getState().userData.newPassword) {
+              if (
+                Store.getState().userData.password !=
+                Store.getState().userData.newPassword
+              ) {
                 resetPassword();
-                Store.dispatch(setPassword(Store.getState().userData.newPassword));
+                Store.dispatch(
+                  setPassword(Store.getState().userData.newPassword),
+                );
               }
-              if (Store.getState().userData.email != Store.getState().userData.newEmail) {
+              if (
+                Store.getState().userData.email !=
+                Store.getState().userData.newEmail
+              ) {
                 changeEmail();
                 Store.dispatch(setEmail(Store.getState().userData.newEmail));
               } else {

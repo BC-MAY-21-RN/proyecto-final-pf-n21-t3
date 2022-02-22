@@ -5,7 +5,7 @@ import {InputLog} from '../index';
 import {Store} from '../../redux/Store';
 import {setName, setNewPassword, setNewEmail} from '../../redux/Actions';
 
-export const Cardpholi = ({enInput}) => {
+export const cardprofile = ({enInput}) => {
   return (
     <ContCard height={'250px'}>
       <SafeCard>

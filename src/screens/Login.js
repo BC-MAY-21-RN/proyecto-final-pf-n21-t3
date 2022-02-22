@@ -17,7 +17,11 @@ import {
 } from '../redux/Actions';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
-import {getToken, getDataSpotify, getSpotyDatos} from '../spotify/spotify_token';
+import {
+  getToken,
+  getDataSpotify,
+  getSpotyDatos,
+} from '../spotify/spotify_token';
 import {loadData} from '../spotify/loadData';
 
 export const Login = () => {
@@ -40,40 +44,22 @@ export const Login = () => {
 
     return subscribe;
   }, []);
-/**
- * Uris de prueba
- * url toplist 
- *  https://api.spotify.com/v1/playlists/37i9dQZEVXbO3qyFxbkOE1/tracks?offset=0&limit=3 
- *  prefix: false
- * 
- * url categories
- *  https://api.spotify.com/v1/browse/categories?country=US 
- *  prefix: categories
- * 
- * url playlist
- *  https://api.spotify.com/v1/browse/categories/toplists
- *  prefix: playlists
- */
+  /**
+   * Uris de prueba
+   * url toplist
+   *  https://api.spotify.com/v1/playlists/37i9dQZEVXbO3qyFxbkOE1/tracks?offset=0&limit=3
+   *  prefix: false
+   *
+   * url categories
+   *  https://api.spotify.com/v1/browse/categories?country=US
+   *  prefix: categories
+   *
+   * url playlist
+   *  https://api.spotify.com/v1/browse/categories/toplists
+   *  prefix: playlists
+   */
   return (
     <Container>
-      <Boton
-        onPress={() => {
-          getDataSpotify(Store.getState().spotifyData.token, 
-            'https://api.spotify.com/v1/browse/categories?country=US', 
-            'categories')
-            .then(trackresponse =>{
-             return trackresponse;
-           }).catch(e => console.log(e))
-
-           /*
-          loadData();
-          *setTimeout(function(){
-            navigation.navigate('Main');
-          }, 2000)*/
-        }}>
-        <Texto style={{color: 'black'}}>Regional Mexicano</Texto>
-      </Boton>
-
       <Logo />
 
       <InputLog
@@ -101,7 +87,7 @@ export const Login = () => {
 
       <Boton
         onPress={() => {
-          logInUser({email,pswrd});
+          logInUser({email, pswrd});
           loadData();
         }}>
         <Texto style={{color: 'black'}}>INICIAR SESION</Texto>

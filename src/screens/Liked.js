@@ -7,10 +7,12 @@ import {Title, LikedList} from '../components/index';
 export const Liked = () => {
   const navigation = useNavigation();
   return (
-    <Container Padd={'0%'}>
+    <Container Padd={'1%'}>
+      <ScrlVw> 
         <Button onPress={() => navigation.navigate('Main')} title="Ir a Main" />
         <Title Titulo={'Liked Songs'} />
         <LikedList />
+      </ScrlVw> 
     </Container>
   );
 };
