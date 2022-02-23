@@ -14,7 +14,7 @@ export function signOutFB({navigation}) {
           routes: [{name: 'Login'}],
         });
       });
-  LoginManager.logOut()
+  LoginManager.logOut();
   Store.dispatch(setEmail(''));
   Store.dispatch(setName(''));
   Store.dispatch(setPassword(''));

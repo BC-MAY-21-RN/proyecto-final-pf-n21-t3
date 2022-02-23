@@ -3,7 +3,6 @@ import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {Title, CardList, CardGender} from '../components/index';
 
-var t;
 export function Home() {
   const navigation = useNavigation();
 
@@ -13,7 +12,7 @@ export function Home() {
         <Title Titulo={'Bienvenido'} />
         <CardList />
         <Texto TextSize={'40px'}> Géneros</Texto>
-        <CardGender />
+        <CardGender navigation={navigation} />
       </ScrlVw>
     </Container>
   );

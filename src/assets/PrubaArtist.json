@@ -3,19 +3,42 @@
     {
       "id": 1,
       "album": "https://pbs.twimg.com/profile_images/1182728822636068865/4cDUWm_8_400x400.jpg",
-      "Titulo": "Disculpa los malos pensamiento",
+      "Titulo": "Calibre 50",
       "Artista": "PXNDA"
-    },
+    }
+    ,
     {
       "id": 2,
       "album": "https://m.media-amazon.com/images/I/71zh6VGUBgL._SS500_.jpg",
-      "Titulo": "Terriblemente cruel",
+      "Titulo": "La patrona ",
       "Artista": "LEIVA"
-    },
+    }
+    ,
+    {
+      "id": 7,
+      "album": "https://m.media-amazon.com/images/I/71zh6VGUBgL._SS500_.jpg",
+      "Titulo": "PlayList",
+      "Artista": "LEIVA"
+    }
+    ,
     {
       "id": 3,
       "album": "http://lasfrasesdecanciones.com/wp-content/uploads/2016/05/reik.jpg",
-      "Titulo": "Lluvia",
+      "Titulo": "Otra PlayList ",
+      "Artista": "REIK"
+    }
+    ,
+    {
+      "id": 4,
+      "album": "http://lasfrasesdecanciones.com/wp-content/uploads/2016/05/reik.jpg",
+      "Titulo": "Otra ",
+      "Artista": "REIK"
+    }
+    ,
+    {
+      "id": 5,
+      "album": "http://lasfrasesdecanciones.com/wp-content/uploads/2016/05/reik.jpg",
+      "Titulo": "Otra",
       "Artista": "REIK"
     }
   ],
@@ -40,5 +63,29 @@
       "album": "https://resources.tidal.com/images/86caf04b/f7ba/4b91/b04f/e7ae0120669b/640x640.jpg",
       "Nombre": "Pop en español"
     }
+    ,
+    {
+      "id": 5,
+      "album": "https://resources.tidal.com/images/86caf04b/f7ba/4b91/b04f/e7ae0120669b/640x640.jpg",
+      "Nombre": "Pop en español"
+    }
+    ,
+    {
+      "id": 6,
+      "album": "https://resources.tidal.com/images/86caf04b/f7ba/4b91/b04f/e7ae0120669b/640x640.jpg",
+      "Nombre": "Pop en español"
+    }
+    ,
+    {
+      "id": 7,
+      "album": "https://resources.tidal.com/images/86caf04b/f7ba/4b91/b04f/e7ae0120669b/640x640.jpg",
+      "Nombre": "Pop en español"
+    },
+    {
+      "id": 8,
+      "album": "https://resources.tidal.com/images/86caf04b/f7ba/4b91/b04f/e7ae0120669b/640x640.jpg",
+      "Nombre": "Pop en español"
+    }
   ]
 }
+

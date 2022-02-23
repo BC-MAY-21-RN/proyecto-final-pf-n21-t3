@@ -4,23 +4,23 @@ import {
   TrackTitle,
   TrackImage,
   ViewIcon,
-  SafeCard
+  SafeCard,
 } from './Styled';
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import { LikeButton, OptionListButton } from '../index';
 
 export const LikedInfo = ({data}) => {
   const [like, setLike] = useState(false);
-  const [list, setList] = useState(false);
- return (
+  return (
     <CardContainer>
       <SafeCard>
         <TrackImage source={{uri: data.album}} />
-        <TrackTitle>
+        <TrackTitle Wdth={'60%'}>
           {data.Titulo} - {data.Artista}{' '}
         </TrackTitle>
+          
         <ViewIcon>
-          <Ionicons name={like?'heart-circle':'heart-circle-outline'}  onPress={() => setLike(!like)} color={like?'red':'black'}  size={45}/>
-          <Ionicons name={list?'list-circle' :'list-circle-outline'} onPress={() => setList(!list)} color={list?'purple':'black'}  size={45}/> 
+          <LikeButton onPress={() => setLike(!like)} size={45} like={like}/>
+          <OptionListButton size={45}/>
         </ViewIcon>
       </SafeCard>
     </CardContainer>
