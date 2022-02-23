@@ -6,7 +6,7 @@ import {
   ViewIcon,
   SafeCard,
 } from '../CardInfo/Styled';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { LikeButton } from '../index';
 
 export const CardPlay = ({data, indice}) => {
   const [like, setLike] = useState(false);
@@ -16,13 +16,7 @@ export const CardPlay = ({data, indice}) => {
         <TrackImage source={{uri: data.images[0].url}} />
         <TrackTitle Wdth={'60%'}> {data.name}</TrackTitle>
         <ViewIcon>
-          <Ionicons
-            name={like ? 'heart-circle' : 'heart-circle-outline'}
-            onPress={() => setLike(!like)}
-            color={like ? 'red' : 'black'}
-            size={45}
-          />
-          <Ionicons name={'add-circle-outline'} color={'black'} size={45} />
+        <LikeButton onPress={() => setLike(!like)} size={45} like={like}/>
         </ViewIcon>
       </SafeCard>
     </CardContainer>
