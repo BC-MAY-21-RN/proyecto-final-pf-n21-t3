@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {ContCard, SafeCard, ViewIcon, InpCon} from './Styled';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {InputLog} from '../index';
 import {Store} from '../../redux/Store';
 import {setName, setNewPassword, setNewEmail} from '../../redux/Actions';
 
-export const Cardpholi = ({enInput}) => {
+export const Cardprofile = ({enInput}) => {
   return (
     <ContCard height={'250px'}>
       <SafeCard>

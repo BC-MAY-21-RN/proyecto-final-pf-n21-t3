@@ -1,13 +1,11 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {PlayList,Home} from '../../screens/index';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { ProfileScreens, LibraryScreens, HomeScreens } from './index';
+import {ProfileScreens, LibraryScreens, HomeScreens} from './index';
 const Tab = createBottomTabNavigator();
 
 function TabNavigator() {
-  //45366D
   return (
     <>
       <Tab.Navigator
@@ -26,7 +24,6 @@ function TabNavigator() {
             },
           }}
         />
-
         <Tab.Screen
           name="My Library"
           component={LibraryScreens}
@@ -53,5 +50,4 @@ function TabNavigator() {
     </>
   );
 }
-
 export default TabNavigator;

@@ -14,7 +14,7 @@ export function createUser({nombre, pswrd, email}) {
         .collection('Users')
         .add({
           email: email,
-          id: Store.getState().userDatad,
+          id: Store.getState().userData.uid,
           name: nombre,
           password: pswrd,
         })

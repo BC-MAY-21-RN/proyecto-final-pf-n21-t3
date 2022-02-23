@@ -92,14 +92,11 @@ export async function getPlayList(token, uri, navigation, titulo) {
       },
     })
       .then(trackresponse => {
-        Store.dispatch(setPlaylists(trackresponse.data.playlists.items));
-        setTimeout(function () {
+          Store.dispatch(setPlaylists(trackresponse.data.playlists.items));
           navigation.navigate('PlayList', titulo);
-        }, 2000);
       })
       .catch(error => {
         console.log('error de playlist getCategories ' + error);
-        Alert.alert('No funciona loco, andate a joder');
       });
   } catch (error) {
     console.log('Error playlist' + error);
