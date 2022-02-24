@@ -2,7 +2,7 @@
 import base64 from 'react-native-base64';
 import axios from 'axios';
 import {Store} from '../redux/Store';
-import {setinfo, setPlaylists, setToken, setTopList} from '../redux/Actions';
+import {setinfo, setPlaylists, setToken, setTopList, setTracks} from '../redux/Actions';
 import {Alert} from 'react-native';
 import {resolvePlugin} from '@babel/core';
 const client_id = '5914e5016a704b0c84b27239cfee6242';
@@ -97,6 +97,7 @@ export async function getPlayList(token, uri, navigation, titulo) {
       })
       .catch(error => {
         console.log('error de playlist getCategories ' + error);
+        //Alert.alert('Playlist no disponible por el momento.');
       });
   } catch (error) {
     console.log('Error playlist' + error);
@@ -140,4 +141,29 @@ export function estandarDatos(obJson) {
       ? item.images[0].url
       : item.icons[0].url,
   }));
+}
+
+export async function getTracks(token, uri, navigation, titulo) {
+  try {
+    await axios(uri, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+    })
+      .then(trackresponse => {
+        //console.log('Tracks', trackresponse.data.items[0].track.album.images[0])
+        //console.log('Tracks', trackresponse.data.items[0].track.name)
+          Store.dispatch(setTracks(trackresponse.data.items));
+            navigation.navigate('Tracks', titulo);
+      })
+      .catch(error => {
+        console.log('error de playlist getTracks ' + error);
+        //Alert.alert('Playlist no disponible por el momento.');
+      });
+  } catch (error) {
+    console.log('Error trackas' + error);
+  }
 }

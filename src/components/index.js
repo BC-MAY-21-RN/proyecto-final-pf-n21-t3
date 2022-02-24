@@ -1,5 +1,5 @@
 export {Title} from './Title/Title';
-export {ListPlay} from './PlayInfo/Play_list';
+export {ListPlay} from './PlayInfo/ListPlay';
 export {InputLog} from './FormInput/InputLog';
 export {CardInfo} from './CardInfo/CardInfo';
 export {CheckBoxWithLabel} from './FormInput/Checkbox';
@@ -19,3 +19,4 @@ export {CurrentProfile} from './FaceBook Button/CurrentProfile';
 export {TrackList} from './Tracks/TrackList';
 export {LikeButton} from './helpers/CardsButton/LikeButton'
 export {OptionListButton} from './helpers/CardsButton/OptionListButton'
+export {CardTracks} from './CardInfo/CardTracks'
