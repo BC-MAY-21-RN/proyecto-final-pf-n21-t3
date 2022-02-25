@@ -28,13 +28,13 @@ export const Login = () => {
   useEffect(() => {
     const subscribe = auth().onAuthStateChanged(user => {
       if (user) {
-          setIsLoading(false);
-          setTimeout(function() {
-            navigation.reset({
-              index: 0,
-              routes: [{name: 'Main'}],
-            });
-          },50)
+        setIsLoading(false);
+        setTimeout(function() {
+          navigation.reset({
+            index: 0,
+            routes: [{name: 'Main'}],
+          });
+        },50)
         CurrentProfile();
       }
     });

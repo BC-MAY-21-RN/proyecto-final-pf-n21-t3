@@ -20,7 +20,7 @@ export const CardPlay = ({data, indice, navigation}) => {
           if (
             getTracks(
               Store.getState().spotifyData.token,
-              `${data.href}/tracks`,
+              `${data.href}/tracks?limit=15`,
               navigation,
               data.name,
             )

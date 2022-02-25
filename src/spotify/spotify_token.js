@@ -43,7 +43,6 @@ export const getCategories = async (token, uri) => {
     })
       .then(trackresponse => {
         Store.dispatch(setinfo(trackresponse.data.categories.items));
-        console.log(trackresponse.data.categories.items[1]);
         return trackresponse.data.categories.items;
       })
       .catch(error => {
@@ -97,7 +96,7 @@ export async function getPlayList(token, uri, navigation, titulo) {
       })
       .catch(error => {
         console.log('error de playlist getCategories ' + error);
-        //Alert.alert('Playlist no disponible por el momento.');
+        Alert.alert('Playlist no disponible por el momento.');
       });
   } catch (error) {
     console.log('Error playlist' + error);
@@ -154,14 +153,13 @@ export async function getTracks(token, uri, navigation, titulo) {
       },
     })
       .then(trackresponse => {
-        //console.log('Tracks', trackresponse.data.items[0].track.album.images[0])
-        //console.log('Tracks', trackresponse.data.items[0].track.name)
           Store.dispatch(setTracks(trackresponse.data.items));
-            navigation.navigate('Tracks', titulo);
+          navigation.navigate('Tracks', titulo);
       })
       .catch(error => {
         console.log('error de playlist getTracks ' + error);
-        //Alert.alert('Playlist no disponible por el momento.');
+        Alert.alert('Cacion no disponible por el momento.');
+        navigation.navigate('PlayList')
       });
   } catch (error) {
     console.log('Error trackas' + error);
