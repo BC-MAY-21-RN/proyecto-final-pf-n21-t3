@@ -16,7 +16,7 @@ export {Cardprofile} from './CardInfo/Cardprofile';
 export {resetPassword} from './Firebase/resetPassword';
 export {changeEmail} from './Firebase/changeEmail';
 export {CurrentProfile} from './FaceBook Button/CurrentProfile';
-export {TrackList} from './Tracks/TrackList';
+export {TrackList} from './TracksList/TrackList';
 export {LikeButton} from './helpers/CardsButton/LikeButton'
 export {OptionListButton} from './helpers/CardsButton/OptionListButton'
-export {CardTracks} from './CardInfo/CardTracks'
+export {CardTracks} from './TracksList/CardTracks'

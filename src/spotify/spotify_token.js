@@ -104,7 +104,6 @@ export async function getPlayList(token, uri, navigation, titulo) {
 }
 
 //---------------------------------------------------------------------------
-
 export async function getDataSpotify(token, uri, prefix) {
   const datos = await axios(uri, {
     method: 'GET',
@@ -115,19 +114,19 @@ export async function getDataSpotify(token, uri, prefix) {
     },
   })
     .then(trackresponse => {
-      return estandarDatos(
-        prefix ? trackresponse.data[prefix].items : trackresponse.data.items,
-      );
+      return prefix ? trackresponse.data[prefix].items : trackresponse.data.items;
+      /*return estandarDatos(
+      prefix ? trackresponse.data[prefix].items : trackresponse.data.items,
+      );*/
     })
     .catch(error => {
       console.log('error de top list ' + error);
       return console.log('error');
     });
-
-  console.log(console.log(JSON.stringify(datos, null, '--')));
   return datos;
 }
-//Estandarizacion de la informacion obtenida para facilital el mapeo en los componentes
+
+/*No borrar //Estandarizacion de la informacion obtenida para facilital el mapeo en los componentes
 export function estandarDatos(obJson) {
   //console.log(JSON.stringify(obJson, null, '--'))
   return obJson.map((item, index) => ({
@@ -140,7 +139,7 @@ export function estandarDatos(obJson) {
       ? item.images[0].url
       : item.icons[0].url,
   }));
-}
+}*/
 
 export async function getTracks(token, uri, navigation, titulo) {
   try {

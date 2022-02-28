@@ -1,16 +1,20 @@
-import {Button} from 'react-native';
 import {Container} from '../assets/styled.js';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {CardTracks} from '../components/index'
-
-export const Tracks = (props) => {
+import {TrackList} from '../components/index';
+import {Title} from '../components/index';
+import {Text} from 'react-native';
+import {ScrlVw} from '../assets/styled.js';
+export const Tracks = props => {
   const navigation = useNavigation();
   const [like, setLike] = useState(false);
   const [play, setPlay] = useState(false);
   return (
     <Container Padd={'0%'}>
-      <CardTracks title={props.route.params}/>
+      <ScrlVw P={'0% 3% 0% 3%'}>
+      <Title Titulo={props.route.params}/>
+        <TrackList />
+      </ScrlVw>
     </Container>
   );
 };
