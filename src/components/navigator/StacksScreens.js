@@ -18,7 +18,6 @@ export const LibraryScreens = () => {
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="Liked" component={Liked} />
       <Stack.Screen name="Library" component={Library} />
-      <Stack.Screen name="Tracks" component={Tracks} />
     </Stack.Navigator>
   );
 };
@@ -39,6 +38,7 @@ export const HomeScreens = () => {
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="FirstPage" component={Home} />
       <Stack.Screen name="PlayList" component={PlayList} />
+      <Stack.Screen name="Tracks" component={Tracks} />
     </Stack.Navigator>
   );
 };

@@ -2,7 +2,7 @@
 import base64 from 'react-native-base64';
 import axios from 'axios';
 import {Store} from '../redux/Store';
-import {setinfo, setPlaylists, setToken, setTopList} from '../redux/Actions';
+import {setinfo, setPlaylists, setToken, setTopList, setTracks} from '../redux/Actions';
 import {Alert} from 'react-native';
 import {resolvePlugin} from '@babel/core';
 const client_id = '5914e5016a704b0c84b27239cfee6242';
@@ -43,7 +43,6 @@ export const getCategories = async (token, uri) => {
     })
       .then(trackresponse => {
         Store.dispatch(setinfo(trackresponse.data.categories.items));
-        console.log(trackresponse.data.categories.items[1]);
         return trackresponse.data.categories.items;
       })
       .catch(error => {
@@ -97,6 +96,7 @@ export async function getPlayList(token, uri, navigation, titulo) {
       })
       .catch(error => {
         console.log('error de playlist getCategories ' + error);
+        Alert.alert('Playlist no disponible por el momento.');
       });
   } catch (error) {
     console.log('Error playlist' + error);
@@ -104,7 +104,6 @@ export async function getPlayList(token, uri, navigation, titulo) {
 }
 
 //---------------------------------------------------------------------------
-
 export async function getDataSpotify(token, uri, prefix) {
   const datos = await axios(uri, {
     method: 'GET',
@@ -115,19 +114,19 @@ export async function getDataSpotify(token, uri, prefix) {
     },
   })
     .then(trackresponse => {
-      return estandarDatos(
-        prefix ? trackresponse.data[prefix].items : trackresponse.data.items,
-      );
+      return prefix ? trackresponse.data[prefix].items : trackresponse.data.items;
+      /*return estandarDatos(
+      prefix ? trackresponse.data[prefix].items : trackresponse.data.items,
+      );*/
     })
     .catch(error => {
       console.log('error de top list ' + error);
       return console.log('error');
     });
-
-  console.log(console.log(JSON.stringify(datos, null, '--')));
   return datos;
 }
-//Estandarizacion de la informacion obtenida para facilital el mapeo en los componentes
+
+/*No borrar //Estandarizacion de la informacion obtenida para facilital el mapeo en los componentes
 export function estandarDatos(obJson) {
   //console.log(JSON.stringify(obJson, null, '--'))
   return obJson.map((item, index) => ({
@@ -140,4 +139,28 @@ export function estandarDatos(obJson) {
       ? item.images[0].url
       : item.icons[0].url,
   }));
+}*/
+
+export async function getTracks(token, uri, navigation, titulo) {
+  try {
+    await axios(uri, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+    })
+      .then(trackresponse => {
+          Store.dispatch(setTracks(trackresponse.data.items));
+          navigation.navigate('Tracks', titulo);
+      })
+      .catch(error => {
+        console.log('error de playlist getTracks ' + error);
+        Alert.alert('Cacion no disponible por el momento.');
+        navigation.navigate('PlayList')
+      });
+  } catch (error) {
+    console.log('Error trackas' + error);
+  }
 }

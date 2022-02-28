@@ -13,7 +13,7 @@ export const ListPlay = props => {
       <ContCard height={'100%'} P={'3% 4% 0% 4%'}>
         {data.spotifyData.playlists ? 
           (data.spotifyData?.playlists?.map((playlist, index) => (
-            <CardPlay key={index} indice={index} data={playlist} />
+            <CardPlay key={index} indice={index} data={playlist} navigation={props.navigation}/>
           ))): <ActivityIndicator size={'large'} color={'white'}/>}
       </ContCard>
     </ScrlVw>

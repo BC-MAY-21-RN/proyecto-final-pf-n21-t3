@@ -9,7 +9,7 @@ export const Container = styled.View`
 
 export const TitleText = styled.Text`
   color: white;
-  font-size: 50px;
+  font-size: 45px;
   padding: 0px 0px 0px 3%;
   font-family: 'BebasNeue-Regular';
   text-decoration: underline white;

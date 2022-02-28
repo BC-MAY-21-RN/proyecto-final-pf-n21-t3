@@ -42,7 +42,7 @@ export const Texto = styled.Text`
 `;
 
 export const ScrlVw = styled.ScrollView`
-  padding: ${props => props.P || '0% 10% 0% 5%'};
+  padding: ${props => props.P || '0% 5% 0% 5%'};
   width: 100%; 
 `;
 
@@ -56,7 +56,6 @@ export const Trak = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  space-between: 40px;
-  padding: 0% 10% 0% 5%;
+  padding: 0% 5% 0% 5%;
 `;
 

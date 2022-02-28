@@ -3,12 +3,11 @@ import {Store} from '../../redux/Store';
 import {Alert, TouchableOpacity, View} from 'react-native';
 import {CardContainer, TrackTitle, TrackImage, SafeCard} from './Styled';
 import {getPlayList} from '../../spotify/spotify_token';
-import {useSelector} from 'react-redux'
+import {useSelector} from 'react-redux';
 import {ActivityIndicator} from 'react-native';
 
 export const CardGender = ({navigation}) => {
   const data = useSelector(Store.getState);
-
   return (
     <View>
       {data?.spotifyData?.info ? (
@@ -24,10 +23,7 @@ export const CardGender = ({navigation}) => {
                   navigation,
                   gender.name,
                 )
-              ) {
-              } else {
-                Alert.alert('Playlist no disponible por el momento.');
-              }
+              );
             }}>
             <CardContainer BackColor={'#FFF064'}>
               <SafeCard>
@@ -43,8 +39,9 @@ export const CardGender = ({navigation}) => {
             </CardContainer>
           </TouchableOpacity>
         ))
-      ) : <ActivityIndicator color="red" size="large" />}
-      
+      ) : (
+        <ActivityIndicator color="red" size="large" />
+      )}
     </View>
   );
 };
