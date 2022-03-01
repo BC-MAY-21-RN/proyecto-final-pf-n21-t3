@@ -13,7 +13,7 @@ export const CardTracks = ({data, index}) => {
   const [like, setLike] = useState(false);
   return (
     <CardContainers Height={'100px'} key={index}>
-      <SafeCard>
+      <SafeCard >
         <TrackImage source={{uri: data.track.album.images[0].url}} />
         <TrackTitle TextSize={'18px'}>
           {data.track.album.name} - {data.track.artists[0].name}

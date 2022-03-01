@@ -11,7 +11,7 @@ export const TrackList = ({title}) => {
     <ContCard height={'93%'} P={'3% 4% 3% 4%'}>
       {tracks.spotifyData.tracks ? (
         tracks.spotifyData.tracks.map((Musica, index) => (
-          <CardTracks title={title} index={index} data={Musica} />
+          <CardTracks title={title} key={index} data={Musica} />
         ))
       ) : (
         <ActivityIndicator size={'large'} color={'white'} />
