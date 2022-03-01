@@ -35,39 +35,12 @@ export const Login = () => {
       .catch(e => console.log('ERROR DE TOKEN', e));
     return subscribe;
   }, []);
-  /**
-   * Uris de prueba
-   * url toplist
-   *  https://api.spotify.com/v1/playlists/37i9dQZEVXbO3qyFxbkOE1/tracks?offset=0&limit=3
-   *  prefix: false
-   *
-   * url categories
-   *  https://api.spotify.com/v1/browse/categories?country=US
-   *  prefix: categories
-   *
-   * url playlist
-   *  https://api.spotify.com/v1/browse/categories/toplists/playlists
-   *  prefix: playlists
-   */
+  
   return (
     <Container>
       {isLoading ? (
         <>
-         {/*  <Boton
-            onPress={() => {
-              getDataSpotify(
-                Store.getState().spotifyData.token,
-                'https://api.spotify.com/v1/browse/categories/toplists/playlists',
-                'playlists',
-              )
-                .then(trackresponse => {
-                  console.log(JSON.stringify(trackresponse, null, '--'))
-                  return trackresponse;
-                })
-                .catch(e => console.log(e));
-            }}>
-            <Texto>Touch me</Texto>
-          </Boton> */}
+          
 
           <Logo />
           <InputLog

@@ -12,7 +12,7 @@ export {signOut} from './Firebase/signOut';
 export {signOutFB} from './FaceBook Button/SignOutFB';
 export {LikedList} from './CardInfo/LikedList';
 export {LikedInfo} from './CardInfo/LikedInfo';
-export {Cardprofile} from './CardInfo/Cardprofile';
+export {Cardprofile} from './CardInfo/cardprofile';
 export {resetPassword} from './Firebase/resetPassword';
 export {changeEmail} from './Firebase/changeEmail';
 export {CurrentProfile} from './FaceBook Button/CurrentProfile';
