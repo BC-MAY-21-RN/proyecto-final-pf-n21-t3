@@ -52,8 +52,8 @@ export const RankingNumber = styled.Text`
 `;
 
 export const TrackImage = styled.Image`
-  width: 25%;
-  height: 100%;
+  width: ${props => props.width || '25%'};
+  height: ${props => props.height || '100%'};
   margin: 2px;
   border-radius: 12px;
 ` ;

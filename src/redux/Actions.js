@@ -10,6 +10,7 @@ export const SET_TOPLIST = 'SET_TOPLIST';
 export const SET_UID = 'SET_UID';
 export const SET_PLAYLISTS = 'SET_PLAYLISTS'
 export const SET_TRACKS = 'SET_TRACKS'
+export const SET_PLAYER = 'SET_PLAYER'
 
 export const setName = name => ({
   type: SET_NAME,
@@ -66,4 +67,9 @@ export const setPlaylists = playlists => ({
 export const setTracks = tracks => ({
   type: SET_TRACKS,
   payload: tracks
+})
+
+export const setPlayer = player => ({
+  type: SET_PLAYER,
+  payload: player
 })
