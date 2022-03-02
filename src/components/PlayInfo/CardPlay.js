@@ -20,10 +20,13 @@ export const CardPlay = ({data, indice, navigation}) => {
         onPress={() => {
             getDataSpotify(
               Store.getState().spotifyData.token,
-              `${data.href}/tracks?limit=15`,
+              `${data.href}/tracks?limit=3`,
               false
             ).then(trackresponse =>{
-              Store.dispatch(setTracks(trackresponse))
+
+              // console.log( trackresponse )
+
+              Store.dispatch( setTracks( trackresponse ) )
               Store.getState().spotifyData.tracks != undefined ? navigation.navigate('Tracks', data.name) : null
             }).catch((e) => console.log('Error de tracks' + e))
         }}>
