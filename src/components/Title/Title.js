@@ -1,11 +1,11 @@
 import React from 'react';
 import {Container, TitleText, Logo} from './Styled';
 
-export const Title = ({Titulo}) => {
+export const Title = ({Titulo, W}) => {
   return (
     <Container>
       <Logo />
-      <TitleText>{Titulo}</TitleText>
+      <TitleText W={W}>{Titulo}</TitleText>
     </Container>
   );
 };

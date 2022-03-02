@@ -12,6 +12,7 @@ export const Library = () => {
       <Button onPress={() => navigation.navigate('Tracks')} title='Ir a Tracks'/>
       <Button onPress={() => navigation.navigate('Liked')} title='Ir a Liked'/>
       <Button onPress={() => navigation.navigate('PlayList')} title='Ir a playlist'/>
+      <Button onPress={() => navigation.navigate('Player')} title='Ir a Player'/>
     </Container>
   );
 };

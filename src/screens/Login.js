@@ -1,20 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {Container, Boton, Logo, Texto, ScrlVw} from '../assets/styled.js';
 import {useNavigation} from '@react-navigation/native';
-import {
-  OR,
-  InputLog,
-  logInUser,
-  CurrentProfile,
-} from '../components/index';
+import {OR, InputLog, logInUser, CurrentProfile} from '../components/index';
 import {Store} from '../redux/Store';
 import {setNewPassword, setNewEmail} from '../redux/Actions';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
-import {
-  getToken,
-
-} from '../spotify/spotify_token';
+import {getToken, getDataSpotify} from '../spotify/spotify_token';
 import {loadData} from '../spotify/loadData';
 import {ActivityIndicator} from 'react-native';
 
@@ -28,13 +20,13 @@ export const Login = () => {
   useEffect(() => {
     const subscribe = auth().onAuthStateChanged(user => {
       if (user) {
-          setIsLoading(false);
-          setTimeout(function() {
-            navigation.reset({
-              index: 0,
-              routes: [{name: 'Main'}],
-            });
-          },50)
+        setIsLoading(false);
+        setTimeout(function () {
+          navigation.reset({
+            index: 0,
+            routes: [{name: 'Main'}],
+          });
+        }, 50);
         CurrentProfile();
       }
     });
@@ -43,24 +35,13 @@ export const Login = () => {
       .catch(e => console.log('ERROR DE TOKEN', e));
     return subscribe;
   }, []);
-  /**
-   * Uris de prueba
-   * url toplist
-   *  https://api.spotify.com/v1/playlists/37i9dQZEVXbO3qyFxbkOE1/tracks?offset=0&limit=3
-   *  prefix: false
-   *
-   * url categories
-   *  https://api.spotify.com/v1/browse/categories?country=US
-   *  prefix: categories
-   *
-   * url playlist
-   *  https://api.spotify.com/v1/browse/categories/toplists
-   *  prefix: playlists
-   */
+  
   return (
     <Container>
       {isLoading ? (
         <>
+          
+
           <Logo />
           <InputLog
             placeholderAdj={'Correo Electrónico'}
@@ -102,7 +83,7 @@ export const Login = () => {
           <LogInButton />
         </>
       ) : (
-        <ActivityIndicator size={'large'} color={'white'}/>
+        <ActivityIndicator size={'large'} color={'white'} />
       )}
     </Container>
   );

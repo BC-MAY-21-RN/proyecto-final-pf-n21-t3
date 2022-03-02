@@ -3,14 +3,18 @@ import {
     SET_TOKEN, 
     SET_INFO, 
     SET_TOPLIST,
-    SET_PLAYLISTS
+    SET_PLAYLISTS,
+    SET_TRACKS,
+    SET_PLAYER
   } from './Actions';
   
   const initialState = {
     token: '',
     info:'',
     topList: '',
-    playlists: ''
+    playlists: '',
+    tracks: '',
+    player: ''
   };
   
   
@@ -24,6 +28,10 @@ import {
         return{...state, topList: action.payload}
       case SET_PLAYLISTS:
         return{...state, playlists: action.payload}
+      case SET_TRACKS:
+        return{...state, tracks: action.payload}
+      case SET_PLAYER:
+        return {...state, player: action.payload}
       default:
         return state;
     }

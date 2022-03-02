@@ -18,6 +18,7 @@ export const CardContainers = styled.View`
   border: 1px solid black;
   height:  ${props => props.Height || '80px'};
   padding: 10px 10px 10px 10px;
+  background-color: 
   width: 100%;
   margin: 5px 0px 5px 0px;
   background-color: ${props => props.BackColor || '#C8A6FF'}
@@ -28,7 +29,7 @@ export const CardContainers = styled.View`
 export const SafeCard = styled(SafeAreaView)`
   flex: 1;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   height: 100%;
   width: 100%;
   align-items: center;
@@ -51,11 +52,11 @@ export const RankingNumber = styled.Text`
 `;
 
 export const TrackImage = styled.Image`
-  width: 25%;
-  height: 100%;
+  width: ${props => props.width || '25%'};
+  height: ${props => props.height || '100%'};
   margin: 2px;
   border-radius: 12px;
-`;
+` ;
 export const TrackImages = styled.Image`
   width: 25%;
   height: 40%;
@@ -74,16 +75,6 @@ export const ContCard = styled.View`
   margin-bottom: 20px;
 `;
 
-export const ContCards = styled.View`
-  align-items: center;
-  background: #fff064;
-  border-radius: 18px;
-  padding: ${props => props.P || '0px 5px 0px 5px'};
-  border: solid 2px black;
-  width: 100%;
-  height: 650px;
-  margin-bottom: 20px;
-`;
 
 export const ViewIcon = styled.View`
   flex-direction: column;

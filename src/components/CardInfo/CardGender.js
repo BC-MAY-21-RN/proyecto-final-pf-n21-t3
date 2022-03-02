@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {Store} from '../../redux/Store';
 import {Alert, TouchableOpacity, View} from 'react-native';
 import {CardContainer, TrackTitle, TrackImage, SafeCard} from './Styled';
-import {getPlayList} from '../../spotify/spotify_token';
-import {useSelector} from 'react-redux'
+import {getDataSpotify} from '../../spotify/spotify_token';
+import {useSelector} from 'react-redux';
 import {ActivityIndicator} from 'react-native';
+import {setPlaylists} from '../../redux/Actions';
 
 export const CardGender = ({navigation}) => {
   const data = useSelector(Store.getState);
-
   return (
     <View>
       {data?.spotifyData?.info ? (
@@ -17,17 +17,20 @@ export const CardGender = ({navigation}) => {
             key={id}
             activeOpacity={0.6}
             onPress={() => {
-              if (
-                getPlayList(
-                  Store.getState().spotifyData.token,
-                  `${gender.href}/playlists`,
-                  navigation,
-                  gender.name,
-                )
-              ) {
-              } else {
-                Alert.alert('Playlist no disponible por el momento.');
-              }
+              getDataSpotify(
+                Store.getState().spotifyData.token,
+                `${gender.href}/playlists`,
+                'playlists',
+              )
+                .then(trackresponse => {
+                  Store.dispatch(setPlaylists(trackresponse));
+                  Store.getState().spotifyData.playlists != undefined
+                    ? navigation.navigate('PlayList', gender.name)
+                    : null;
+                })
+                .catch(e => {
+                  console.log('error de playlists' + e);
+                });
             }}>
             <CardContainer BackColor={'#FFF064'}>
               <SafeCard>
@@ -43,8 +46,9 @@ export const CardGender = ({navigation}) => {
             </CardContainer>
           </TouchableOpacity>
         ))
-      ) : <ActivityIndicator color="red" size="large" />}
-      
+      ) : (
+        <ActivityIndicator color="red" size="large" />
+      )}
     </View>
   );
 };

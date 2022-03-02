@@ -1,5 +1,5 @@
 export {Title} from './Title/Title';
-export {ListPlay} from './PlayInfo/Play_list';
+export {ListPlay} from './PlayInfo/ListPlay';
 export {InputLog} from './FormInput/InputLog';
 export {CardInfo} from './CardInfo/CardInfo';
 export {CheckBoxWithLabel} from './FormInput/Checkbox';
@@ -12,10 +12,12 @@ export {signOut} from './Firebase/signOut';
 export {signOutFB} from './FaceBook Button/SignOutFB';
 export {LikedList} from './CardInfo/LikedList';
 export {LikedInfo} from './CardInfo/LikedInfo';
-export {Cardprofile} from './CardInfo/Cardprofile';
+export {Cardprofile} from './CardInfo/cardprofile';
 export {resetPassword} from './Firebase/resetPassword';
 export {changeEmail} from './Firebase/changeEmail';
 export {CurrentProfile} from './FaceBook Button/CurrentProfile';
-export {TrackList} from './Tracks/TrackList';
+export {TrackList} from './TracksList/TrackList';
 export {LikeButton} from './helpers/CardsButton/LikeButton'
 export {OptionListButton} from './helpers/CardsButton/OptionListButton'
+export {CardTracks} from './TracksList/CardTracks'
+export {Playerloader} from './Reproductor/Playerloader'
