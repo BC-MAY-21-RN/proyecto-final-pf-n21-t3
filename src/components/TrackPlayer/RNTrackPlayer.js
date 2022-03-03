@@ -2,18 +2,22 @@ import React, {useState, useEffect} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {PlayView} from '../Title/Styled';
 import TrackPlayer from 'react-native-track-player';
-import { setUpTrackPlayer} from './TrackPlayerOptions'
+import {setUpTrackPlayer} from './TrackPlayerOptions';
 
 useEffect(() => {
   setUpTrackPlayer();
   return () => TrackPlayer.destroy();
 }, []);
 
-export const RNTrackPlayer = () => {
-  const SkipSong = async () =>{
-    await TrackPlayer.skipToNext().catch((e) => {console.log(e), TrackPlayer.skip(0)})
-  }
-  
+export const RNTrackPlayer = (props) => {
+  props.index(index)
+  const SkipSong = async () => {
+    await TrackPlayer.skipToNext().catch(e => {
+      console.log(e), TrackPlayer.skip(0);
+    });
+  };
+ 
+  const [index, setIndex] = useState(0);
   const [like, setLike] = useState(false);
   const [play, setPlay] = useState(false);
   const [back, setBack] = useState(false);
@@ -38,7 +42,8 @@ export const RNTrackPlayer = () => {
       <Ionicons
         name={play ? 'pause-circle' : 'play-circle'}
         onPress={() => {
-          setPlay(!play), play ? TrackPlayer.pause() : TrackPlayer.play();
+          setPlay(!play),
+            play ? TrackPlayer.pause() : TrackPlayer.play()
         }}
         color={'white'}
         size={155}
@@ -47,10 +52,10 @@ export const RNTrackPlayer = () => {
         name={forw ? 'play-forward-circle-outline' : 'play-forward-circle'}
         onPress={() => {
           setForw(true),
-          SkipSong(),
-          setTimeout(function () {
-            setForw(false);
-          }, 1);
+            SkipSong(),
+            setTimeout(function () {
+              setForw(false);
+            }, 1);
         }}
         color={forw ? 'black' : 'white'}
         size={120}
