@@ -53,8 +53,8 @@ export async function getDataSpotify(token, uri, prefix) {
   return datos;
 }
 
-/*No borrar //Estandarizacion de la informacion obtenida para facilital el mapeo en los componentes
-export function estandarDatos(obJson) {
+//Estandarizacion de la informacion obtenida para facilital el mapeo en los componentes
+/* export function estandarDatos(obJson) {
   //console.log(JSON.stringify(obJson, null, '--'))
   return obJson.map((item, index) => ({
     id: index,
@@ -65,8 +65,7 @@ export function estandarDatos(obJson) {
       : item.images
       ? item.images[0].url
       : item.icons[0].url,
-  }));
-}*/
+  })); */
 
 /**
    * Uris de prueba

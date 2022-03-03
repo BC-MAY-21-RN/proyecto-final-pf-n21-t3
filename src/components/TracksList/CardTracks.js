@@ -10,22 +10,10 @@ import {LikeButton, Title} from '../index';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {Store} from '../../redux/Store';
-import { setPlayer } from '../../redux/Actions';
-
-// arr.findIndex(callback( element[, index[, array]] )[, thisArg])
-
+import { setUpTrackPlayer } from '../TrackPlayer/TrackPlayerOptions';
+import { trackMaker, tracksSelected } from '../TrackPlayer/TrackPlayerOptions';
 export const CardTracks = ({data, index}) => {
-  function tracksSelected(name) {
-    for (let i = 0; i < Store.getState().spotifyData.tracks.length; i++) {
-      if (
-        Store.getState().spotifyData.tracks[i].track.album.name.includes(name)
-      ) {
-        Store.dispatch(setPlayer(Store.getState().spotifyData.tracks))
-        return i;
-      }
-    }
-  }
+  
 
   const [like, setLike] = useState(false);
   const navigation = useNavigation();
@@ -33,7 +21,8 @@ export const CardTracks = ({data, index}) => {
     <CardContainers Height={'100px'} key={index}>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('Player', tracksSelected(data.track.album.name));
+          setUpTrackPlayer(),
+          navigation.navigate('Player', tracksSelected(data.track.album.name))
         }}>
         <SafeCard>
           <TrackImage source={{uri: data.track.album.images[0].url}} />

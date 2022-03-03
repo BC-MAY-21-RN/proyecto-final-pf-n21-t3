@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {TrackList} from '../components/index';
 import {Title} from '../components/index';
-import {Text} from 'react-native';
 import {ScrlVw} from '../assets/styled.js';
 export const Tracks = props => {
   const navigation = useNavigation();
