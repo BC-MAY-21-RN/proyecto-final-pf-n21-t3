@@ -20,4 +20,3 @@ export {TrackList} from './TracksList/TrackList';
 export {LikeButton} from './helpers/CardsButton/LikeButton'
 export {OptionListButton} from './helpers/CardsButton/OptionListButton'
 export {CardTracks} from './TracksList/CardTracks'
-export {RNTrackPlayer} from './TrackPlayer/RNTrackPlayer'
