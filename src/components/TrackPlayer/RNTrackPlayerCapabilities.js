@@ -1,30 +1,52 @@
-import TrackPlayer from 'react-native-track-player';
+import TrackPlayer, {usePlaybackState} from 'react-native-track-player';
 
-
-const tooglePlaback = (playbackState) => {
-
-}
-
-const SkipSong = async () => {
-  await TrackPlayer.skipToNext().catch(e => {
-    console.log(e), TrackPlayer.skip(0);
-  });
-  
+const handlerIndex = (direction, setIndex, index) => {
+  let indexHelper = index;
+  if (direction) {
+    if (indexHelper == 2) {
+      indexHelper = 0;
+      setIndex(0);
+    } else {
+      indexHelper += 1;
+      setIndex(indexHelper);
+    }
+  } else {
+    if (indexHelper == 0) {
+      indexHelper = 2;
+      setIndex(2);
+    } else {
+      indexHelper -= 1;
+      setIndex(indexHelper);
+    }
+  }
 };
 
-const skipPrevious = async () => {
-  await TrackPlayer.skipToPrevious().catch(e =>
-    console.log('Previous ERROR: ' + e),
-  );
+const SkipSong = async index => {
+  index != 2
+    ? await TrackPlayer.skipToNext().catch(e => {
+        console.log('Skip error ' + index);
+      })
+    : await TrackPlayer.skip(0);
 };
 
-const pauseSong = async () => {
-  await TrackPlayer.pause().catch(e => console.log('Pause ERROR ' + e));
+const skipPrevious = async index => {
+  index != 0
+    ? await TrackPlayer.skipToPrevious().catch(e =>
+        console.log('Previous ERROR: ' + e),
+      )
+    : await TrackPlayer.skip(2);
 };
 
-const playSong = async () => {
-  await TrackPlayer.play().catch(e => console.log('Play ERROR: ' + e));
+const togglePlayback = async usePlaybackState => {
+  usePlaybackState
+    ? await TrackPlayer.play().catch(e => console.log('Play ERROR: ' + e))
+    : await TrackPlayer.pause().catch(e => console.log('Pause ERROR ' + e));
 };
 
 
-export {SkipSong, pauseSong, skipPrevious, playSong};
+export {
+  SkipSong,
+  skipPrevious,
+  handlerIndex,
+  togglePlayback,
+};
