@@ -6,28 +6,30 @@ import {
   ViewIcon,
   SafeCard,
 } from '../CardInfo/Styled';
-import {LikeButton, Title} from '../index';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {TouchableOpacity} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import { LikeButton       } from '../index';
+import   Ionicons           from 'react-native-vector-icons/Ionicons';
+import { TouchableOpacity } from 'react-native';
+import { useNavigation    } from '@react-navigation/native';
 import { setUpTrackPlayer } from '../TrackPlayer/TrackPlayerOptions';
-import { trackMaker, tracksSelected } from '../TrackPlayer/TrackPlayerOptions';
-export const CardTracks = ({data, index}) => {
-  
+import { tracksSelected   } from '../TrackPlayer/TrackPlayerOptions';
 
+export const CardTracks = ({data, index}) => {  
   const [like, setLike] = useState(false);
   const navigation = useNavigation();
+  const { album, artists} = data.track;
+
   return (
     <CardContainers Height={'100px'} key={index}>
       <TouchableOpacity
         onPress={() => {
-          setUpTrackPlayer(),
-          navigation.navigate('Player', tracksSelected(data.track.album.name))
+          const selectTrack = tracksSelected(album.name);
+          setUpTrackPlayer(selectTrack);
+          navigation.navigate('Player', selectTrack)
         }}>
         <SafeCard>
-          <TrackImage source={{uri: data.track.album.images[0].url}} />
+          <TrackImage source={{uri: album.images[0].url}} />
           <TrackTitle TextSize={'18px'}>
-            {data.track.album.name} - {data.track.artists[0].name}
+            {album.name} - {artists[0].name}
           </TrackTitle>
           <ViewIcon>
             <LikeButton onPress={() => setLike(!like)} like={like} size={45} />

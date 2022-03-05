@@ -1,7 +1,6 @@
 import TrackPlayer, {Capability} from 'react-native-track-player';
 import {Store} from '../../redux/Store';
 import {setPlayer} from '../../redux/Actions';
-import getCurrentTrack from './RNTrackPlayerCapabilities';
 
 TrackPlayer.updateOptions({
   stopWithApp: false,
@@ -16,44 +15,45 @@ TrackPlayer.updateOptions({
 });
 
 const trackMaker = () => {
-  let arrayTracks = [];
-  Store.getState().spotifyData.tracks.map((data, index) => {
+  const arrayTracks = [];
+
+  Store.getState().spotifyData.tracks.map(({track}, index) => {
     arrayTracks.push({
       id: index,
       url:
-        data.track.preview_url != null
-          ? data.track.preview_url
+        track.preview_url != null
+          ? track.preview_url
           : 'https://p.scdn.co/mp3-preview/a270730db8c094877900b167a41d186ce6755d0a?cid=5914e5016a704b0c84b27239cfee6242',
-      name: data.track.album.name,
-      artist: data.track.artists[0].name,
-      duration: data.track.duration_ms,
+      name: track.album.name,
+      artist: track.artists[0].name,
+      duration: 30000,
     });
+    // console.log('Duration ' + track.duration_ms)
   });
   return arrayTracks;
 };
 
 const setUpTrackPlayer = async indexSong => {
   try {
-    await TrackPlayer.setupPlayer().catch(e => console.log(e));
-    await TrackPlayer.add(trackMaker()).catch(e => console.log(e));
-    
-    indexSong != undefined
-      ? (await TrackPlayer.skip(indexSong), console.log('Se cambio'))
-      : console.log('Valor no valido ' + indexSong);
+    await TrackPlayer.setupPlayer();
+    await TrackPlayer.add(trackMaker());
+    await TrackPlayer.skip(indexSong);
+    return;
   } catch {
-    e => console.log(e);
+    err => {
+      throw `Error en setUpPlayer ${err}`;
+    };
   }
 };
 
-function tracksSelected(name) {
-  for (let i = 0; i < Store.getState().spotifyData.tracks.length; i++) {
-    if (
-      Store.getState().spotifyData.tracks[i].track.album.name.includes(name)
-    ) {
-      Store.dispatch(setPlayer(Store.getState().spotifyData.tracks));
-      return i;
+const tracksSelected = ( name ) => {
+  let tracks = Store.getState().spotifyData.tracks;
+  for (let index = 0; index < tracks.length; index++) {
+    if (tracks[index].track.album.name.includes(name)) {
+      Store.dispatch(setPlayer(tracks));
+      return index;
     }
   }
-}
+};
 
 export {setUpTrackPlayer, tracksSelected, trackMaker};
