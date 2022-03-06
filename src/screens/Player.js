@@ -7,6 +7,8 @@ import {useSelector} from 'react-redux';
 import {setUpTrackPlayer} from '../components/TrackPlayer/TrackPlayerOptions.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {HeaderTrackPlayer} from '../components/TrackPlayer/HeaderTrackPlayer';
+import SliderComp from '../components/TrackPlayer/SliderComp'
+
 import {
   skipPrevious,
   SkipSong,
@@ -30,6 +32,7 @@ export const Player = props => {
   return (
     <Container Padd={'0%'}>
       <HeaderTrackPlayer index={index} />
+      <SliderComp></SliderComp>
       <PlayView>
         <Ionicons
           name={back ? 'play-back-circle-outline' : 'play-back-circle'}

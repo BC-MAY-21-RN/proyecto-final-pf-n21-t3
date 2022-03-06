@@ -26,7 +26,7 @@ const trackMaker = () => {
           : 'https://p.scdn.co/mp3-preview/a270730db8c094877900b167a41d186ce6755d0a?cid=5914e5016a704b0c84b27239cfee6242',
       name: track.album.name,
       artist: track.artists[0].name,
-      duration: 30000,
+      duration: 30,
     });
     // console.log('Duration ' + track.duration_ms)
   });
