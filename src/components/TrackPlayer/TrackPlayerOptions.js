@@ -28,7 +28,6 @@ const trackMaker = () => {
       artist: track.artists[0].name,
       duration: 30,
     });
-    // console.log('Duration ' + track.duration_ms)
   });
   return arrayTracks;
 };
@@ -46,7 +45,7 @@ const setUpTrackPlayer = async indexSong => {
   }
 };
 
-const tracksSelected = ( name ) => {
+const tracksSelected = name => {
   let tracks = Store.getState().spotifyData.tracks;
   for (let index = 0; index < tracks.length; index++) {
     if (tracks[index].track.album.name.includes(name)) {

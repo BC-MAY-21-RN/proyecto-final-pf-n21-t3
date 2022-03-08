@@ -9,7 +9,11 @@ export const HeaderTrackPlayer = ({index}) => {
   return (
     <>
       <PlayTittleView>
-        <TitleText W={'40PX'}>{player[index].track.album.name}</TitleText>
+        <TitleText W={'40PX'}>
+          {player[index].track.album.name.length > 12
+            ? player[index].track.album.name.slice(0, 12) + '...'
+            : player[index].track.album.name}
+        </TitleText>
         <TitleText W={'30px'} Col={'#FFF064'}>
           {player[index].track.artists[0].name}
         </TitleText>

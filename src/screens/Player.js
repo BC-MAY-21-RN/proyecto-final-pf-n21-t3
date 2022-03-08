@@ -1,19 +1,23 @@
 import React, {useState, useEffect} from 'react';
-import {Store} from '../redux/Store';
 import {Container} from '../assets/styled.js';
 import {PlayView} from '../components/Title/Styled.js';
-import TrackPlayer from 'react-native-track-player';
-import {useSelector} from 'react-redux';
+import TrackPlayer, {
+  useTrackPlayerEvents,
+  Event,
+  useProgress,
+  usePlaybackState,
+  State
+} from 'react-native-track-player';
 import {setUpTrackPlayer} from '../components/TrackPlayer/TrackPlayerOptions.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {HeaderTrackPlayer} from '../components/TrackPlayer/HeaderTrackPlayer';
-import SliderComp from '../components/TrackPlayer/SliderComp'
+import SliderComp from '../components/TrackPlayer/SliderComp';
 
 import {
   skipPrevious,
   SkipSong,
   handlerIndex,
-  togglePlayback
+  togglePlayback,
 } from '../components/TrackPlayer/RNTrackPlayerCapabilities';
 
 export const Player = props => {
@@ -22,12 +26,19 @@ export const Player = props => {
   const [play, setPlay] = useState(false);
   const [back, setBack] = useState(false);
   const [forw, setForw] = useState(false);
-  const data = useSelector(Store.getState);
+  const {position} = useProgress();
+  const playbackState = usePlaybackState()
 
   useEffect(() => {
     setUpTrackPlayer(index);
     return () => TrackPlayer.destroy();
   }, []);
+
+  useTrackPlayerEvents([Event.PlaybackTrackChanged], async event => {
+    if (event.type === Event.PlaybackTrackChanged && position >= 29) {
+      handlerIndex(true, setIndex, index);
+    }
+  });
 
   return (
     <Container Padd={'0%'}>
@@ -48,10 +59,10 @@ export const Player = props => {
           size={120}
         />
         <Ionicons
-          name={play ? 'pause-circle' : 'play-circle'}
+          name={playbackState === State.Playing ? 'pause-circle' : 'play-circle'}
           onPress={() => {
-            setPlay(!play)
-            togglePlayback(!play)
+            setPlay(!play);
+            togglePlayback(!play);
           }}
           color={'white'}
           size={155}

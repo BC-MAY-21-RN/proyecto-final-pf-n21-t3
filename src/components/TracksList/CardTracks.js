@@ -6,17 +6,17 @@ import {
   ViewIcon,
   SafeCard,
 } from '../CardInfo/Styled';
-import { LikeButton       } from '../index';
-import   Ionicons           from 'react-native-vector-icons/Ionicons';
-import { TouchableOpacity } from 'react-native';
-import { useNavigation    } from '@react-navigation/native';
-import { setUpTrackPlayer } from '../TrackPlayer/TrackPlayerOptions';
-import { tracksSelected   } from '../TrackPlayer/TrackPlayerOptions';
+import {LikeButton} from '../index';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {setUpTrackPlayer} from '../TrackPlayer/TrackPlayerOptions';
+import {tracksSelected} from '../TrackPlayer/TrackPlayerOptions';
 
-export const CardTracks = ({data, index}) => {  
+export const CardTracks = ({data, index}) => {
   const [like, setLike] = useState(false);
   const navigation = useNavigation();
-  const { album, artists} = data.track;
+  const {album, artists} = data.track;
 
   return (
     <CardContainers Height={'100px'} key={index}>
@@ -24,7 +24,7 @@ export const CardTracks = ({data, index}) => {
         onPress={() => {
           const selectTrack = tracksSelected(album.name);
           setUpTrackPlayer(selectTrack);
-          navigation.navigate('Player', selectTrack)
+          navigation.navigate('Player', selectTrack);
         }}>
         <SafeCard>
           <TrackImage source={{uri: album.images[0].url}} />

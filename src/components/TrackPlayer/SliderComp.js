@@ -1,40 +1,38 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Slider from '@react-native-community/slider';
-import { prueba } from './SliderActive';
-import TrackPlayer, {usePlaybackState} from 'react-native-track-player';
+import TrackPlayer, {State, usePlaybackState} from 'react-native-track-player';
 import {useProgress} from 'react-native-track-player/lib/hooks';
-// import {PLAYBACK_TRACK_CHANGED} from 'react-native-track-player/lib/eventTypes';
 
 export default function SliderComp() {
   const {position, duration} = useProgress(1000, null);
   const [isSeeking, setIsSeeking] = useState(false);
   const [seek, setSeek] = useState(0);
-//   console.log(position, duration)
+  const playbackState = usePlaybackState();
 
-useEffect(() => {
-        if(duration == 30){
-            console.log('hola')
-        }
-
-   }, []);
-
-  const formatTime = (secs) => {
+  const formatTime = secs => {
     let minutes = Math.floor(secs / 60);
     let seconds = Math.ceil(secs - minutes * 60);
     if (seconds < 10) seconds = `0${seconds}`;
-    
+
     return `${minutes}:${seconds}`;
   };
 
-  const handleChange = ( val ) => {
-    console.log(val)
+  const handleChange = val => {
     TrackPlayer.seekTo(val);
-    TrackPlayer.play().then(() => {
-      setTimeout(() => {
-        setIsSeeking(false);
-      }, 1000);
-    });
+    if (playbackState == State.Playing) {
+      TrackPlayer.play().then(() => {
+        setTimeout(() => {
+          setIsSeeking(false);
+        }, 1000);
+      });
+    } else {
+      TrackPlayer.pause().then(() => {
+        setTimeout(() => {
+          setIsSeeking(false);
+        }, 1000);
+      });
+    }
   };
 
   //components
@@ -50,11 +48,10 @@ useEffect(() => {
           setSeek(value);
         }}
         maximumValue={duration}
-        minimumTrackTintColor="#ffffff"
+        minimumTrackTintColor="#fff064"
         onSlidingComplete={handleChange}
-        maximumTrackTintColor="rgba(255, 255, 255, .5)"
-        thumbTintColor="#fff"
-        
+        maximumTrackTintColor="#fff064"
+        thumbTintColor="#fff064"
       />
       <View style={styles.timeContainer}>
         <Text style={styles.timers}>

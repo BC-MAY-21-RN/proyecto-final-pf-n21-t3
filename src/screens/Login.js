@@ -6,7 +6,7 @@ import {Store} from '../redux/Store';
 import {setNewPassword, setNewEmail} from '../redux/Actions';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
-import {getToken, getDataSpotify} from '../spotify/spotify_token';
+import {getToken} from '../spotify/spotify_token';
 import {loadData} from '../spotify/loadData';
 import {ActivityIndicator} from 'react-native';
 

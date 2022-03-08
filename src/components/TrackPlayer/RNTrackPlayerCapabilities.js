@@ -1,9 +1,9 @@
-import TrackPlayer, {usePlaybackState} from 'react-native-track-player';
+import TrackPlayer from 'react-native-track-player';
 
 const handlerIndex = (direction, setIndex, index) => {
   let indexHelper = index;
   if (direction) {
-    if (indexHelper == 2) {
+    if (indexHelper == 14) {
       indexHelper = 0;
       setIndex(0);
     } else {
@@ -12,8 +12,8 @@ const handlerIndex = (direction, setIndex, index) => {
     }
   } else {
     if (indexHelper == 0) {
-      indexHelper = 2;
-      setIndex(2);
+      indexHelper = 14;
+      setIndex(14);
     } else {
       indexHelper -= 1;
       setIndex(indexHelper);
@@ -22,7 +22,7 @@ const handlerIndex = (direction, setIndex, index) => {
 };
 
 const SkipSong = async index => {
-  index != 2
+  index != 14
     ? await TrackPlayer.skipToNext().catch(e => {
         console.log('Skip error ' + index);
       })
@@ -30,11 +30,12 @@ const SkipSong = async index => {
 };
 
 const skipPrevious = async index => {
+  console.log('skipPrevius' + index);
   index != 0
     ? await TrackPlayer.skipToPrevious().catch(e =>
         console.log('Previous ERROR: ' + e),
       )
-    : await TrackPlayer.skip(2);
+    : await TrackPlayer.skip(14);
 };
 
 const togglePlayback = async usePlaybackState => {
@@ -43,10 +44,4 @@ const togglePlayback = async usePlaybackState => {
     : await TrackPlayer.pause().catch(e => console.log('Pause ERROR ' + e));
 };
 
-
-export {
-  SkipSong,
-  skipPrevious,
-  handlerIndex,
-  togglePlayback,
-};
+export {SkipSong, skipPrevious, handlerIndex, togglePlayback};
