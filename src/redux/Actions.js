@@ -11,6 +11,10 @@ export const SET_UID = 'SET_UID';
 export const SET_PLAYLISTS = 'SET_PLAYLISTS'
 export const SET_TRACKS = 'SET_TRACKS'
 export const SET_PLAYER = 'SET_PLAYER'
+export const ADD_FAVORITE = 'ADD_FAVORITE'
+export const REMOVE_FAVORITE = 'REMOVE_FAVORITE'
+export const ADD_PLAYLIST = 'ADD_PLAYLIST'
+export const REMOVE_PLAYLIST = 'REMOVE_PLAYLIST'
 
 export const setName = name => ({
   type: SET_NAME,
@@ -73,3 +77,19 @@ export const setPlayer = player => ({
   type: SET_PLAYER,
   payload: player
 })
+
+export const addFavorite = likes =>({
+  type:ADD_FAVORITE,
+  payload: likes = {
+    name: likes.name,
+    id: likes.id,
+    artists: likes.artists,
+    image: likes.image
+  }
+})
+
+export const removeFavorite = likes => ({
+  type: REMOVE_FAVORITE,
+  payload: likes
+})
+

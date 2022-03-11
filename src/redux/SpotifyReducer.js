@@ -5,7 +5,7 @@ import {
     SET_TOPLIST,
     SET_PLAYLISTS,
     SET_TRACKS,
-    SET_PLAYER
+    SET_PLAYER,
   } from './Actions';
   
   const initialState = {
@@ -14,7 +14,7 @@ import {
     topList: '',
     playlists: '',
     tracks: '',
-    player: ''
+    player: '',
   };
   
   

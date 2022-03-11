@@ -6,15 +6,16 @@ import {
   ViewIcon,
   SafeCard,
 } from '../CardInfo/Styled';
-import {LikeButton} from '../index';
+import {LikeButton, setLike} from '../index';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {setUpTrackPlayer} from '../TrackPlayer/TrackPlayerOptions';
 import {tracksSelected} from '../TrackPlayer/TrackPlayerOptions';
+import { addLikeTracks } from '../Firebase/StoreLikes';
 
 export const CardTracks = ({data, index}) => {
-  const [like, setLike] = useState(false);
+  const [isLike, settLike] = useState(false);
   const navigation = useNavigation();
   const {album, artists} = data.track;
 
@@ -32,7 +33,7 @@ export const CardTracks = ({data, index}) => {
             {album.name} - {artists[0].name}
           </TrackTitle>
           <ViewIcon>
-            <LikeButton onPress={() => setLike(!like)} like={like} size={45} />
+            <LikeButton like={isLike} onPress={() => {settLike(!isLike), addLikeTracks(data,isLike)}}  size={45} />
             <Ionicons name={'ellipsis-horizontal'} color={'black'} size={39} />
           </ViewIcon>
         </SafeCard>
