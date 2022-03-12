@@ -7,7 +7,8 @@ import {
   Library,
   Profile,
   Home,
-  Player
+  Player,
+  Search
 } from '../../screens/index';
 
 const Stack = createNativeStackNavigator();
@@ -20,6 +21,7 @@ export const LibraryScreens = () => {
       <Stack.Screen name="Liked" component={Liked} />
       <Stack.Screen name="Library" component={Library} />
       <Stack.Screen name="Player" component={Player} />
+      <Stack.Screen name="Search" component={Search} />
     </Stack.Navigator>
   );
 };
@@ -30,6 +32,7 @@ export const ProfileScreens = () => {
       initialRouteName="Profile"
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Search" component={Search} />
     </Stack.Navigator>
   );
 };
@@ -42,6 +45,7 @@ export const HomeScreens = () => {
       <Stack.Screen name="PlayList" component={PlayList} />
       <Stack.Screen name="Tracks" component={Tracks} />
       <Stack.Screen name="Player" component={Player} />
+      <Stack.Screen name="Search" component={Search} />
     </Stack.Navigator>
   );
 };
