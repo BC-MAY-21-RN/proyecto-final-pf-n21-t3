@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, TitleText, Logo } from './Styled';
+import {Container, TitleText, Logo} from './Styled';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useNavigation } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {TouchableOpacity} from 'react-native';
 
 export const Title = ({Titulo, W}) => {
   const navigation = useNavigation();
@@ -21,13 +21,15 @@ export const Title = ({Titulo, W}) => {
           justifyContent: 'center',
           marginLeft: 10,
           borderColor: 'black',
-        }}></TouchableOpacity>
-      <Ionicons
-        name="search-circle-outline"
-        color={'black'}
-        style={{
-          fontSize: 40,
-        }}></Ionicons>
+        }}>
+        <Ionicons
+          name="search-circle-outline"
+          color={'black'}
+          style={{
+            fontSize: 40,
+          }}
+        />
+      </TouchableOpacity>
     </Container>
   );
 };

@@ -7,8 +7,8 @@ export const Tracks = props => {
   return (
     <Container Padd={'0%'}>
       <ScrlVw P={'0% 3% 0% 3%'}>
-      <Title Titulo={props.route.params}/>
-        <TrackList />
+      <Title Titulo={props.route.params.name}/>
+        <TrackList search={props.route.params.search}/>
       </ScrlVw>
     </Container>
   );

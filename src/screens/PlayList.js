@@ -8,8 +8,8 @@ export function PlayList(props) {
   const navigation = useNavigation();
   return (
     <Container Padd={'0%'}>
-      <Title Titulo={props.route.params} />
-      <ListPlay navigation={navigation}/>
+      <Title Titulo={props.route.params.name} />
+      <ListPlay navigation={navigation} search={props.route.params.search}/>
     </Container>
   );
 }

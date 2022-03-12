@@ -21,6 +21,7 @@ export const Search = ({navigation}) => {
   const [searchtext, setsearchtext] = useState('');
   const [data, setData] = useState('');
   const [selected, setSelected] = useState('album,track,playlist');
+
   return (
     <Container Padd={'0%'}>
       <ScrlVw>
@@ -113,17 +114,19 @@ export const Search = ({navigation}) => {
         { searchtext === '' ?  <Text>Inicia tu busqueda</Text>: null}
         {
           selected === 'album,track,playlist' && searchtext != '' ? (
+            console.log(Store.getState().spotifyData.searchTracks),
             <TrackList data={Store.getState().spotifyData.searchTracks} />
           ): null
         }
         {(selected === 'track' && searchtext != '' ) ? (
-          <TrackList data={Store.getState().spotifyData.searchTracks} />
+          <TrackList data={Store.getState().spotifyData.searchTracks} search={true} />
         ) :null}
         
         {(selected === 'album' && searchtext != '') ? (
           <ListPlay
             data={Store.getState().spotifyData.searchAlbums}
             navigation={navigation}
+            search={true}
           />
         ) :(null)}
 
@@ -131,6 +134,7 @@ export const Search = ({navigation}) => {
           <ListPlay
             data={Store.getState().spotifyData.searchPlayLists}
             navigation={navigation}
+            search={true} 
           />
         ) : null}
       </ScrlVw>
