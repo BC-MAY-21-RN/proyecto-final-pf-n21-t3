@@ -41,9 +41,7 @@ export async function getDataSpotify(token, uri, prefix) {
   })
     .then(trackresponse => {
       return prefix ? trackresponse.data[prefix].items : trackresponse.data.items;
-      /*return estandarDatos(
-      prefix ? trackresponse.data[prefix].items : trackresponse.data.items,
-      );*/
+      
     })
     .catch(error => {
       console.log('error de top list ' + error);
@@ -52,20 +50,6 @@ export async function getDataSpotify(token, uri, prefix) {
     });
   return datos;
 }
-
-//Estandarizacion de la informacion obtenida para facilital el mapeo en los componentes
-/* export function estandarDatos(obJson) {
-  //console.log(JSON.stringify(obJson, null, '--'))
-  return obJson.map((item, index) => ({
-    id: index,
-    title: item.name ? item.name : item.track.album.name,
-    artistName: item.track ? item.track.name : undefined,
-    imageUri: item.track
-      ? item.track.album.images[0].url
-      : item.images
-      ? item.images[0].url
-      : item.icons[0].url,
-  })); */
 
 /**
    * Uris de prueba

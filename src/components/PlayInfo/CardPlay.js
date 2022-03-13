@@ -13,13 +13,13 @@ import {Store} from '../../redux/Store';
 import {setTracks, setSearchTracks} from '../../redux/Actions';
 import {dataLoadTrack} from '../TracksList/tracksInfo';
 
-export const CardPlay = ({data, indice, navigation, search}) => {
-  console.log(data)
+export const CardPlay = ({data, indice, navigation}) => {
+  // console.log(data)
   const [like, setLike] = useState(false);
 
   return (
     <CardContainer key={indice}>
-      {console.log(data.href)}
+      {/* {console.log(data.href)} */}
       <TouchableOpacity
         onPress={() => {
           getDataSpotify(
@@ -28,14 +28,12 @@ export const CardPlay = ({data, indice, navigation, search}) => {
             false,
           )
             .then(trackresponse => {
-              console.log(trackresponse);
+              
               Store.dispatch(setTracks(trackresponse));
               dataLoadTrack(trackresponse)
                 .then(response => {
                   Store.dispatch(setSearchTracks(response));
-                  Store.getState().spotifyData.tracks != undefined
-                    ? navigation.navigate('Tracks', {name: data.name, search: search})
-                    : null;
+                  navigation.navigate('Tracks', {name: data.name});
                 })
                 .catch(console.log);
             })

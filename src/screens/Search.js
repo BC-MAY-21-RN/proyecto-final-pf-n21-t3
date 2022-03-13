@@ -19,7 +19,6 @@ import {TrackList} from '../components/index';
 
 export const Search = ({navigation}) => {
   const [searchtext, setsearchtext] = useState('');
-  const [data, setData] = useState('');
   const [selected, setSelected] = useState('album,track,playlist');
 
   return (
@@ -114,7 +113,6 @@ export const Search = ({navigation}) => {
         { searchtext === '' ?  <Text>Inicia tu busqueda</Text>: null}
         {
           selected === 'album,track,playlist' && searchtext != '' ? (
-            console.log(Store.getState().spotifyData.searchTracks),
             <TrackList data={Store.getState().spotifyData.searchTracks} />
           ): null
         }

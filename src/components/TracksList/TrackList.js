@@ -5,18 +5,15 @@ import {Store} from '../../redux/Store';
 import {useSelector} from 'react-redux';
 import {ActivityIndicator} from 'react-native';
 
-export const TrackList = ({title, search, data}) => {
+export const TrackList = ({title,  data}) => {
   const tracks = useSelector(Store.getState);
   //console.log(data)
-  var info = '';
-  search
-    ? (info = data)
-    : (info = tracks.spotifyData.tracks);
+  
   return (
     <ContCard height={'93%'} P={'3% 4% 3% 4%'}>
-      {info ? (
-        info.map((Musica, index) => (
-          <CardTracks title={title} key={index} data={Musica} search={search} />
+      {data ? (
+        data.map((Musica, index) => (
+          <CardTracks title={title} key={index} data={Musica}  />
         ))
       ) : (
         <ActivityIndicator size={'large'} color={'white'} />
