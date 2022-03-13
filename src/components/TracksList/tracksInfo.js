@@ -10,7 +10,7 @@ export const dataLoadTrack = async (tracks) => {
     });
   }else{
     console.log('else')
-    
+
     tracks?.map(track => {
       // console.log(track)
       newFormater.push({
@@ -22,7 +22,9 @@ export const dataLoadTrack = async (tracks) => {
           },
           artists: [{
             name: track.artists[0].name,
-          }]  
+          }],  
+          name: track.name,
+          preview_url: track.preview_url
         
       });3
     });

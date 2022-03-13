@@ -24,7 +24,7 @@ export const CardPlay = ({data, indice, navigation}) => {
         onPress={() => {
           getDataSpotify(
             Store.getState().spotifyData.token,
-            `${data.href}/tracks?limit=3`,
+            `${data.href}/tracks?limit=15`,
             false,
           )
             .then(trackresponse => {

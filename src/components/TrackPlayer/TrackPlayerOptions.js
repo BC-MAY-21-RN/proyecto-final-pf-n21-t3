@@ -48,7 +48,7 @@ const setUpTrackPlayer = async indexSong => {
 const tracksSelected = name => {
 
   let tracks = Store.getState().spotifyData.searchTracks;
-  console.log(tracks[0].name)
+  // console.log(tracks[0].name)
   for (let index = 0; index < tracks.length; index++) {
     if (tracks[index].album.name.includes(name)) {
       Store.dispatch(setPlayer(tracks));
