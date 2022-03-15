@@ -11,6 +11,10 @@ export const SET_UID = 'SET_UID';
 export const SET_PLAYLISTS = 'SET_PLAYLISTS'
 export const SET_TRACKS = 'SET_TRACKS'
 export const SET_PLAYER = 'SET_PLAYER'
+export const ADD_FAVORITE = 'ADD_FAVORITE'
+export const REMOVE_FAVORITE = 'REMOVE_FAVORITE'
+export const ADD_PLAYLIST = 'ADD_PLAYLIST'
+export const REMOVE_PLAYLIST = 'REMOVE_PLAYLIST'
 export const SET_SEARCHTRACKS = 'SET_SEARCHTRACKS'
 export const SET_SEARCHARTISTS = 'SET_SEARCHARTISTS'
 export const SET_SEARCHALBUMS = 'SET_SEARCHALBUMS'
@@ -79,6 +83,23 @@ export const setPlayer = player => ({
   type: SET_PLAYER,
   payload: player
 })
+
+export const addFavorite = likes =>({
+  type: ADD_FAVORITE,
+  payload: likes = {
+    name: likes.name,
+    id: likes.id,
+    artists: likes.artists,
+    image: likes.image,
+    preview_url: likes.preview_url
+  }  
+})
+
+export const removeFavorite = likes => ({
+  type: REMOVE_FAVORITE,
+  payload: likes
+})
+
 export const setSearchTracks = searchTracks => ({
   type: SET_SEARCHTRACKS,
   payload: searchTracks
@@ -99,4 +120,20 @@ export const setSearchPlayLists = searchPlayLists =>({
 export const setSearchPlay = searchPlay => ({
   type: SET_SEARCHPlAY,
   payload: searchPlay
+})
+
+export const addFavoritePlaylist = likes => ({
+  type: ADD_PLAYLIST,
+  payload: likes = {
+    name: likes.name,
+    id: likes.id,
+    artists: likes.artists,
+    image: likes.image,
+    preview_url: likes.preview_url
+  }  
+})
+
+export const removeFavoritePlaylist = likes => ({
+  type: REMOVE_PLAYLIST,
+  payload: likes
 })

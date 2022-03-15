@@ -10,16 +10,13 @@ import {
 import {LikeButton} from '../index';
 import {getDataSpotify} from '../../spotify/spotify_token';
 import {Store} from '../../redux/Store';
-import {setTracks, setSearchTracks} from '../../redux/Actions';
+import {setTracks, setSearchTracks, } from '../../redux/Actions';
 import {dataLoadTrack} from '../TracksList/tracksInfo';
 
 export const CardPlay = ({data, indice, navigation}) => {
-  // console.log(data)
   const [like, setLike] = useState(false);
-
   return (
     <CardContainer key={indice}>
-      {/* {console.log(data.href)} */}
       <TouchableOpacity
         onPress={() => {
           getDataSpotify(
@@ -43,7 +40,7 @@ export const CardPlay = ({data, indice, navigation}) => {
           <TrackImage source={{uri: data.images[0].url}} />
           <TrackTitle Wdth={'60%'}> {data.name}</TrackTitle>
           <ViewIcon>
-            <LikeButton onPress={() => setLike(!like)} size={45} like={like} />
+            <LikeButton onPress={() => {setLike(!like)}} size={45} like={like} />
           </ViewIcon>
         </SafeCard>
       </TouchableOpacity>
