@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {TouchableOpacity, Text} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { TouchableOpacity, Text } from 'react-native';
 import {
   Container,
   ScrlVw,
@@ -7,17 +7,17 @@ import {
   SearchSection,
   SearchSbar,
   TextSeach,
-  Viewlogo,
+  Viewlogo, Textbusqueda
 } from '../assets/styled.js';
-import {InputLog} from '../components/index';
-import {Store} from '../redux/Store.js';
+import { InputLog } from '../components/index';
+import { Store } from '../redux/Store.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {SearchHelper} from '../components/buscador/SearchHelper.js';
-import {ListPlay} from '../components/index';
-import {Logo} from '../components/Title/Styled';
-import {TrackList} from '../components/index';
+import { SearchHelper } from '../components/buscador/SearchHelper.js';
+import { ListPlay } from '../components/index';
+import { Logo } from '../components/Title/Styled';
+import { TrackList } from '../components/index';
 
-export const Search = ({navigation}) => {
+export const Search = ({ navigation }) => {
   const [searchtext, setsearchtext] = useState('');
   const [selected, setSelected] = useState('album,track,playlist');
 
@@ -30,12 +30,12 @@ export const Search = ({navigation}) => {
         </Viewlogo>
 
         <InputLog
-          placeholderAdj={'Artista, Canciones o Albunes'}
+          placeholderAdj={'Canciones, Albunes o Playlist'}
           onChangeText={evento => {
             setsearchtext(evento);
             SearchHelper(selected, evento).catch(err => {
-                console.log('error de spotysearch' + err);
-              });
+              console.log('error de spotysearch' + err);
+            });
           }}
         />
         <SearchSection>
@@ -48,7 +48,7 @@ export const Search = ({navigation}) => {
             <SearchSbar
               style={{
                 shadowColor: '#000',
-                shadowOffset: {width: 1, height: 1},
+                shadowOffset: { width: 1, height: 1 },
                 shadowOpacity: 0.4,
                 shadowRadius: 3,
                 elevation: 5,
@@ -71,7 +71,7 @@ export const Search = ({navigation}) => {
             <SearchSbar
               style={{
                 shadowColor: '#000',
-                shadowOffset: {width: 1, height: 1},
+                shadowOffset: { width: 1, height: 1 },
                 shadowOpacity: 0.4,
                 shadowRadius: 3,
                 elevation: 5,
@@ -94,7 +94,7 @@ export const Search = ({navigation}) => {
             <SearchSbar
               style={{
                 shadowColor: '#000',
-                shadowOffset: {width: 1, height: 1},
+                shadowOffset: { width: 1, height: 1 },
                 shadowOpacity: 0.4,
                 shadowRadius: 3,
                 elevation: 5,
@@ -110,29 +110,29 @@ export const Search = ({navigation}) => {
 
         </SearchSection>
 
-        { searchtext === '' ?  <Text>Inicia tu busqueda</Text>: null}
+        {searchtext === '' ? <Textbusqueda>Inicia tu busqueda</Textbusqueda> : null}
         {
           selected === 'album,track,playlist' && searchtext != '' ? (
             <TrackList data={Store.getState().spotifyData.searchTracks} />
-          ): null
+          ) : null
         }
-        {(selected === 'track' && searchtext != '' ) ? (
+        {(selected === 'track' && searchtext != '') ? (
           <TrackList data={Store.getState().spotifyData.searchTracks} search={true} />
-        ) :null}
-        
+        ) : null}
+
         {(selected === 'album' && searchtext != '') ? (
           <ListPlay
             data={Store.getState().spotifyData.searchAlbums}
             navigation={navigation}
             search={true}
           />
-        ) :(null)}
+        ) : (null)}
 
         {selected === 'playlist' && searchtext != '' ? (
           <ListPlay
             data={Store.getState().spotifyData.searchPlayLists}
             navigation={navigation}
-            search={true} 
+            search={true}
           />
         ) : null}
       </ScrlVw>

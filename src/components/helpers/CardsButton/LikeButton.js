@@ -3,6 +3,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {addFavorite, removeFavorite} from '../../../redux/Actions';
 import {Store} from '../../../redux/Store';
 
+
 export function setLikeSong(data, like) {
   like
     ? Store.dispatch(
@@ -45,6 +46,12 @@ export const LikeButton = ({size, like, onPress}) => (
     name={like ? 'heart-circle' : 'heart-circle-outline'}
     onPress={onPress}
     color={like ? 'red' : 'black'}
+
+export const LikeButton = ({ size, like, onPress }) => (
+  <Ionicons
+    name={like ? 'heart-circle' : 'heart-circle-outline'}
+    onPress={onPress}
+    color={like ? 'yellow' : 'black'}
     size={size}
   />
 );

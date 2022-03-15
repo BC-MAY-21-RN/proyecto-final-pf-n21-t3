@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const CardContainer = styled.View`
   flex-direction: row;
@@ -8,7 +8,7 @@ export const CardContainer = styled.View`
   padding: 10px 10px 10px 10px;
   width: 100%;
   margin: 5px 0px 5px 0px;
-  background-color: ${props => props.BackColor || '#C8A6FF'}
+  background-color: ${props => props.BackColor || '#A0AAB0'}
   border-radius: 18px;
   margin-bottom: 5px
   `;
@@ -21,7 +21,7 @@ export const CardContainers = styled.View`
   background-color: 
   width: 100%;
   margin: 5px 0px 5px 0px;
-  background-color: ${props => props.BackColor || '#C8A6FF'}
+  background-color: ${props => props.BackColor || '#A0AAB0'}
   border-radius: 18px;
   margin-bottom: 5px
   `;
@@ -66,7 +66,7 @@ export const TrackImages = styled.Image`
 
 export const ContCard = styled.View`
   align-items: center;
-  background: #fff064;
+  background: #b8dbd9;
   border-radius: 18px;
   padding: ${props => props.P || '0px 5px 0px 5px'};
   border: solid 2px black;
@@ -82,6 +82,7 @@ export const ViewIcon = styled.View`
   align-items: center;
   width: 15%;
   height: 100%;
+  margin: 0% 0% 0% 3%;
 `;
 export const InpCon = styled.View`
   justify-content: space-between;

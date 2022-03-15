@@ -12,7 +12,7 @@ export const TitleText = styled.Text`
   color: ${props => props.Col || 'white'};
   font-size: ${props => props.W || '45px'}
   font-family: 'BebasNeue-Regular';
-  margin: 2% 2% 0% 0%;
+  margin: 2% 2% 0% 2%;
   text-decoration: underline white;
 `;
 
