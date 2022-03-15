@@ -82,7 +82,7 @@ export const ViewIcon = styled.View`
   align-items: center;
   width: 15%;
   height: 100%;
-  margin: 0% 0% 0% 3%;
+  margin: 0% 0% 0% 0%;
 `;
 export const InpCon = styled.View`
   justify-content: space-between;
