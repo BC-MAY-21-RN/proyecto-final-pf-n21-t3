@@ -28,12 +28,14 @@ function TabNavigator() {
           name="My Library"
           component={LibraryScreens}
           options={{
-            tabBarIcon: ({size, color, focused}) => {
+            tabBarIcon: ({size, color, focused}) => {onclick={}
               focused ? (color = '#45366D') : (color = 'black');
+              
               return (
                 <FontAwesome5 name="compact-disc" color={color} size={size} />
               );
             },
+    
           }}
         />
         <Tab.Screen

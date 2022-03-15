@@ -17,14 +17,14 @@ TrackPlayer.updateOptions({
 const trackMaker = () => {
   const arrayTracks = [];
 
-  Store.getState().spotifyData.tracks.map(({track}, index) => {
+  Store.getState().spotifyData.searchTracks.map((track, index) => {
     arrayTracks.push({
       id: index,
       url:
         track.preview_url != null
           ? track.preview_url
           : 'https://p.scdn.co/mp3-preview/a270730db8c094877900b167a41d186ce6755d0a?cid=5914e5016a704b0c84b27239cfee6242',
-      name: track.album.name,
+      name: track.name,
       artist: track.artists[0].name,
       duration: 30,
     });
@@ -46,9 +46,11 @@ const setUpTrackPlayer = async indexSong => {
 };
 
 const tracksSelected = name => {
-  let tracks = Store.getState().spotifyData.tracks;
+
+  let tracks = Store.getState().spotifyData.searchTracks;
+  // console.log(tracks[0].name)
   for (let index = 0; index < tracks.length; index++) {
-    if (tracks[index].track.album.name.includes(name)) {
+    if (tracks[index].album.name.includes(name)) {
       Store.dispatch(setPlayer(tracks));
       return index;
     }

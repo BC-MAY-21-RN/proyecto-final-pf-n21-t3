@@ -24,8 +24,9 @@ export const CardGender = ({navigation}) => {
               )
                 .then(trackresponse => {
                   Store.dispatch(setPlaylists(trackresponse));
+                  // console.log(trackresponse)
                   Store.getState().spotifyData.playlists != undefined
-                    ? navigation.navigate('PlayList', gender.name)
+                    ? navigation.navigate('PlayList', {name: gender.name})
                     : null;
                 })
                 .catch(e => {

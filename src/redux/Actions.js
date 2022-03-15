@@ -15,6 +15,12 @@ export const ADD_FAVORITE = 'ADD_FAVORITE'
 export const REMOVE_FAVORITE = 'REMOVE_FAVORITE'
 export const ADD_PLAYLIST = 'ADD_PLAYLIST'
 export const REMOVE_PLAYLIST = 'REMOVE_PLAYLIST'
+export const SET_SEARCHTRACKS = 'SET_SEARCHTRACKS'
+export const SET_SEARCHARTISTS = 'SET_SEARCHARTISTS'
+export const SET_SEARCHALBUMS = 'SET_SEARCHALBUMS'
+export const SET_SEARCHPlAY = 'SET_SEARCHPLAY'
+export const SET_SEARCHPLAYLISTS = 'SET_SEARCHPLAYLISTS'
+
 
 export const setName = name => ({
   type: SET_NAME,
@@ -93,3 +99,24 @@ export const removeFavorite = likes => ({
   payload: likes
 })
 
+export const setSearchTracks = searchTracks => ({
+  type: SET_SEARCHTRACKS,
+  payload: searchTracks
+})
+export const setSearchArtists = searchArtists => ({
+  type: SET_SEARCHARTISTS,
+  payload: searchArtists
+})
+export const setSearchAlbums = searchAlbums => ({
+  type: SET_SEARCHALBUMS,
+  payload: searchAlbums
+})
+export const setSearchPlayLists = searchPlayLists =>({
+  type: SET_SEARCHPLAYLISTS, 
+  payload: searchPlayLists
+}) 
+
+export const setSearchPlay = searchPlay => ({
+  type: SET_SEARCHPlAY,
+  payload: searchPlay
+})

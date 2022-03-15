@@ -17,20 +17,20 @@ import { addLikeTracks } from '../Firebase/StoreLikes';
 export const CardTracks = ({data, index}) => {
   const [isLike, settLike] = useState(false);
   const navigation = useNavigation();
-  const {album, artists} = data.track;
 
   return (
     <CardContainers Height={'100px'} key={index}>
       <TouchableOpacity
-        onPress={() => {
-          const selectTrack = tracksSelected(album.name);
+        onPress={() => {//search ? data.name : data.track.album.name, search, data
+          const selectTrack = tracksSelected(data.album.name, false, data);
           setUpTrackPlayer(selectTrack);
           navigation.navigate('Player', selectTrack);
         }}>
-        <SafeCard>
-          <TrackImage source={{uri: album.images[0].url}} />
+        <SafeCard>{/*uri: search ? null : data.track.album.images[0].url*/}
+          <TrackImage source={{uri: data.album.images[0].url}} />
           <TrackTitle TextSize={'18px'}>
-            {album.name} - {artists[0].name}
+            {/*search ? data.name : data.track.album.name  // search ? data.artists[0].name : data.track.artists[0].name*/ }
+            {data.album.name} - {data.artists[0].name}
           </TrackTitle>
           <ViewIcon>
             <LikeButton like={isLike} onPress={() => {settLike(!isLike), addLikeTracks(data,isLike)}}  size={45} />
