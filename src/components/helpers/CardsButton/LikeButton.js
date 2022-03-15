@@ -40,13 +40,6 @@ export function setFavoritePlaylist(data, like) {
 }
 
 
-
-export const LikeButton = ({size, like, onPress}) => (
-  <Ionicons
-    name={like ? 'heart-circle' : 'heart-circle-outline'}
-    onPress={onPress}
-    color={like ? 'red' : 'black'}
-
 export const LikeButton = ({ size, like, onPress }) => (
   <Ionicons
     name={like ? 'heart-circle' : 'heart-circle-outline'}

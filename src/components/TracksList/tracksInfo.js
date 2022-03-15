@@ -8,10 +8,13 @@ export const dataLoadTrack = async tracks => {
       newFormater.push(track);
     });
   } else {
-    // console.log(tracks)
+    let imageAlbum
+    await getImage(tracks[0].href).then(response =>{
+      imageAlbum = response.album.images[0].url
+      console.log(imageAlbum)
+    }).catch(e => console.log(e))
+
     tracks?.map(track => {
-      // console.log(track.href)
-      getImage(track.href).catch(e => console.log(e))
       newFormater.push({
         album: {
           name: track.name,
@@ -19,7 +22,7 @@ export const dataLoadTrack = async tracks => {
             {
               url: track.image
                 ? track.image
-                : 'https://frasesdeinspiracion10.com/wp-content/uploads/2019/10/imagenes-de-amor-2336.jpg',
+                : imageAlbum,
             },
           ],
           id: track.id,
@@ -46,9 +49,10 @@ const getImage = async uri => {
     false,
   )
     .then(response => {
-      console.log(response)
+      return response
     })
     .catch(e => console.log(e));
+    return result
 };
 
 /**
