@@ -6,34 +6,40 @@ import {
   ViewIcon,
   SafeCard,
 } from '../CardInfo/Styled';
-import {LikeButton, setLike} from '../index';
+import {LikeButton, setLikeSong} from '../index';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {setUpTrackPlayer} from '../TrackPlayer/TrackPlayerOptions';
 import {tracksSelected} from '../TrackPlayer/TrackPlayerOptions';
-import { addLikeTracks } from '../Firebase/StoreLikes';
+import {addLikeTracks} from '../Firebase/StoreLikes';
+import {Store} from '../../redux/Store';
 
-export const CardTracks = ({data, index}) => {
+export const CardTracks = ({data, index, liked}) => {
+  var isLiked = liked ? liked : isLike;
   const [isLike, settLike] = useState(false);
   const navigation = useNavigation();
-
   return (
     <CardContainers Height={'100px'} key={index}>
       <TouchableOpacity
-        onPress={() => {//search ? data.name : data.track.album.name, search, data
+        onPress={() => {
           const selectTrack = tracksSelected(data.album.name, false, data);
           setUpTrackPlayer(selectTrack);
           navigation.navigate('Player', selectTrack);
         }}>
-        <SafeCard>{/*uri: search ? null : data.track.album.images[0].url*/}
+        <SafeCard>
           <TrackImage source={{uri: data.album.images[0].url}} />
           <TrackTitle TextSize={'18px'}>
-            {/*search ? data.name : data.track.album.name  // search ? data.artists[0].name : data.track.artists[0].name*/ }
             {data.album.name} - {data.artists[0].name}
           </TrackTitle>
           <ViewIcon>
-            <LikeButton like={isLike} onPress={() => {settLike(!isLike), addLikeTracks(data,isLike)}}  size={45} />
+            <LikeButton
+              like={liked ? liked : isLike}
+              onPress={() => {
+                settLike(!isLike), setLikeSong(data, isLiked);
+              }}
+              size={45}
+            />
             <Ionicons name={'ellipsis-horizontal'} color={'black'} size={39} />
           </ViewIcon>
         </SafeCard>

@@ -11,7 +11,7 @@ export function PlayList(props) {
   return (
     <Container Padd={'0%'}>
       <Title Titulo={props.route.params.name} />
-      <ListPlay navigation={navigation} data={data} search={props.route.params.search}/>
+      <ListPlay navigation={navigation} data={data}/>
     </Container>
   );
 }

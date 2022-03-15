@@ -20,7 +20,6 @@ export const spotySearchCall = async (searchTerm, selected) => {
     },
   })
     .then(response => {
-      //console.log(response.data)
       return response.data;
     })
     .catch(error => {

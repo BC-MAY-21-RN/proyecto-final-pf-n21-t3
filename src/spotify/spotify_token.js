@@ -40,7 +40,14 @@ export async function getDataSpotify(token, uri, prefix) {
     },
   })
     .then(trackresponse => {
+      // console.log(trackresponse.data)
+      
       return prefix ? trackresponse.data[prefix].items : trackresponse.data.items;
+      // if(trackresponse.data[prefix].items || trackresponse.data.items){
+      // }else if(trackresponse.data){
+      //   return trackresponse.data
+      // }
+      
       
     })
     .catch(error => {

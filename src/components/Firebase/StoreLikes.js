@@ -49,6 +49,7 @@ export async function addLikeTracks(data, like) {
             id: data.album.id,
             image: data.album.images[0].url,
             idUser: auth().currentUser.uid,
+            preview_url: data.preview_url
           }),
         })
         .then(console.log('ADDED'))
@@ -56,7 +57,6 @@ export async function addLikeTracks(data, like) {
 }
 
 export async function addLikesPlaylists(data, like) {
-  console.log('esto es snapshot ' + data.snapshot_id);
   var playList = [];
   like
     ? ((playList = await firestore()

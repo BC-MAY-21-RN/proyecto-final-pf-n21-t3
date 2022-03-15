@@ -3,19 +3,20 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {addFavorite, removeFavorite} from '../../../redux/Actions';
 import {Store} from '../../../redux/Store';
 
-export function setLike(data, like) {
+export function setLikeSong(data, like) {
   like
     ? Store.dispatch(
         removeFavorite({
-          id: data.track.album.id,
+          id: data.album.id,
         }),
       )
     : Store.dispatch(
         addFavorite({
-          name: data.track.album.name,
-          artists: data.track.artists[0].name,
-          id: data.track.album.id,
-          image: data.track.album.images[0].url,
+          name: data.album.name,
+          artists: data.artists[0].name,
+          id: data.album.id,
+          image: data.album.images[0].url,
+          preview_url: data.preview_url ? data.preview_url : 'https://p.scdn.co/mp3-preview/a270730db8c094877900b167a41d186ce6755d0a?cid=5914e5016a704b0c84b27239cfee6242'
         }),
       );
 }
@@ -36,6 +37,8 @@ export function setFavoritePlaylist(data, like) {
         }),
       );
 }
+
+
 
 export const LikeButton = ({size, like, onPress}) => (
   <Ionicons
