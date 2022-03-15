@@ -1,10 +1,10 @@
 import React from 'react';
-import {Container, TitleText, Logo} from './Styled';
+import { Container, TitleText, Logo } from './Styled';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {useNavigation} from '@react-navigation/native';
-import {TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native';
 
-export const Title = ({Titulo, W}) => {
+export const Title = ({ Titulo, W }) => {
   const navigation = useNavigation();
 
   return (
@@ -20,7 +20,7 @@ export const Title = ({Titulo, W}) => {
           borderRadius: 30,
           justifyContent: 'center',
           marginLeft: 10,
-          borderColor: 'black',
+          borderColor: 'black'
         }}>
         <Ionicons
           name="search-circle-outline"
@@ -30,6 +30,6 @@ export const Title = ({Titulo, W}) => {
           }}
         />
       </TouchableOpacity>
-    </Container>
+    </Container >
   );
 };

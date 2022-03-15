@@ -1,5 +1,14 @@
 import styled from 'styled-components/native';
 
+
+export const Textbusqueda = styled.Text`
+  font-size: 30px;
+  color:white;
+  text-align: ${props => props.TextPosition || 'left'};
+  margin: 15px 1px 15px 22px;
+  font-family: 'BebasNeue-Regular';
+`;
+
 export const TextSong = styled.Text`
   font-size: 45px;
   color:white;
@@ -27,10 +36,10 @@ export const SearchSection = styled.View`
 export const SearchSbar = styled.View`
   
    border-radius: 15px;
-   background-color: #912AF2;
+   background-color: #A0AAB0;
    width: 100%;
   align-items: center
-   border-color: ${props => props.BColor || 'black'};
+  border-color: ${props => props.BColor || 'black'};
   border-width: 1px
   max-width: 75px;
   min-width: 80px;
@@ -41,7 +50,7 @@ export const Container = styled.View`
   align-items: center;
   flex: 1;
   padding: ${props => props.Padd || '6%'};
-  background-color: #8231ff;
+  background-color: #007ea7;
 `;
 export const Logo = styled.Image.attrs(props => ({
   source: require('../assets/img/Logo.png'),
@@ -62,7 +71,7 @@ export const Boton = styled.TouchableOpacity`
   height: 50px;
   border: 2.5px;
   border-color: ${props => props.BColor || 'black'};
-  background-color: ${props => props.BackColor || '#FFFFFF'};
+  background-color: ${props => props.BackColor || '#A0AAB0'};
   margin: 2% 0% 2% 0%;
   font-size: 25px;
   border-top: 2%;
