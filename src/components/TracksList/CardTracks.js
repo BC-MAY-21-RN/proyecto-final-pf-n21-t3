@@ -15,14 +15,14 @@ import {tracksSelected} from '../TrackPlayer/TrackPlayerOptions';
 
 
 export const CardTracks = ({data, index, liked}) => {
-  var isLiked = liked ? liked : isLike;
   const [isLike, settLike] = useState(false);
+  var isLiked = liked ? liked : isLike;
   const navigation = useNavigation();
   return (
     <CardContainers Height={'100px'} key={index}>
       <TouchableOpacity
         onPress={() => {
-          const selectTrack = tracksSelected(data.album.name, false, data);
+          const selectTrack = tracksSelected(data.album.name);
           setUpTrackPlayer(selectTrack);
           navigation.navigate('Player', selectTrack);
         }}>

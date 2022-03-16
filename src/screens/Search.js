@@ -1,23 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { TouchableOpacity, Text } from 'react-native';
-import {
-  Container,
-  ScrlVw,
-  TextSong,
-  SearchSection,
-  SearchSbar,
-  TextSeach,
-  Viewlogo, Textbusqueda
-} from '../assets/styled.js';
-import { InputLog } from '../components/index';
-import { Store } from '../redux/Store.js';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { SearchHelper } from '../components/buscador/SearchHelper.js';
-import { ListPlay } from '../components/index';
-import { Logo } from '../components/Title/Styled';
-import { TrackList } from '../components/index';
+import React, {useState} from 'react';
+import {Container, ScrlVw, TextSong, Viewlogo} from '../assets/styled.js';
+import {InputLog} from '../components/index';
+import {SearchHelper} from '../components/buscador/SearchHelper.js';
+import {SearchIcons, SearchResults} from '../components/index';
+import {Logo} from '../components/Title/Styled';
 
-export const Search = ({ navigation }) => {
+export const Search = ({navigation}) => {
   const [searchtext, setsearchtext] = useState('');
   const [selected, setSelected] = useState('album,track,playlist');
 
@@ -28,7 +16,6 @@ export const Search = ({ navigation }) => {
           <Logo />
           <TextSong>Busqueda</TextSong>
         </Viewlogo>
-
         <InputLog
           placeholderAdj={'Canciones, Albunes o Playlist'}
           onChangeText={evento => {
@@ -38,103 +25,16 @@ export const Search = ({ navigation }) => {
             });
           }}
         />
-        <SearchSection>
-          <TouchableOpacity
-            onPress={() => {
-              SearchHelper('track', searchtext).then(() => {
-                setSelected('track');
-              });
-            }}>
-            <SearchSbar
-              style={{
-                shadowColor: '#000',
-                shadowOffset: { width: 1, height: 1 },
-                shadowOpacity: 0.4,
-                shadowRadius: 3,
-                elevation: 5,
-              }}>
-              <Ionicons
-                name="musical-notes-outline"
-                size={50}
-                color={selected == 'track' ? 'yellow' : 'black'}
-              />
-              <TextSeach>Canciones</TextSeach>
-            </SearchSbar>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => {
-              SearchHelper('album', searchtext).then(() => {
-                setSelected('album');
-              });
-            }}>
-            <SearchSbar
-              style={{
-                shadowColor: '#000',
-                shadowOffset: { width: 1, height: 1 },
-                shadowOpacity: 0.4,
-                shadowRadius: 3,
-                elevation: 5,
-              }}>
-              <Ionicons
-                name="albums-outline"
-                size={50}
-                color={selected == 'album' ? 'yellow' : 'black'}
-              />
-              <TextSeach>Albums</TextSeach>
-            </SearchSbar>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => {
-              SearchHelper('playlist', searchtext).then(() => {
-                setSelected('playlist');
-              });
-            }}>
-            <SearchSbar
-              style={{
-                shadowColor: '#000',
-                shadowOffset: { width: 1, height: 1 },
-                shadowOpacity: 0.4,
-                shadowRadius: 3,
-                elevation: 5,
-              }}>
-              <Ionicons
-                name="library-outline"
-                size={50}
-                color={selected == 'playlist' ? 'yellow' : 'black'}
-              />
-              <TextSeach>Playlist</TextSeach>
-            </SearchSbar>
-          </TouchableOpacity>
-
-        </SearchSection>
-
-        {searchtext === '' ? <Textbusqueda>Inicia tu busqueda</Textbusqueda> : null}
-        {
-          selected === 'album,track,playlist' && searchtext != '' ? (
-            <TrackList data={Store.getState().spotifyData.searchTracks} />
-          ) : null
-        }
-        {(selected === 'track' && searchtext != '') ? (
-          <TrackList data={Store.getState().spotifyData.searchTracks} search={true} />
-        ) : null}
-
-        {(selected === 'album' && searchtext != '') ? (
-          <ListPlay
-            data={Store.getState().spotifyData.searchAlbums}
-            navigation={navigation}
-            search={true}
-          />
-        ) : (null)}
-
-        {selected === 'playlist' && searchtext != '' ? (
-          <ListPlay
-            data={Store.getState().spotifyData.searchPlayLists}
-            navigation={navigation}
-            search={true}
-          />
-        ) : null}
+        <SearchIcons
+          searchtext={searchtext}
+          setSelected={setSelected}
+          selected={selected}
+        />
+        <SearchResults
+          searchtext={searchtext}
+          selected={selected}
+          navigation={navigation}
+        />
       </ScrlVw>
     </Container>
   );

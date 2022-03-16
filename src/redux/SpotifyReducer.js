@@ -1,4 +1,3 @@
-
 import {
   SET_TOKEN,
   SET_INFO,

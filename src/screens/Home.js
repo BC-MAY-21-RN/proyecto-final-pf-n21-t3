@@ -1,19 +1,11 @@
 import {Container, ScrlVw, Texto} from '../assets/styled.js';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {Title, CardList, CardGender} from '../components/index';
 
 export function Home() {
   const navigation = useNavigation();
 
-  useEffect(() => {
-    navigation.setOptions({
-      headerRight: () => {
-
-
-      },
-    });
-  }, [navigation]);
   return (
     <Container Padd={'0%'}>
       <ScrlVw>

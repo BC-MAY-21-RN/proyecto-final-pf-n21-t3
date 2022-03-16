@@ -1,6 +1,5 @@
-import {Title, ListPlay} from '../components/index';
+import {Title} from '../components/index';
 import {ScrlVw, Container} from '../assets/styled';
-import {useNavigation} from '@react-navigation/native';
 import {TrackList} from '../components/TracksList/TrackList';
 import React, {useState, useEffect} from 'react';
 import {Store} from '../redux/Store';
@@ -16,7 +15,6 @@ export const Library = () => {
       .then(array => setSongs(array))
       .catch(e => console.log(e));
   }, [data]);
-  const navigation = useNavigation();
   return (
     <Container>
       <Title Titulo={'Mis me gusta'} />

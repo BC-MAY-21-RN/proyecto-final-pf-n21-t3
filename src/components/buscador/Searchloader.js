@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {ScrlVw} from '../../assets/styled';
-import {Text, View, ActivityIndicator} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import {useSelector} from 'react-redux';
 import {
   ContCard,
@@ -19,7 +19,7 @@ export const Searchloader = props => {
   return (
     <ContCard height={'850px'}>
       <ScrlVw>
-        {data != undefined || data != null ? (
+        {data != undefined? (
           data.map(({name, images, artists}, key) => {
             return (
               <CardContainer key={key}>

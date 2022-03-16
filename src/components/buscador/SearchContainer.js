@@ -1,13 +1,4 @@
-import React, { useState } from 'react';
-import {
-    CardContainer,
-    RankingNumber,
-    TrackTitle,
-    TrackImage,
-    ViewIcon,
-    SafeCard,
-} from '..//Styled';
-import { LikeButton, OptionListButton } from '../index';
+import React from 'react';
 
 export const CardInfo = ({ response, index }) => {
     return (

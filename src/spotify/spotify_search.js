@@ -1,4 +1,3 @@
-import base64 from 'react-native-base64';
 import axios from 'axios';
 import {Store} from '../redux/Store';
 

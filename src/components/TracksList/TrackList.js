@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {ContCard} from '../CardInfo/Styled';
 import {CardTracks} from '../index';
-import {Store} from '../../redux/Store';
-import {useSelector} from 'react-redux';
 import {ActivityIndicator} from 'react-native';
 
 export const TrackList = ({title,  data, liked}) => {

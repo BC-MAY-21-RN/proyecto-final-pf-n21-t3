@@ -1,18 +1,19 @@
-import {Store} from '../../redux/Store';
-import {getDataSpotify} from '../../spotify/spotify_token';
+import {getImage} from '../index';
 
 export const dataLoadTrack = async tracks => {
   const newFormater = [];
   if (tracks[0].track) {
-    tracks?.map(({track}) => {
+    tracks.map(({track}) => {
       newFormater.push(track);
     });
   } else {
-    let imageAlbum
-    await getImage(tracks[0].href).then(response =>{
-      imageAlbum = response.album.images[0].url
-      console.log(imageAlbum)
-    }).catch(e => console.log(e))
+    let imageAlbum;
+    await getImage(tracks[0].href)
+      .then(response => {
+        imageAlbum = response.album.images[0].url;
+        console.log(imageAlbum);
+      })
+      .catch(e => console.log(e));
 
     tracks?.map(track => {
       newFormater.push({
@@ -20,9 +21,7 @@ export const dataLoadTrack = async tracks => {
           name: track.name,
           images: [
             {
-              url: track.image
-                ? track.image
-                : imageAlbum,
+              url: track.image ? track.image : imageAlbum,
             },
           ],
           id: track.id,
@@ -41,42 +40,3 @@ export const dataLoadTrack = async tracks => {
   }
   return newFormater;
 };
-
-const getImage = async uri => {
-  const result = await getDataSpotify(
-    Store.getState().spotifyData.token,
-    uri,
-    false,
-  )
-    .then(response => {
-      return response
-    })
-    .catch(e => console.log(e));
-    return result
-};
-
-/**
- * export async function loadData() {
-  await getDataSpotify(
-    Store.getState().spotifyData.token,
-    'https://api.spotify.com/v1/browse/categories?country=US',
-    'categories',
-  )
-    .then(categoriesresponse => {
-      Store.dispatch(setinfo(categoriesresponse));
-      getDataSpotify(
-        Store.getState().spotifyData.token,
-        'https://api.spotify.com/v1/playlists/37i9dQZEVXbO3qyFxbkOE1/tracks?offset=0&limit=3',
-        false,
-      ).then(trackresponse => {
-        Store.dispatch(setTopList(trackresponse));
-        return true;
-      }).catch((e) => {
-        console.log('Error de TOP LIST' + e)
-      });
-    })
-    .catch(err => {
-      return console.log('ERROR DE LOAD DATA ' + err);
-    });
-}
- */

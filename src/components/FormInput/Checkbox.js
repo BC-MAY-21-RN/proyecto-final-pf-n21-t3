@@ -9,7 +9,6 @@ export const CheckBoxWithLabel = ({ value, changeValue, disabled = false }) => {
         disabled={disabled}
         value={value}
         onValueChange={newValue => changeValue(newValue)}
-        tintColors={({ true: 'yellow' }, { false: '#000000' })}
       />
       <CheckText>
         <Textstar> ACEPTO TERMINOS Y CONDICIONES</Textstar>

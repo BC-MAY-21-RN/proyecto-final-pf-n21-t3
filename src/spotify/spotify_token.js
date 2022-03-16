@@ -2,7 +2,7 @@
 import base64 from 'react-native-base64';
 import axios from 'axios';
 import {Store} from '../redux/Store';
-import { setPlaylists, setToken, setTracks} from '../redux/Actions';
+import {setToken} from '../redux/Actions';
 import {Alert} from 'react-native';
 const client_id = '5914e5016a704b0c84b27239cfee6242';
 const client_secret = '02a63d27435a4e85a2f1e84048657e18';

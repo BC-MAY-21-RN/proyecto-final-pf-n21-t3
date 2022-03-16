@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { Text } from 'react-native';
-import { Container, Boton, Horizontal } from '../assets/styled.js';
+import React, {useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {Text} from 'react-native';
+import {Container, Boton, Horizontal} from '../assets/styled.js';
 import {
   signOut,
   signOutFB,
@@ -10,9 +10,9 @@ import {
   resetPassword,
   changeEmail,
 } from '../components/index';
-import { Store } from '../redux/Store.js';
+import {Store} from '../redux/Store.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { setEmail, setPassword } from '../redux/Actions.js';
+import {setEmail, setPassword} from '../redux/Actions.js';
 
 export const Profile = () => {
   const navigation = useNavigation();
@@ -55,10 +55,10 @@ export const Profile = () => {
           Width={'45%'}
           onPress={() => {
             Store.getState().userData.provider.includes('facebook')
-              ? signOutFB({ navigation })
-              : signOut({ navigation });
+              ? signOutFB({navigation})
+              : signOut({navigation});
           }}>
-          <Text style={{ color: 'black' }}>Salir</Text>
+          <Text style={{color: 'black'}}>Salir</Text>
         </Boton>
       </Horizontal>
     </Container>

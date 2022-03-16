@@ -1,9 +1,9 @@
 import TrackPlayer from 'react-native-track-player';
 import {trackMaker} from './TrackPlayerOptions';
+
 const handlerIndex = (direction, setIndex, index) => {
   let songsLength = trackMaker().length;
   songsLength = parseInt(songsLength);
-  console.log('Tamaño ' + (songsLength - 1));
   let indexHelper = index;
   if (direction) {
     if (indexHelper == songsLength - 1) {

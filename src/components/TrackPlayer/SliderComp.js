@@ -1,41 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Slider from '@react-native-community/slider';
-import TrackPlayer, {State, usePlaybackState} from 'react-native-track-player';
+import TrackPlayer from 'react-native-track-player';
 import {useProgress} from 'react-native-track-player/lib/hooks';
+import {HandleChange, FormatTime} from '../index'
 
 export default function SliderComp() {
   const {position, duration} = useProgress(1000, null);
   const [isSeeking, setIsSeeking] = useState(false);
   const [seek, setSeek] = useState(0);
-  const playbackState = usePlaybackState();
-
-  const formatTime = secs => {
-    let minutes = Math.floor(secs / 60);
-    let seconds = Math.ceil(secs - minutes * 60);
-    if (seconds < 10) seconds = `0${seconds}`;
-
-    return `${minutes}:${seconds}`;
-  };
-
-  const handleChange = val => {
-    TrackPlayer.seekTo(val);
-    if (playbackState == State.Playing) {
-      TrackPlayer.play().then(() => {
-        setTimeout(() => {
-          setIsSeeking(false);
-        }, 1000);
-      });
-    } else {
-      TrackPlayer.pause().then(() => {
-        setTimeout(() => {
-          setIsSeeking(false);
-        }, 1000);
-      });
-    }
-  };
-
-  //components
   return (
     <View style={styles.container}>
       <Slider
@@ -49,15 +22,15 @@ export default function SliderComp() {
         }}
         maximumValue={duration}
         minimumTrackTintColor="#fff064"
-        onSlidingComplete={handleChange}
+        onSlidingComplete={HandleChange}
         maximumTrackTintColor="#fff064"
         thumbTintColor="#fff064"
       />
       <View style={styles.timeContainer}>
         <Text style={styles.timers}>
-          {formatTime(isSeeking ? seek : position)}
+          {FormatTime(isSeeking ? seek : position)}
         </Text>
-        <Text style={styles.timers}>{formatTime(duration)}</Text>
+        <Text style={styles.timers}>{FormatTime(duration)}</Text>
       </View>
     </View>
   );

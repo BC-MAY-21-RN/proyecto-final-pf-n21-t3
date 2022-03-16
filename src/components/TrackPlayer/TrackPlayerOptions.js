@@ -39,8 +39,8 @@ const setUpTrackPlayer = async indexSong => {
     await TrackPlayer.add(trackMaker());
     await TrackPlayer.skip(indexSong);
     return;
-  } catch {
-    err => {
+  } catch(err) {
+     {
       throw `Error en setUpPlayer ${err}`;
     };
   }
