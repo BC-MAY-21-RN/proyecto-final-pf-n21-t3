@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {InputLog} from '../index';
 import {Store} from '../../redux/Store';
 import {setName, setNewPassword, setNewEmail} from '../../redux/Actions';
+import auth from '@react-native-firebase/auth'
 
 export const Cardprofile = ({enInput}) => {
   return (
@@ -20,7 +21,7 @@ export const Cardprofile = ({enInput}) => {
             placeholderAdj={
               Store.getState().userData.provider.includes('facebook')
                 ? 'Email vinculado a FaceBook'
-                : Store.getState().userData.email
+                : auth().currentUser.email
             }
             onChangeText={valor => {
               Store.dispatch(setNewEmail(valor));

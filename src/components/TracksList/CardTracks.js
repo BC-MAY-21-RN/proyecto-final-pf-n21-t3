@@ -12,8 +12,7 @@ import {TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {setUpTrackPlayer} from '../TrackPlayer/TrackPlayerOptions';
 import {tracksSelected} from '../TrackPlayer/TrackPlayerOptions';
-import {addLikeTracks} from '../Firebase/StoreLikes';
-import {Store} from '../../redux/Store';
+
 
 export const CardTracks = ({data, index, liked}) => {
   var isLiked = liked ? liked : isLike;
