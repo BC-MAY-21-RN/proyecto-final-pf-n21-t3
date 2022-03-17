@@ -1,30 +1,27 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import Slider from '@react-native-community/slider';
-import TrackPlayer from 'react-native-track-player';
+import TrackPlayer, {usePlaybackState} from 'react-native-track-player';
 import {useProgress} from 'react-native-track-player/lib/hooks';
-import {HandleChange, FormatTime} from '../index'
-import {styles} from './styles'
+import {FormatTime} from '../index';
+import {styles} from './styles';
+import {HandleChange} from './HandleChange';
+import {CustomSlider} from './CustomSlider/CustomSlider';
 export default function SliderComp() {
   const {position, duration} = useProgress(1000, null);
   const [isSeeking, setIsSeeking] = useState(false);
   const [seek, setSeek] = useState(0);
+  const playbackState = usePlaybackState();
   return (
     <View style={styles.container}>
-      <Slider
-        style={{width: 320, height: 40}}
-        minimumValue={0}
-        value={isSeeking ? seek : position}
-        onValueChange={value => {
-          TrackPlayer.pause();
-          setIsSeeking(true);
-          setSeek(value);
-        }}
-        maximumValue={duration}
-        minimumTrackTintColor="#fff064"
-        onSlidingComplete={HandleChange}
-        maximumTrackTintColor="#fff064"
-        thumbTintColor="#fff064"
+      <CustomSlider
+        isSeeking={isSeeking}
+        setSeek={setSeek}
+        position={position}
+        seek={seek}
+        setIsSeeking={setIsSeeking}
+        playbackState={playbackState}
+        duration={duration}
       />
       <View style={styles.timeContainer}>
         <Text style={styles.timers}>

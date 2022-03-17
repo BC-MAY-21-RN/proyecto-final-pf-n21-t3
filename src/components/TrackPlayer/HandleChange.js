@@ -1,22 +1,20 @@
-import TrackPlayer, {State, usePlaybackState} from 'react-native-track-player';
+import TrackPlayer, {State} from 'react-native-track-player';
 
-async function state (){
+async function state (setIsSeeking){
   setTimeout(() => {
     setIsSeeking(false);
   }, 1000);
 }
 
-export const HandleChange = val => {
-  const playbackState = usePlaybackState();
-  
+export const HandleChange = ({val, setIsSeeking, playbackState}) => {
   TrackPlayer.seekTo(val);
   if (playbackState == State.Playing) {
     TrackPlayer.play().then(() => {
-      state()
+      state(setIsSeeking)
     });
   } else {
-    TrackPlayer.pause().then(() => {
-      state()
+    TrackPlayer.play().then(() => {
+      state(setIsSeeking)
     });
   }
 };

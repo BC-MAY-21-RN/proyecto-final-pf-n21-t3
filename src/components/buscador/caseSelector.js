@@ -1,7 +1,6 @@
 import React from 'react';
 import {Store} from '../../redux/Store';
-import {ListPlay} from '../../components/index';
-import {TrackList} from '../../components/index';
+import {ListPlay, TrackList} from '../../components/index';
 
 export function caseSelector(selected, navigation) {
   switch (selected) {
@@ -14,18 +13,14 @@ export function caseSelector(selected, navigation) {
           search={true}
         />
       );
-    case 'album':
+    default:
       return (
         <ListPlay
-          data={Store.getState().spotifyData.searchAlbums}
-          navigation={navigation}
-          search={true}
-        />
-      );
-    case 'playlist':
-      return (
-        <ListPlay
-          data={Store.getState().spotifyData.searchPlayLists}
+          data={
+            selected === 'playlist'
+              ? Store.getState().spotifyData.searchPlayLists
+              : Store.getState().spotifyData.searchAlbums
+          }
           navigation={navigation}
           search={true}
         />
