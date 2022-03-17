@@ -3,7 +3,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   PlayList,
   Tracks,
-  Liked,
   Library,
   Profile,
   Home,
@@ -18,7 +17,6 @@ export const LibraryScreens = () => {
     <Stack.Navigator
       initialRouteName="Library"
       screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Liked" component={Liked} />
       <Stack.Screen name="Library" component={Library} />
       <Stack.Screen name="Player" component={Player} />
       <Stack.Screen name="Search" component={Search} />
