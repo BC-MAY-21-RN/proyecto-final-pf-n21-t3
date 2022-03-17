@@ -39,15 +39,14 @@ const setUpTrackPlayer = async indexSong => {
     await TrackPlayer.add(trackMaker());
     await TrackPlayer.skip(indexSong);
     return;
-  } catch(err) {
-     {
+  } catch (err) {
+    {
       throw `Error en setUpPlayer ${err}`;
-    };
+    }
   }
 };
 
 const tracksSelected = name => {
-
   let tracks = Store.getState().spotifyData.searchTracks;
   for (let index = 0; index < tracks.length; index++) {
     if (tracks[index].album.name.includes(name)) {

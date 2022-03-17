@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import Slider from '@react-native-community/slider';
-import TrackPlayer, {usePlaybackState} from 'react-native-track-player';
+import {View, Text} from 'react-native';
+import {usePlaybackState} from 'react-native-track-player';
 import {useProgress} from 'react-native-track-player/lib/hooks';
 import {FormatTime} from '../index';
 import {styles} from './styles';
-import {HandleChange} from './HandleChange';
 import {CustomSlider} from './CustomSlider/CustomSlider';
 export default function SliderComp() {
   const {position, duration} = useProgress(1000, null);

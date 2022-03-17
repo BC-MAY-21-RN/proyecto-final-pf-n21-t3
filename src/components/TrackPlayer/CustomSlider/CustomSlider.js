@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
 import Slider from '@react-native-community/slider';
 import TrackPlayer from 'react-native-track-player';
