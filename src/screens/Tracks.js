@@ -1,19 +1,16 @@
 import {Container} from '../assets/styled.js';
-import React, {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
+import React from 'react';
 import {TrackList} from '../components/index';
 import {Title} from '../components/index';
-import {Text} from 'react-native';
 import {ScrlVw} from '../assets/styled.js';
+import {Store} from '../redux/Store.js';
 export const Tracks = props => {
-  const navigation = useNavigation();
-  const [like, setLike] = useState(false);
-  const [play, setPlay] = useState(false);
+  const data = Store.getState().spotifyData.searchTracks;
   return (
     <Container Padd={'0%'}>
       <ScrlVw P={'0% 3% 0% 3%'}>
-      <Title Titulo={props.route.params}/>
-        <TrackList />
+        <Title Titulo={props.route.params.name} />
+        <TrackList data={data} />
       </ScrlVw>
     </Container>
   );

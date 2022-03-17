@@ -1,19 +1,30 @@
-import {Container} from '../assets/styled.js';
-import { Text, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-
-import React from 'react';
+import {Title} from '../components/index';
+import {ScrlVw, Container} from '../assets/styled';
+import {TrackList} from '../components/TracksList/TrackList';
+import React, {useState, useEffect} from 'react';
+import {Store} from '../redux/Store';
+import {useSelector} from 'react-redux';
+import {dataLoadTrack} from '../components/TracksList/tracksInfo';
+import {TrackTitle} from '../components/CardInfo/Styled';
 
 export const Library = () => {
-  const navigation = useNavigation();
+  const data = useSelector(Store.getState).LikesReducer;
+  const [songs, setSongs] = useState('');
+  useEffect(() => {
+    dataLoadTrack(data)
+      .then(array => setSongs(array))
+      .catch(e => console.log(e));
+  }, [data]);
   return (
     <Container>
-      <Text style={{color: 'black'}}>Estoy en LIBRARY</Text>
-      <Button onPress={() => navigation.navigate('Tracks')} title='Ir a Tracks'/>
-      <Button onPress={() => navigation.navigate('Liked')} title='Ir a Liked'/>
-      <Button onPress={() => navigation.navigate('PlayList')} title='Ir a playlist'/>
-      <Button onPress={() => navigation.navigate('Player')} title='Ir a Player'/>
+      <Title Titulo={'Mis me gusta'} />
+      <ScrlVw>
+        {songs.length == 0 ? (
+          <TrackTitle>No hay likes</TrackTitle>
+        ) : (
+          <TrackList data={songs} liked={true} />
+        )}
+      </ScrlVw>
     </Container>
   );
 };
-

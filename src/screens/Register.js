@@ -19,7 +19,7 @@ export const Register = () => {
   return (
     <Container>
       {isLoading ? (
-      <ActivityIndicator size={'large'} color={'white'}/>
+        <ActivityIndicator size={'large'} color={'white'} />
       ) : (
         <>
           <Logo />
@@ -55,10 +55,10 @@ export const Register = () => {
           />
           <Boton
             onPress={() => {
-              setIsLoading(true)
-              setTimeout(function(){
+              setIsLoading(true);
+              setTimeout(function () {
                 createUser({nombre, pswrd, email});
-              },500)
+              }, 500);
             }}>
             <Texto style={{color: 'black'}}>Registarse</Texto>
           </Boton>

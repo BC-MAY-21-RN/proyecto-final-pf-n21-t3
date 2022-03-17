@@ -6,43 +6,38 @@ import {
   ViewIcon,
   SafeCard,
 } from '../CardInfo/Styled';
-import {LikeButton, Title} from '../index';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {LikeButton, setLikeSong} from '../index';
 import {TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {Store} from '../../redux/Store';
-import { setPlayer } from '../../redux/Actions';
+import {setUpTrackPlayer} from '../TrackPlayer/TrackPlayerOptions';
+import {tracksSelected} from '../TrackPlayer/TrackPlayerOptions';
 
-// arr.findIndex(callback( element[, index[, array]] )[, thisArg])
 
-export const CardTracks = ({data, index}) => {
-  function tracksSelected(name) {
-    for (let i = 0; i < Store.getState().spotifyData.tracks.length; i++) {
-      if (
-        Store.getState().spotifyData.tracks[i].track.album.name.includes(name)
-      ) {
-        Store.dispatch(setPlayer(Store.getState().spotifyData.tracks))
-        return i;
-      }
-    }
-  }
-
-  const [like, setLike] = useState(false);
+export const CardTracks = ({data, index, liked}) => {
+  const [isLike, settLike] = useState(false);
+  var isLiked = liked ? liked : isLike;
   const navigation = useNavigation();
   return (
     <CardContainers Height={'100px'} key={index}>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('Player', tracksSelected(data.track.album.name));
+          const selectTrack = tracksSelected(data.album.name);
+          setUpTrackPlayer(selectTrack);
+          navigation.navigate('Player', selectTrack);
         }}>
         <SafeCard>
-          <TrackImage source={{uri: data.track.album.images[0].url}} />
+          <TrackImage source={{uri: data.album.images[0].url}} />
           <TrackTitle TextSize={'18px'}>
-            {data.track.album.name} - {data.track.artists[0].name}
+            {data.album.name} - {data.artists[0].name}
           </TrackTitle>
           <ViewIcon>
-            <LikeButton onPress={() => setLike(!like)} like={like} size={45} />
-            <Ionicons name={'ellipsis-horizontal'} color={'black'} size={39} />
+            <LikeButton
+              like={liked ? liked : isLike}
+              onPress={() => {
+                settLike(!isLike), setLikeSong(data, isLiked);
+              }}
+              size={45}
+            />
           </ViewIcon>
         </SafeCard>
       </TouchableOpacity>

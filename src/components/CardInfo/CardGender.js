@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Store} from '../../redux/Store';
-import {Alert, TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import {CardContainer, TrackTitle, TrackImage, SafeCard} from './Styled';
 import {getDataSpotify} from '../../spotify/spotify_token';
 import {useSelector} from 'react-redux';
@@ -25,14 +25,14 @@ export const CardGender = ({navigation}) => {
                 .then(trackresponse => {
                   Store.dispatch(setPlaylists(trackresponse));
                   Store.getState().spotifyData.playlists != undefined
-                    ? navigation.navigate('PlayList', gender.name)
+                    ? navigation.navigate('PlayList', {name: gender.name})
                     : null;
                 })
                 .catch(e => {
                   console.log('error de playlists' + e);
                 });
             }}>
-            <CardContainer BackColor={'#FFF064'}>
+            <CardContainer BackColor={'#A0AAB0'}>
               <SafeCard>
                 <TrackImage source={{uri: gender.icons[0].url}} />
                 <TrackTitle

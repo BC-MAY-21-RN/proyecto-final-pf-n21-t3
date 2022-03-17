@@ -58,7 +58,7 @@ export const Profile = () => {
               ? signOutFB({navigation})
               : signOut({navigation});
           }}>
-          <Text style={{color: 'black'}}>LogOut</Text>
+          <Text style={{color: 'black'}}>Salir</Text>
         </Boton>
       </Horizontal>
     </Container>

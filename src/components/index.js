@@ -1,3 +1,4 @@
+
 export {Title} from './Title/Title';
 export {ListPlay} from './PlayInfo/ListPlay';
 export {InputLog} from './FormInput/InputLog';
@@ -10,8 +11,6 @@ export {createUser} from './Firebase/createUser';
 export {logInUser} from './Firebase/logInUser';
 export {signOut} from './Firebase/signOut';
 export {signOutFB} from './FaceBook Button/SignOutFB';
-export {LikedList} from './CardInfo/LikedList';
-export {LikedInfo} from './CardInfo/LikedInfo';
 export {Cardprofile} from './CardInfo/cardprofile';
 export {resetPassword} from './Firebase/resetPassword';
 export {changeEmail} from './Firebase/changeEmail';
@@ -20,4 +19,11 @@ export {TrackList} from './TracksList/TrackList';
 export {LikeButton} from './helpers/CardsButton/LikeButton'
 export {OptionListButton} from './helpers/CardsButton/OptionListButton'
 export {CardTracks} from './TracksList/CardTracks'
-export {Playerloader} from './Reproductor/Playerloader'
+export {setLikeSong} from './helpers/CardsButton/LikeButton'
+export {setFavoritePlaylist} from './helpers/CardsButton/LikeButton'
+export {LoadLikes} from './Firebase/LoadLikes'
+export {getImage} from './TracksList/getImage'
+export {HandleChange} from './TrackPlayer/HandleChange'
+export {FormatTime} from './TrackPlayer/FormaTime'
+export {SearchIcons} from './buscador/SearchIcons'
+export {SearchResults} from './buscador/SearchResults'

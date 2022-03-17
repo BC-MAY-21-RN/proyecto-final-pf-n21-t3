@@ -1,8 +1,7 @@
-//https://www.youtube.com/watch?v=SbelQW2JaDQ
 import base64 from 'react-native-base64';
 import axios from 'axios';
 import {Store} from '../redux/Store';
-import { setPlaylists, setToken, setTracks} from '../redux/Actions';
+import {setToken} from '../redux/Actions';
 import {Alert} from 'react-native';
 const client_id = '5914e5016a704b0c84b27239cfee6242';
 const client_secret = '02a63d27435a4e85a2f1e84048657e18';
@@ -18,17 +17,13 @@ export const getToken = async () => {
       },
       data: 'grant_type=client_credentials',
     }).then(tokenresponse => {
-      console.log(tokenresponse.data.access_token);
-
       Store.dispatch(setToken(tokenresponse.data.access_token));
-
       return;
     });
   } catch (error) {
     console.log('ERROR DE TOKEN ' + error);
   }
 };
-
 
 export async function getDataSpotify(token, uri, prefix) {
   const datos = await axios(uri, {
@@ -40,10 +35,13 @@ export async function getDataSpotify(token, uri, prefix) {
     },
   })
     .then(trackresponse => {
-      return prefix ? trackresponse.data[prefix].items : trackresponse.data.items;
-      /*return estandarDatos(
-      prefix ? trackresponse.data[prefix].items : trackresponse.data.items,
-      );*/
+      if (prefix || trackresponse.data.items) {
+        return prefix
+          ? trackresponse.data[prefix].items
+          : trackresponse.data.items;
+      } else {
+        return trackresponse.data;
+      }
     })
     .catch(error => {
       console.log('error de top list ' + error);
@@ -52,33 +50,3 @@ export async function getDataSpotify(token, uri, prefix) {
     });
   return datos;
 }
-
-/*No borrar //Estandarizacion de la informacion obtenida para facilital el mapeo en los componentes
-export function estandarDatos(obJson) {
-  //console.log(JSON.stringify(obJson, null, '--'))
-  return obJson.map((item, index) => ({
-    id: index,
-    title: item.name ? item.name : item.track.album.name,
-    artistName: item.track ? item.track.name : undefined,
-    imageUri: item.track
-      ? item.track.album.images[0].url
-      : item.images
-      ? item.images[0].url
-      : item.icons[0].url,
-  }));
-}*/
-
-/**
-   * Uris de prueba
-   * url toplist
-   *  https://api.spotify.com/v1/playlists/37i9dQZEVXbO3qyFxbkOE1/tracks?offset=0&limit=3
-   *  prefix: false
-   *
-   * url categories
-   *  https://api.spotify.com/v1/browse/categories?country=US
-   *  prefix: categories
-   *
-   * url playlist
-   *  https://api.spotify.com/v1/browse/categories/toplists/playlists
-   *  prefix: playlists
-   */

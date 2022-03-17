@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {Container, Boton, Logo, Texto, ScrlVw} from '../assets/styled.js';
+import {Container, Boton, Logo, Texto} from '../assets/styled.js';
 import {useNavigation} from '@react-navigation/native';
 import {OR, InputLog, logInUser, CurrentProfile} from '../components/index';
 import {Store} from '../redux/Store';
 import {setNewPassword, setNewEmail} from '../redux/Actions';
 import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
-import {getToken, getDataSpotify} from '../spotify/spotify_token';
+import {getToken} from '../spotify/spotify_token';
 import {loadData} from '../spotify/loadData';
 import {ActivityIndicator} from 'react-native';
 
@@ -35,13 +35,11 @@ export const Login = () => {
       .catch(e => console.log('ERROR DE TOKEN', e));
     return subscribe;
   }, []);
-  
+
   return (
     <Container>
       {isLoading ? (
         <>
-          
-
           <Logo />
           <InputLog
             placeholderAdj={'Correo Electrónico'}
@@ -73,12 +71,12 @@ export const Login = () => {
           </Boton>
           <OR />
           <Boton
-            BackColor={'#4B367C'}
-            BColor={'#FFFFFF'}
+            BackColor={'yellow'}
+            BColor={'#000000'}
             onPress={() => {
               navigation.navigate('Register');
             }}>
-            <Texto style={{color: 'white'}}>REGISTRARSE</Texto>
+            <Texto style={{color: 'black'}}>REGISTRARSE</Texto>
           </Boton>
           <LogInButton />
         </>
