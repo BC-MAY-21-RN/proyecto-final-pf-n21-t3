@@ -9,7 +9,7 @@ async function state (setIsSeeking){
 export const HandleChange = ({val, setIsSeeking, playbackState}) => {
   TrackPlayer.seekTo(val);
   if (playbackState == State.Playing) {
-    TrackPlayer.play().then(() => {
+    TrackPlayer.pause().then(() => {
       state(setIsSeeking)
     });
   } else {
