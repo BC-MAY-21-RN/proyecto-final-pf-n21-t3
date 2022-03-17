@@ -14,10 +14,10 @@ SHA1: F5:05:83:8A:65:21:EA:1E:6C:C8:26:BD:CD:B2:76:75:93:C2:4E:73
 ## Problematica que atiende
 Las aplicaciones de reproducción de música convencionales trabajan de tal manera que se le da prioridad a mostrar las canciones más populares de las regiones en la que la misma es utilizada, dichas canciones son típicamente de artistas conocidos con un respaldo monetario bastante grande.
 
-Los artistas pequeños que empiezan no logran conseguir un impacto más grande cuando están iniciando, es aquí donde encontramos la problemática. Artistas locales, solistas y grupos que están comenzando, no tienen la oportunidad de lograr un alcance o un impacto considerable para que su carrera crezca.
+Los artistas pequeños que empiezan no logran conseguir un impacto más grande cuando están iniciando, es aquí donde encontramos la problemática. Artistas locales, solistas y grupos que están comenzando, no tienen la oportunidad de lograr un alcance o un impacto considerable para que su carrera crezca, por lo que la página principal mostará de manera aleatoria diferentes playlists o canciones que podrán impulsar la carrera de dichos artistas.
 
 ## Propuesta de solución
-Nuestra propuesta de solución radica en la página principal de la app de música en donde se le daría prioridad de aparecer a bandas con pocas canciones, artistas locales (México) y bandas/grupos que estén empezando.
+Nuestra propuesta de solución radica en la página principal de la app de música en donde se mostrará distintos géneros, así como distintas playlists para descubrir artistas diferentes a los que normalmente está acostumbrado el usuario.
 
 ## Definición de requerimientos del MVP
 
@@ -31,20 +31,16 @@ Nuestra propuesta de solución radica en la página principal de la app de músi
       - *Email*: Único.
       - *Nombre*: Debe de contar con uno.
 - Permitir a los usuarios registrados iniciar sesión.
-- Permitirá al los usurarios crear "Listas de reproducción":
-    - Puedes mezclar artistas, géneros y/u otras playlists.
 - Se tiene que poder buscar:
-  - Tiene que tener un filtro por género / artista.
-- Se podra seguir al usuario o a las listas de reproduccion de este.
+  - Tiene que tener un filtro por canción, álbum o playlist..
 
 ### Requerimientos no funcionales
 - Base de datos
   - información de los usuarios guardada en firebase
 - Informacion de la musica
-  - Obtenida atravez de una api (spotify/last.fm)
+  - Obtenida atravez de una api (Spotify)
  - Calidad
    - Utilizar un estilo de código estandarizado (revisado por Eslint)
-   - Incluir pruebas unitarias
    - Puntuación **A** obtenida en CodeClimate
 - Ejecución 
    - Puede ejecutarse en Android o iOs
