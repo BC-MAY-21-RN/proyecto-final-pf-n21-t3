@@ -8,8 +8,6 @@ export const spotySearchCall = async (searchTerm, selected) => {
   const uri = `${apiPrefix}?query=${encodeURIComponent(
     searchTerm,
   )}&type=${selected}`;
-
-  // album,track,artist,playlist
   const datos = await axios(uri, {
     method: 'GET',
     headers: {

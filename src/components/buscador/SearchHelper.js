@@ -7,13 +7,15 @@ import {
 import {Store} from '../../redux/Store';
 
 export const SearchHelper = async (selected, searchText) => {
-  if (searchText != '') {
-    await spotySearchCall(searchText, selected)
-      .then(({albums, tracks, playlists}) => {
-        tracks ? Store.dispatch(setSearchTracks(tracks.items)) : null;
-        albums ? Store.dispatch(setSearchAlbums(albums.items)) : null;
-        playlists ? Store.dispatch(setSearchPlayLists(playlists.items)) : null;
-      })
-      .catch(err => console.log('error de spotysearch' + err));
-  }
+  await spotySearchCall(searchText, selected)
+    .then(({albums, tracks, playlists}) => {
+      if (tracks) {
+        Store.dispatch(setSearchTracks(tracks.items));
+      } else if (albums) {
+        Store.dispatch(setSearchAlbums(albums.items));
+      } else {
+        Store.dispatch(setSearchPlayLists(playlists.items));
+      }
+    })
+    .catch(err => console.log('error de spotysearch' + err));
 };

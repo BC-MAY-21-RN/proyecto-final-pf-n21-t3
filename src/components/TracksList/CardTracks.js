@@ -7,7 +7,6 @@ import {
   SafeCard,
 } from '../CardInfo/Styled';
 import {LikeButton, setLikeSong} from '../index';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {setUpTrackPlayer} from '../TrackPlayer/TrackPlayerOptions';
@@ -39,7 +38,6 @@ export const CardTracks = ({data, index, liked}) => {
               }}
               size={45}
             />
-            <Ionicons name={'ellipsis-horizontal'} color={'black'} size={39} />
           </ViewIcon>
         </SafeCard>
       </TouchableOpacity>

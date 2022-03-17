@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 import Slider from '@react-native-community/slider';
 import TrackPlayer from 'react-native-track-player';
 import {useProgress} from 'react-native-track-player/lib/hooks';
 import {HandleChange, FormatTime} from '../index'
-
+import {styles} from './styles'
 export default function SliderComp() {
   const {position, duration} = useProgress(1000, null);
   const [isSeeking, setIsSeeking] = useState(false);
@@ -35,17 +35,3 @@ export default function SliderComp() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: 70,
-  },
-  timers: {
-    color: '#fff',
-    fontSize: 16,
-  },
-  timeContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-});

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Store } from '../../redux/Store';
-import { Alert, TouchableOpacity, View } from 'react-native';
-import { CardContainer, TrackTitle, TrackImage, SafeCard } from './Styled';
-import { getDataSpotify } from '../../spotify/spotify_token';
-import { useSelector } from 'react-redux';
-import { ActivityIndicator } from 'react-native';
-import { setPlaylists } from '../../redux/Actions';
+import React, {useEffect, useState} from 'react';
+import {Store} from '../../redux/Store';
+import {TouchableOpacity, View} from 'react-native';
+import {CardContainer, TrackTitle, TrackImage, SafeCard} from './Styled';
+import {getDataSpotify} from '../../spotify/spotify_token';
+import {useSelector} from 'react-redux';
+import {ActivityIndicator} from 'react-native';
+import {setPlaylists} from '../../redux/Actions';
 
-export const CardGender = ({ navigation }) => {
+export const CardGender = ({navigation}) => {
   const data = useSelector(Store.getState);
   return (
     <View>
@@ -24,9 +24,8 @@ export const CardGender = ({ navigation }) => {
               )
                 .then(trackresponse => {
                   Store.dispatch(setPlaylists(trackresponse));
-                  // console.log(trackresponse)
                   Store.getState().spotifyData.playlists != undefined
-                    ? navigation.navigate('PlayList', { name: gender.name })
+                    ? navigation.navigate('PlayList', {name: gender.name})
                     : null;
                 })
                 .catch(e => {
@@ -35,7 +34,7 @@ export const CardGender = ({ navigation }) => {
             }}>
             <CardContainer BackColor={'#A0AAB0'}>
               <SafeCard>
-                <TrackImage source={{ uri: gender.icons[0].url }} />
+                <TrackImage source={{uri: gender.icons[0].url}} />
                 <TrackTitle
                   TextColor={'black'}
                   Wdth={'75%'}

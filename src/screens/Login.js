@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Boton, Logo, Texto, ScrlVw } from '../assets/styled.js';
-import { useNavigation } from '@react-navigation/native';
-import { OR, InputLog, logInUser, CurrentProfile } from '../components/index';
-import { Store } from '../redux/Store';
-import { setNewPassword, setNewEmail } from '../redux/Actions';
-import { LogInButton } from '../components/FaceBook Button/LogInButton.js';
+import React, {useState, useEffect} from 'react';
+import {Container, Boton, Logo, Texto} from '../assets/styled.js';
+import {useNavigation} from '@react-navigation/native';
+import {OR, InputLog, logInUser, CurrentProfile} from '../components/index';
+import {Store} from '../redux/Store';
+import {setNewPassword, setNewEmail} from '../redux/Actions';
+import {LogInButton} from '../components/FaceBook Button/LogInButton.js';
 import auth from '@react-native-firebase/auth';
-import { getToken } from '../spotify/spotify_token';
-import { loadData } from '../spotify/loadData';
-import { ActivityIndicator } from 'react-native';
+import {getToken} from '../spotify/spotify_token';
+import {loadData} from '../spotify/loadData';
+import {ActivityIndicator} from 'react-native';
 
 export const Login = () => {
   const navigation = useNavigation();
@@ -24,7 +24,7 @@ export const Login = () => {
         setTimeout(function () {
           navigation.reset({
             index: 0,
-            routes: [{ name: 'Main' }],
+            routes: [{name: 'Main'}],
           });
         }, 50);
         CurrentProfile();
@@ -40,8 +40,6 @@ export const Login = () => {
     <Container>
       {isLoading ? (
         <>
-
-
           <Logo />
           <InputLog
             placeholderAdj={'Correo Electrónico'}
@@ -67,9 +65,9 @@ export const Login = () => {
           />
           <Boton
             onPress={() => {
-              logInUser({ email, pswrd });
+              logInUser({email, pswrd});
             }}>
-            <Texto style={{ color: 'black' }}>INICIAR SESION</Texto>
+            <Texto style={{color: 'black'}}>INICIAR SESION</Texto>
           </Boton>
           <OR />
           <Boton
@@ -78,7 +76,7 @@ export const Login = () => {
             onPress={() => {
               navigation.navigate('Register');
             }}>
-            <Texto style={{ color: 'black' }}>REGISTRARSE</Texto>
+            <Texto style={{color: 'black'}}>REGISTRARSE</Texto>
           </Boton>
           <LogInButton />
         </>

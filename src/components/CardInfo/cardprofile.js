@@ -4,7 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {InputLog} from '../index';
 import {Store} from '../../redux/Store';
 import {setName, setNewPassword, setNewEmail} from '../../redux/Actions';
-import auth from '@react-native-firebase/auth'
+import auth from '@react-native-firebase/auth';
 
 export const Cardprofile = ({enInput}) => {
   return (

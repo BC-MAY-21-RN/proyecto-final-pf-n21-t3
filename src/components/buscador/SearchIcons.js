@@ -1,89 +1,39 @@
-import { View } from 'react-native'
-import React from 'react'
-import {TouchableOpacity} from 'react-native';
-import {
-  SearchSection,
-  SearchSbar,
-  TextSeach
-} from '../../assets/styled';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {SearchHelper} from '../buscador/SearchHelper';
+import {View} from 'react-native';
+import React from 'react';
+import {SearchSection} from '../../assets/styled';
+import {IconComponent} from './IconComponent';
+
 export const SearchIcons = ({searchtext, setSelected, selected}) => {
   return (
     <View>
-       <SearchSection>
-          <TouchableOpacity
-            onPress={() => {
-              SearchHelper('track', searchtext).then(() => {
-                setSelected('track');
-              });
-            }}>
-            <SearchSbar
-              style={{
-                shadowColor: '#000',
-                shadowOffset: {width: 1, height: 1},
-                shadowOpacity: 0.4,
-                shadowRadius: 3,
-                elevation: 5,
-              }}>
-              <Ionicons
-                name="musical-notes-outline"
-                size={50}
-                color={selected == 'track' ? 'yellow' : 'black'}
-              />
-              <TextSeach>Canciones</TextSeach>
-            </SearchSbar>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => {
-              SearchHelper('album', searchtext).then(() => {
-                setSelected('album');
-              });
-            }}>
-            <SearchSbar
-              style={{
-                shadowColor: '#000',
-                shadowOffset: {width: 1, height: 1},
-                shadowOpacity: 0.4,
-                shadowRadius: 3,
-                elevation: 5,
-              }}>
-              <Ionicons
-                name="albums-outline"
-                size={50}
-                color={selected == 'album' ? 'yellow' : 'black'}
-              />
-              <TextSeach>Albums</TextSeach>
-            </SearchSbar>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => {
-              SearchHelper('playlist', searchtext).then(() => {
-                setSelected('playlist');
-              });
-            }}>
-            <SearchSbar
-              style={{
-                shadowColor: '#000',
-                shadowOffset: {width: 1, height: 1},
-                shadowOpacity: 0.4,
-                shadowRadius: 3,
-                elevation: 5,
-              }}>
-              <Ionicons
-                name="library-outline"
-                size={50}
-                color={selected == 'playlist' ? 'yellow' : 'black'}
-              />
-              <TextSeach>Playlist</TextSeach>
-            </SearchSbar>
-          </TouchableOpacity>
-        </SearchSection>
-
+      <SearchSection>
+        <IconComponent
+          iconName={'musical-notes-outline'}
+          name={'track'}
+          searchtext={searchtext}
+          setSelected={setSelected}
+          nameSection={'Canciones'}
+          selected={selected}
+        />
+        <IconComponent
+          iconName={'albums-outline'}
+          name={'album'}
+          searchtext={searchtext}
+          setSelected={setSelected}
+          nameSection={'Álbumes'}
+          selected={selected}
+        />
+        <IconComponent
+          iconName={'library-outline'}
+          name={'playlist'}
+          searchtext={searchtext}
+          setSelected={setSelected}
+          nameSection={'Playlists'}
+          selected={selected}
+        />
+      </SearchSection>
     </View>
-  )
-}
+  );
+};
 
-export default SearchIcons
+export default SearchIcons;

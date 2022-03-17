@@ -86,13 +86,7 @@ export const setPlayer = player => ({
 
 export const addFavorite = likes =>({
   type: ADD_FAVORITE,
-  payload: likes = {
-    name: likes.name,
-    id: likes.id,
-    artists: likes.artists,
-    image: likes.image,
-    preview_url: likes.preview_url
-  }  
+  payload: likes
 })
 
 export const removeFavorite = likes => ({
@@ -116,11 +110,6 @@ export const setSearchPlayLists = searchPlayLists =>({
   type: SET_SEARCHPLAYLISTS, 
   payload: searchPlayLists
 }) 
-
-export const setSearchPlay = searchPlay => ({
-  type: SET_SEARCHPLAY,
-  payload: searchPlay
-})
 
 export const addFavoritePlaylist = likes => ({
   type: ADD_PLAYLIST,

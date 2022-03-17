@@ -34,10 +34,9 @@ export const SearchSection = styled.View`
   width: 96%;
 `;
 export const SearchSbar = styled.View`
-  
-   border-radius: 15px;
-   background-color: #A0AAB0;
-   width: 100%;
+  border-radius: 15px;
+  background-color: #A0AAB0;
+  width: 100%;
   align-items: center
   border-color: ${props => props.BColor || 'black'};
   border-width: 1px

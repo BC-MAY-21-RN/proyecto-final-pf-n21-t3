@@ -18,17 +18,13 @@ export const getToken = async () => {
       },
       data: 'grant_type=client_credentials',
     }).then(tokenresponse => {
-      console.log(tokenresponse.data.access_token);
-
       Store.dispatch(setToken(tokenresponse.data.access_token));
-
       return;
     });
   } catch (error) {
     console.log('ERROR DE TOKEN ' + error);
   }
 };
-
 
 export async function getDataSpotify(token, uri, prefix) {
   const datos = await axios(uri, {
@@ -40,17 +36,13 @@ export async function getDataSpotify(token, uri, prefix) {
     },
   })
     .then(trackresponse => {
-      // console.log(trackresponse.data)
-      
-      if(prefix || trackresponse.data.items){
-        console.log('if')
-        return prefix ? trackresponse.data[prefix].items : trackresponse.data.items;
-      }else if(trackresponse.data){
-        console.log('else')
-        return trackresponse.data
+      if (prefix || trackresponse.data.items) {
+        return prefix
+          ? trackresponse.data[prefix].items
+          : trackresponse.data.items;
+      } else {
+        return trackresponse.data;
       }
-      
-      
     })
     .catch(error => {
       console.log('error de top list ' + error);
@@ -59,18 +51,3 @@ export async function getDataSpotify(token, uri, prefix) {
     });
   return datos;
 }
-
-/**
-   * Uris de prueba
-   * url toplist
-   *  https://api.spotify.com/v1/playlists/37i9dQZEVXbO3qyFxbkOE1/tracks?offset=0&limit=3
-   *  prefix: false
-   *
-   * url categories
-   *  https://api.spotify.com/v1/browse/categories?country=US
-   *  prefix: categories
-   *
-   * url playlist
-   *  https://api.spotify.com/v1/browse/categories/toplists/playlists
-   *  prefix: playlists
-   */

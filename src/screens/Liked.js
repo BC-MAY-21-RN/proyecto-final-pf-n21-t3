@@ -8,11 +8,11 @@ export const Liked = () => {
   const navigation = useNavigation();
   return (
     <Container Padd={'1%'}>
-      <ScrlVw> 
+      <ScrlVw>
         <Button onPress={() => navigation.navigate('Main')} title="Ir a Main" />
         <Title Titulo={'Liked Songs'} />
         <LikedList />
-      </ScrlVw> 
+      </ScrlVw>
     </Container>
   );
 };

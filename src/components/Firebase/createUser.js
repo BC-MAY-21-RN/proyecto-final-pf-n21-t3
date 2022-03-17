@@ -8,7 +8,6 @@ export function createUser({nombre, pswrd, email}) {
   auth()
     .createUserWithEmailAndPassword(email, pswrd)
     .then(() => {
-      console.log('Sign in' + auth().currentUser.uid);
       Store.dispatch(setUID(auth().currentUser.uid));
       firestore()
         .collection('Users')

@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 export const CardContainer = styled.View`
   flex-direction: row;
@@ -56,7 +56,7 @@ export const TrackImage = styled.Image`
   height: ${props => props.height || '100%'};
   margin: 2px;
   border-radius: 12px;
-` ;
+`;
 export const TrackImages = styled.Image`
   width: 25%;
   height: 40%;
@@ -74,7 +74,6 @@ export const ContCard = styled.View`
   height: ${props => props.height || '350px'};
   margin-bottom: 20px;
 `;
-
 
 export const ViewIcon = styled.View`
   flex-direction: column;

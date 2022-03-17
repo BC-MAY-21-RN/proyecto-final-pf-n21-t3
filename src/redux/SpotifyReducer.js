@@ -8,7 +8,6 @@ import {
   SET_SEARCHARTISTS,
   SET_SEARCHTRACKS,
   SET_SEARCHALBUMS,
-  SET_SEARCHPLAY,
   SET_SEARCHPLAYLISTS
 } from './Actions';
 
@@ -47,8 +46,6 @@ function spotifyData(state = initialState, action) {
       return { ...state, searchArtists: action.payload }
     case SET_SEARCHALBUMS:
       return { ...state, searchAlbums: action.payload }
-    case SET_SEARCHPLAY:
-        return { ...state, searchPlay: action.payload }
     case SET_SEARCHPLAYLISTS:
       return { ...state, searchPlayLists: action.payload }
     default:

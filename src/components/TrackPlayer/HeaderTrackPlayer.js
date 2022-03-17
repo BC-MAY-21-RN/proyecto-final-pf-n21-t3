@@ -6,7 +6,6 @@ import {useSelector} from 'react-redux';
 
 export const HeaderTrackPlayer = ({index}) => {
   const {player} = useSelector(Store.getState).spotifyData;
-  console.log(player[index].name + ` ${index}`)
   return (
     <>
       <PlayTittleView>

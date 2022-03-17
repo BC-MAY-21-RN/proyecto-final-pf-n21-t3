@@ -7,7 +7,7 @@ import {
   ViewIcon,
   SafeCard,
 } from './Styled';
-import {LikeButton, OptionListButton} from '../index';
+import {LikeButton} from '../index';
 import {TouchableOpacity} from 'react-native';
 import {tracksSelected} from '../TrackPlayer/TrackPlayerOptions';
 import {setUpTrackPlayer} from '../TrackPlayer/TrackPlayerOptions';
@@ -37,7 +37,6 @@ export const CardInfo = ({data, indice}) => {
           </TrackTitle>
           <ViewIcon>
             <LikeButton onPress={() => setLike(!like)} like={like} size={45} />
-            <OptionListButton size={45} />
           </ViewIcon>
         </SafeCard>
       </TouchableOpacity>

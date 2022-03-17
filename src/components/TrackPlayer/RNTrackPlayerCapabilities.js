@@ -1,26 +1,35 @@
 import TrackPlayer from 'react-native-track-player';
 import {trackMaker} from './TrackPlayerOptions';
 
+function indexLast(indexHelper, songsLength, setIndex) {
+  if (indexHelper == songsLength - 1) {
+    indexHelper = 0;
+    setIndex(0);
+  } else {
+    indexHelper += 1;
+    setIndex(indexHelper);
+  }
+}
+
+function indexFirst(indexHelper, songsLength, setIndex) {
+  if (indexHelper == 0) {
+    indexHelper = songsLength - 1;
+    setIndex(indexHelper);
+  } else {
+    indexHelper -= 1;
+    setIndex(indexHelper);
+  }
+}
+
 const handlerIndex = (direction, setIndex, index) => {
   let songsLength = trackMaker().length;
   songsLength = parseInt(songsLength);
   let indexHelper = index;
+
   if (direction) {
-    if (indexHelper == songsLength - 1) {
-      indexHelper = 0;
-      setIndex(0);
-    } else {
-      indexHelper += 1;
-      setIndex(indexHelper);
-    }
+    indexLast(indexHelper, songsLength, setIndex);
   } else {
-    if (indexHelper == 0) {
-      indexHelper = songsLength - 1;
-      setIndex(indexHelper);
-    } else {
-      indexHelper -= 1;
-      setIndex(indexHelper);
-    }
+    indexFirst(indexHelper, songsLength, setIndex);
   }
 };
 
@@ -33,7 +42,6 @@ const SkipSong = async index => {
 };
 
 const skipPrevious = async index => {
-  console.log('skipPrevius' + index);
   index != 0
     ? await TrackPlayer.skipToPrevious().catch(e =>
         console.log('Previous ERROR: ' + e),
